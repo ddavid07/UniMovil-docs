@@ -1,3 +1,5 @@
+> **Borrador de presentación procedente de la rama documental origin/docs/presentacion-proyecto, no fusionada en main.** La descripción del estado del proyecto refleja esa versión de trabajo y debe revisarse antes de una exposición actual.
+
 # Presentación y motivación de UniMovil
 
 ## Motivación del proyecto

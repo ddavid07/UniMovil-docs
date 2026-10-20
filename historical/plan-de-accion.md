@@ -1,4 +1,6 @@
-> **Documento histórico conservado como referencia.** El proyecto utiliza actualmente una planificación evolutiva basada en backlog, iteraciones e incrementos. Este documento no constituye una especificación cerrada ni un compromiso de ejecutar todas sus fases en el orden original.\n\n# Plan de acción completo de UniMovil
+> **Documento histórico conservado como referencia.** El proyecto utiliza actualmente una planificación evolutiva basada en backlog, iteraciones e incrementos. Este documento no constituye una especificación cerrada ni un compromiso de ejecutar todas sus fases en el orden original.
+
+# Plan de acción completo de UniMovil
 
 ## Propósito
 
