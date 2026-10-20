@@ -30,7 +30,9 @@ Relacionado con [Sprint 1 — Mapa interactivo del campus](../iterations/sprint-
 
 ## Primeras evidencias automatizadas
 
-La [CI del commit 828fb98](https://github.com/ddavid07/UniMovil/actions/runs/39369566780) aprobó la validación del monorepo: formato, lint, tipos, catálogo, 76 pruebas de dominio, 13 de componentes, una de rendimiento de búsqueda y builds. La cobertura de dominio fue del 100 %; los componentes superaron los umbrales acordados. Esta evidencia corresponde a esa versión de la PR y no sustituye comprobar su último commit.
+La [CI del commit 7eca132](https://github.com/ddavid07/UniMovil/actions/runs/39372939992) aprobó la validación del monorepo: formato, lint, tipos, catálogo, 86 pruebas de contratos, dominio y configuración, 17 de componentes, una de rendimiento de búsqueda y builds. La cobertura de dominio fue del 100 %; los componentes superaron los umbrales acordados. Esta evidencia corresponde a esa versión de la PR y no sustituye comprobar su último commit.
+
+La corrección posterior `9672fd6` añade una prueba que exige registrar las cabeceras y el filtro de logs antes de montar el mapa: 104 pruebas locales de lógica/configuración/interfaz aprobadas. El ajuste `c63bff5` instala explícitamente el emulador ausente del runner Android. Las compilaciones nativas Android/iOS han funcionado en las primeras ejecuciones; los recorridos y su repetición siguen pendientes de aceptación.
 
 La [PR #23](https://github.com/ddavid07/UniMovil/pull/23) contiene el seguimiento actualizado de CI, compilación Android/iOS y flujos Maestro. Gitleaks, CodeQL y Dependency Review aprobaron la primera versión; auditoría npm y OSV detectaron bloqueos pendientes. Los escenarios V1 siguen pendientes hasta comprobar sus evidencias específicas; no se aprueban por disponer únicamente de pruebas de lógica o componentes.
 
