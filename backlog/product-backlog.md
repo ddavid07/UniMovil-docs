@@ -17,7 +17,7 @@ Candidatas relacionadas, pendientes de selección definitiva en Sprint Planning 
 3. [HU-013 — Buscar lugares](../requirements/user-stories/02-mapa-busqueda-y-lugares.md#hu-013--buscar-lugares).
 4. Un corte de [HU-014 — Consultar la ficha de un lugar](../requirements/user-stories/02-mapa-busqueda-y-lugares.md#hu-014--consultar-la-ficha-de-un-lugar) limitado a mostrar información básica verificada al seleccionar un punto; no implica terminar la historia completa.
 
-Esta propuesta no asigna estados de implementación, estimaciones ni compromisos individuales. La Definition of Done de cada historia sigue siendo obligatoria para marcarla terminada.
+La implementación de este alcance está en revisión en la [PR #23 del repositorio principal](https://github.com/ddavid07/UniMovil/pull/23). No se marcan las historias padre como terminadas ni se asignan estimaciones o compromisos individuales. La Definition of Done de cada historia sigue siendo obligatoria para marcarla terminada.
 
 ## Prioridad funcional Alta
 

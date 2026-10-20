@@ -2,7 +2,7 @@
 
 ## Estado de este registro
 
-**Plan preparado para Sprint Planning; todavía no iniciado.** El objetivo del Sprint está acordado como dirección de producto. El equipo debe confirmar en la Sprint Planning la selección final de trabajo según capacidad, fechas, responsabilidades y Definition of Done. Este documento describe el plan inicial propuesto; no registra trabajo realizado ni resultados.
+**Implementación técnica en revisión; incremento todavía no aceptado.** El objetivo y el alcance de implementación se han concretado y existe una propuesta de código en la [PR #23 de UniMovil](https://github.com/ddavid07/UniMovil/pull/23). El equipo todavía debe confirmar capacidad, fechas, responsabilidades y su Sprint Planning. Este registro no acredita reuniones ni resultados que no hayan ocurrido.
 
 ## Sprint Goal
 
@@ -18,7 +18,7 @@ El resultado esperado es un primer recorrido móvil coherente: abrir el mapa del
 - **Capacidad y disponibilidad:** pendientes de concretar por los Developers.
 - **Estimaciones:** no asignadas. El equipo estimará o dimensionará el trabajo durante la planificación; no se presupone velocidad previa.
 
-El Sprint no debe comenzar hasta celebrar su Sprint Planning y confirmar el Sprint Backlog. Si la duración de tres semanas no encaja con el calendario real, el equipo acordará una duración fija alternativa de un mes como máximo antes de empezar.
+El Sprint se inicia con su Sprint Planning, en la que el equipo confirma el Sprint Backlog. Si la duración de tres semanas no encaja con el calendario real, el equipo acordará una duración fija alternativa de un mes como máximo antes de empezar.
 
 ## Contexto técnico conocido
 
@@ -43,7 +43,17 @@ La selección se basa en las historias de prioridad Alta relacionadas con el obj
 
 La base de lugares debe ser pequeña, de solo lectura y suficiente para demostrar las historias. Cada lugar que se incluya tendrá nombre, categoría, coordenadas y fuente/procedencia verificable; no se inventarán direcciones, accesos o características. La estrategia concreta de provisión de estos datos debe confirmarse en Sprint Planning, porque `main` aún no contiene API de lugares ni persistencia para ellos.
 
-**Propuesta de alcance técnico inicial:** usar un conjunto de datos semilla versionado y tipado, detrás de una interfaz sustituible por la API, mientras se valida el mapa. Esta propuesta no cambia la arquitectura aprobada ni convierte los datos locales en la fuente final. Si el equipo decide que el Sprint requiere API/BD desde el primer incremento, habrá que revisar capacidad y reordenar el Sprint Backlog en la propia Planning.
+**Alcance confirmado para la implementación:** catálogo local de solo lectura detrás de una interfaz sustituible por la API. El conjunto inicial incluye 24 lugares consultados en OpenStreetMap, cuatro por cada una de las seis categorías, con fuente, fecha de consulta y licencia ODbL por registro. Incluye recursos del entorno compartido de Ciudad Universitaria. La consulta de la fuente no equivale a una inspección de campo ni acredita apertura o accesibilidad actual. API y base de datos no se incorporan en este incremento; la arquitectura final aprobada se mantiene.
+
+## Condiciones de implementación y revisión
+
+- Android e iOS se comprobarán con este equipo y runners de GitHub; no se presuponen dispositivos físicos ni un Mac local.
+- La calidad es condición de aceptación. Si queda trabajo al terminar las tres semanas, se registra y reordena; el Sprint no se prolonga para aparentar que todo se terminó.
+- Se permite una actualización estable coordinada del SDK cuando sea necesaria y verificable. No se fuerzan downgrades o exclusiones para ocultar vulnerabilidades.
+- La implementación está aislada en `feature/sprint-01-campus`, mediante PR en borrador. No modifica funcionalmente la API ni el panel y no integra ramas de features abiertas.
+- Existen controles de formato, lint sin advertencias, tipos estrictos, límites de tamaño/complejidad, catálogo, cobertura y builds. La aceptación también requiere pruebas nativas, proveedor real y presupuestos de rendimiento.
+- Persisten bloqueos altos transitivos de `node-forge` y `braces` sin parche publicado. También falta configurar una clave pública restringida de MapTiler para la validación real. No se considera el incremento terminado ni se omiten checks.
+- Evidencia y estado de ejecución: [validación del Sprint 1](../../validation/sprint-01-validation-plan.md).
 
 ## Plan inicial de trabajo
 
@@ -82,7 +92,7 @@ La Definition of Done general de las historias está en [Historias de usuario](.
 - La documentación técnica que deba evolucionar junto al código se actualiza en UniMovil; este registro, el plan de validación y las evidencias se actualizan en UniMovil-docs.
 - Se puede ejecutar la demostración acordada desde un entorno limpio siguiendo las instrucciones existentes.
 
-El equipo debe confirmar esta propuesta. No se considera terminado el Sprint hasta acordar una Definition of Done verificable.
+El equipo debe confirmar esta propuesta. El incremento solo se considera terminado cuando satisface una Definition of Done verificable. El Sprint termina al concluir su duración fija, incluso si queda trabajo pendiente.
 
 ## Validación, Review y retrospectiva
 
@@ -112,8 +122,8 @@ El equipo debe confirmar esta propuesta. No se considera terminado el Sprint has
 - [ ] Acordar quién asume las responsabilidades Scrum y quiénes forman Developers.
 - [ ] Confirmar capacidad/disponibilidad y seleccionar el Sprint Backlog definitivo.
 - [ ] Confirmar dispositivos y plataformas de demostración.
-- [ ] Confirmar la fuente y el alcance del conjunto de lugares.
-- [ ] Decidir semilla local sustituible frente a incluir API/BD en este incremento.
+- [x] Conjunto inicial: 24 elementos de OpenStreetMap, cuatro por cada una de las seis categorías, con procedencia explícita.
+- [x] Alcance de implementación: catálogo local sustituible, sin API/BD en este incremento.
 - [ ] Refinar/dividir HU-012 y el corte de HU-014; acordar cuándo se consideran terminadas.
 - [ ] Acordar la Definition of Done específica.
 - [ ] Confirmar fecha/contexto de Sprint Review y cómo se recogerá feedback.
