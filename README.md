@@ -6,8 +6,10 @@ Este repositorio contiene la documentación académica, funcional y de seguimien
 
 - [Requisitos e historias de usuario](requirements/README.md)
 - [Metodología](methodology/README.md)
-- [Backlog](backlog/README.md)
-- [Iteraciones](iterations/README.md)
+- [Backlog y prioridades](backlog/product-backlog.md)
+- [Cómo mantener el backlog](backlog/README.md)
+- [Sprints e iteraciones](iterations/README.md)
+- [Plantilla de Sprint](iterations/template-sprint.md)
 - [Reuniones y acuerdos](meetings/README.md)
 - [Validación y evidencias](validation/README.md)
 - [Presentaciones](presentations/)
