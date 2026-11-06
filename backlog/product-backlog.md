@@ -6,6 +6,19 @@ Este índice enlaza las historias existentes y muestra las prioridades funcional
 
 Las descripciones completas y los criterios de aceptación están en el [catálogo de historias](../requirements/user-stories/README.md). Actualiza las prioridades aquí y en la historia cuando el equipo acuerde un cambio.
 
+## Candidatas de refinamiento para Sprint 1
+
+El Sprint Goal acordado para el primer Sprint es que una persona pueda explorar el mapa de Moncloa, localizar lugares mediante búsqueda o categoría y seleccionar uno para consultar una ficha básica. La propuesta de alcance y dependencias está en el [plan de Sprint 1](../iterations/sprint-01/README.md).
+
+Candidatas relacionadas, pendientes de selección definitiva en Sprint Planning según capacidad real:
+
+1. [HU-010 — Consultar el mapa del campus](../requirements/user-stories/02-mapa-busqueda-y-lugares.md#hu-010--consultar-el-mapa-del-campus).
+2. [HU-012 — Filtrar categorías del mapa](../requirements/user-stories/02-mapa-busqueda-y-lugares.md#hu-012--filtrar-categorías-del-mapa).
+3. [HU-013 — Buscar lugares](../requirements/user-stories/02-mapa-busqueda-y-lugares.md#hu-013--buscar-lugares).
+4. Un corte de [HU-014 — Consultar la ficha de un lugar](../requirements/user-stories/02-mapa-busqueda-y-lugares.md#hu-014--consultar-la-ficha-de-un-lugar) limitado a mostrar información básica verificada al seleccionar un punto; no implica terminar la historia completa.
+
+La implementación de este alcance está en revisión en la [PR #23 del repositorio principal](https://github.com/ddavid07/UniMovil/pull/23). No se marcan las historias padre como terminadas ni se asignan estimaciones o compromisos individuales. La Definition of Done de cada historia sigue siendo obligatoria para marcarla terminada.
+
 ## Prioridad funcional Alta
 
 | Historia | Prioridad registrada | Refinamiento para planificar |
