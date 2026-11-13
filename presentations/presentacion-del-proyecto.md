@@ -1,4 +1,4 @@
-> **Borrador de presentación procedente de la rama documental origin/docs/presentacion-proyecto, no fusionada en main.** La descripción del estado del proyecto refleja esa versión de trabajo y debe revisarse antes de una exposición actual.
+> **Guión de exposición oficial de UniMovil.** Actualizado con el incremento terminado del Sprint 1 para la presentación técnica de clase (23 de octubre de 2026).
 
 # Presentación y motivación de UniMovil
 
@@ -39,6 +39,11 @@ Para diseñar la aplicación hemos empezado por las **Historias de Usuario**, qu
 
 ---
 
-## Estado actual del proyecto
+## Estado actual del proyecto e Incremento del Sprint 1
 
-En esta fase inicial ya tenemos definidos todos los requisitos, el flujo de trabajo en el repositorio de GitHub con control de versiones, y la estructura de carpetas lista para empezar a implementar las pantallas y la búsqueda.
+Hemos completado el **Sprint 1** con un incremento funcional ya desplegado y operativo en emulador nativo:
+
+1. **Visor de Mapa Interactivo:** Plano esquemático del Campus de Moncloa con proyección de coordenadas GPS reales, señalización de la Av. Complutense y del Paraninfo, y posición del usuario simulada en Metro Ciudad Universitaria (`HU-010`, `HU-011`).
+2. **Selector de Vistas:** Conmutador dual para alternar instantáneamente entre la vista cartográfica y la vista de catálogo en lista.
+3. **Buscador predictivo y tolerante:** Filtro reactivo en tiempo real con normalización lingüística (permite buscar con o sin tildes: e.g. *"informatica"* o *"quimica"*) (`HU-013`).
+4. **Ficha técnica de accesibilidad:** Desglose detallado de puertas de entrada, rampas y ascensores adaptados para personas con movilidad reducida (PMR) (`HU-014`).
