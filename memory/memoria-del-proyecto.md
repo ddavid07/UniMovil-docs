@@ -1,5 +1,3 @@
-> **Memoria académica procedente de una rama remota no fusionada.** Refleja la versión de trabajo más reciente inspeccionada (19 de octubre de 2026), no el estado de main. Los nombres de personas se han omitido para evitar publicar datos personales identificables.
-
 # Memoria del Proyecto: UniMovil
 
 **Plataforma Integral de Movilidad y Orientación para el Campus de Moncloa**
@@ -10,8 +8,13 @@
 * **Titulación:** Doble Grado en Ingeniería Informática y Matemáticas
 * **Centro:** Facultad de Informática, Universidad Complutense de Madrid (UCM)
 * **Curso Académico:** 2026/2027
-* **Autores:** Equipo académico de cinco integrantes. Se omiten los nombres personales de la copia publicada.
-* **Profesor / Tutor:** Se omite el nombre personal de la copia publicada.
+* **Autores:**
+  * Naoufal Kebli
+  * Daniel David
+  * Pablo Palacios
+  * Pedro Cespón
+  * Charlie Fox
+* **Profesor / Tutor:** D. Gonzalo Méndez
 * **Repositorio oficial:** [github.com/ddavid07/UniMovil](https://github.com/ddavid07/UniMovil)
 
 ---
@@ -240,7 +243,14 @@ Construida con **NestJS**. Proporciona una arquitectura modular empresarial basa
 
 ### 5.3. Capa Cliente Móvil (`apps/mobile`)
 
-Desarrollada con **React Native y Expo Router**. Aplica un diseño por componentes reactivos (`SearchBar`, `CategoryFilter`, `PlaceCard`, `PlaceDetailModal`) garantizando compatibilidad idéntica tanto en dispositivos Android como iOS y soporte para funcionamiento offline con datos cacheados.
+Desarrollada con **React Native y Expo Router**. Aplica un diseño por componentes reactivos modulares garantizando compatibilidad idéntica tanto en dispositivos Android como iOS y soporte para funcionamiento offline con datos cacheados:
+
+* `SearchBar`: Caja de búsqueda predictiva con filtrado en tiempo real y tolerancia a diacríticos.
+* `CategoryFilter`: Selector horizontal de categorías (facultades, bibliotecas, transporte, deportes) y conmutador de accesibilidad PMR.
+* `PlaceCard`: Tarjeta de resumen de recinto con insignias de accesibilidad y botón de detalle.
+* `PlaceDetailModal`: Modal técnico emergente que desglosa horarios, contacto y accesos físicos con rampa o ascensor.
+* `CampusMapView`: Visor cartográfico interactivo que proyecta matemáticamente las coordenadas geográficas reales del Campus de Moncloa a un plano esquemático con ejes viales principales (Av. Complutense, Paraninfo), marcadores por categoría y ubicación simulada del estudiante en Ciudad Universitaria.
+* `index.tsx`: Controlador principal de vista que integra un conmutador dual (*Segmented Control*) para alternar sin latencia entre la vista cartográfica y la vista de catálogo en lista.
 
 ---
 
@@ -250,17 +260,34 @@ Desarrollada con **React Native y Expo Router**. Aplica un diseño por component
 
 * Configuración del repositorio Git con ramas protegidas y política de Pull Requests obligatorias.
 * Configuración de linters, formateadores automáticos y pipeline de GitHub Actions (`ci.yml`, CodeQL y escaneo de licencias Apache 2.0).
+* Implementación de la arquitectura base Monorepo con npm workspaces (`apps/mobile`, `apps/api`, `apps/admin`, `packages/contracts`).
 
-### 6.2. Sprint 1: Núcleo del MVP (En curso)
+### 6.2. Sprint 1: Núcleo del MVP (Completado y Verificado)
 
-* **Parte 1 (PR #14):** Definición formal de contratos de datos geográficos y accesibilidad en `@unimovil/contracts`.
-* **Parte 2 (PR #15):** Implementación de la API de lugares en NestJS con catálogo de coordenadas reales del campus de Moncloa.
-* **Parte 3 (PR #16):** Desarrollo de la interfaz móvil con barra de búsqueda reactiva, filtros de categorías y modal de ficha técnica de facultades.
+* **Parte 1 (PR #14):** Definición formal de contratos de datos geográficos y accesibilidad en `@unimovil/contracts` (tipos `Place`, `AccessPoint`, `GeoCoordinates`).
+* **Parte 2 (PR #15):** Implementación de la API de lugares en NestJS (`apps/api`) con catálogo de coordenadas reales del campus de Moncloa y endpoints REST (`GET /places`, `GET /places/search?q=...`, `GET /places/:id`).
+* **Parte 3 (PR #16):** Desarrollo de la interfaz móvil base con barra de búsqueda reactiva, chips de filtros de categorías y modal de ficha técnica de facultades con puertas PMR.
+* **Parte 4 (PR #17):** Integración del visor cartográfico interactivo del Campus de Moncloa (`CampusMapView.tsx`):
+  * Algoritmo de proyección bidimensional de coordenadas GPS a porcentajes de pantalla relativo.
+  * Señalización esquemática de hitos del campus: Avenida Complutense y zona verde del Paraninfo.
+  * Marcadores clasificados por iconos temáticos (🏛️ facultades, 📚 bibliotecas, 🚇 transporte, ⚽ deportes) con tarjetas flotantes contextuales al toque.
+  * Indicador de posicionamiento del estudiante simulado en la parada de Metro Ciudad Universitaria (`HU-011`).
+  * Selector dual superior (*Segmented Control*) en `index.tsx` para alternar fluidamente entre Vista Mapa y Vista Lista.
+* **Parte 5 (PR #18):** Motor de búsqueda tolerante a acentos y normalización lingüística:
+  * Función `normalizeText` con descomposición canónica Unicode (NFD) y eliminación de diacríticos (`.normalize("NFD").replace(/[\u0300-\u036f]/g, "")`).
+  * Aplicada de forma simétrica en el backend NestJS (`places.service.ts`) y en el cliente móvil (`placesService.ts`).
+  * Permite resolver búsquedas indistintamente de tildes o mayúsculas (e.g., *"informatica"*, *"quimica"*, *"matematicas"*).
+* **Validación en entorno nativo:**
+  * Despliegue y verificación funcional exitosa en emulador de Android Studio (`Medium_Phone_API_37.0`) y Expo Go, superando los criterios de la *Definition of Done (DoD)*.
 
 ---
 
 ## 7. Conclusiones y Trabajo Futuro
 
-El avance alcanzado hasta la fecha demuestra la eficacia de aplicar una metodología ágil disciplinada combinada con un estricto control de versiones en Git. La arquitectura modular adoptada ha permitido desacoplar las responsabilidades del equipo y garantizar que cada entrega represente un incremento funcional verificable.
+El avance alcanzado durante este primer ciclo demuestra la eficacia de aplicar una metodología ágil disciplinada combinada con un estricto control de versiones en Git y una arquitectura modular desacoplada. La sincronización mediante contratos compartidos eliminó de raíz el riesgo de desincronización API-Móvil (Riesgo R3), y el enfoque incremental permitió entregar un primer Producto Mínimo Viable (MVP) completamente funcional, usable e interactivo tanto en modo lista como en mapa cartográfico.
 
-Los próximos pasos contemplan la integración del visor cartográfico interactivo (Sprint 1, Parte 4) y el motor de cálculo de rutas peatonales adaptadas sin barreras arquitectónicas (Sprint 2).
+El incremento del **Sprint 1** queda formalmente validado y listo para su presentación y demostración técnica. Los trabajos para el **Sprint 2** se centrarán en:
+
+1. Implementación del motor de cálculo de rutas peatonales entre facultades del campus de Moncloa (`HU-021`).
+2. Filtro estricto de accesibilidad PMR para garantizar itinerarios sin escaleras ni barreras arquitectónicas (`HU-040`).
+3. Integración multimodal comparativa con las líneas de autobuses internos de la EMT (Líneas G y F) y tiempos de paso estimados (`HU-022`).

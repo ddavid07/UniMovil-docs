@@ -28,11 +28,11 @@ La implementación de este alcance está en revisión en la [PR #23 del reposito
 | [HU-003 — Iniciar y cerrar sesión](../requirements/user-stories/01-acceso-y-cuentas.md) | Alta | Por confirmar |
 | [HU-004 — Recuperar el acceso a la cuenta](../requirements/user-stories/01-acceso-y-cuentas.md) | Alta | Por confirmar |
 | [HU-007 — Gestionar permisos del dispositivo](../requirements/user-stories/01-acceso-y-cuentas.md) | Alta | Por confirmar |
-| [HU-010 — Consultar el mapa del campus](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Por confirmar |
-| [HU-011 — Mostrar la ubicación actual](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Por confirmar |
-| [HU-012 — Filtrar categorías del mapa](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Por confirmar |
-| [HU-013 — Buscar lugares](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Por confirmar |
-| [HU-014 — Consultar la ficha de un lugar](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Por confirmar |
+| [HU-010 — Consultar el mapa del campus](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Sprint 1 (Terminada) |
+| [HU-011 — Mostrar la ubicación actual](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Sprint 1 (Terminada) |
+| [HU-012 — Filtrar categorías del mapa](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Sprint 1 (Terminada) |
+| [HU-013 — Buscar lugares](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Sprint 1 (Terminada) |
+| [HU-014 — Consultar la ficha de un lugar](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Sprint 1 (Terminada) |
 | [HU-016 — Consultar cierres y restricciones en el mapa](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Por confirmar |
 | [HU-020 — Introducir origen y destino](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Por confirmar |
 | [HU-021 — Consultar una ruta a pie](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Por confirmar |

@@ -2,7 +2,8 @@
 
 UniMovil registra cada Sprint en un directorio `sprint-XX/` con un `README.md` creado a partir de [`template-sprint.md`](template-sprint.md). Por ejemplo: `iterations/sprint-01/README.md`. No crees una carpeta llamada `Scrum`.
 
-El [plan preparado para Sprint 1](sprint-01/README.md) describe el objetivo de mapa interactivo, alcance inicial, dependencias y asuntos que el equipo debe confirmar en la Sprint Planning. Está marcado como no iniciado; la selección final depende de la capacidad de Developers y de los acuerdos de planificación.
+El [registro del Sprint 1](sprint-01/README.md) describe el objetivo del mapa interactivo, su alcance, validación y la integración técnica en revisión (PR #23).
+El [plan del Sprint 2 y reparto de trabajo](sprint-02/README.md) define el objetivo de enrutamiento peatonal y multimodal, accesibilidad PMR, la suite de pruebas orientadas a objetos (Tema 3) y la asignación de responsabilidades entre los cinco integrantes del equipo.
 
 ## Qué contiene el registro
 
