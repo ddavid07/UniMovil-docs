@@ -2,8 +2,10 @@
 
 UniMovil registra cada Sprint en un directorio `sprint-XX/` con un `README.md` creado a partir de [`template-sprint.md`](template-sprint.md). Por ejemplo: `iterations/sprint-01/README.md`. No crees una carpeta llamada `Scrum`.
 
-El [registro del Sprint 1](sprint-01/README.md) describe el objetivo del mapa interactivo, su alcance, validación y la integración técnica en revisión (PR #23).
-El [plan del Sprint 2 y reparto de trabajo](sprint-02/README.md) define el objetivo de enrutamiento peatonal y multimodal, accesibilidad PMR, la suite de pruebas orientadas a objetos (Tema 3) y la asignación de responsabilidades entre los cinco integrantes del equipo.
+* [Sprint 1 — Mapa interactivo del campus](sprint-01/README.md): Exploración del campus de Moncloa, catálogo base de 24 lugares OSM y búsqueda predictiva.
+* [Sprint 2 — Motor de Rutas Peatonales y Accesibilidad PMR](sprint-02/README.md): Grafo de caminos de Moncloa, cálculo de rutas a pie y filtro de accesibilidad sin barreras arquitectónicas.
+* [Sprint 3 — Multimodalidad EMT y Gestión de Incidencias](sprint-03/README.md): Integración de líneas universitarias G y F, paradas oficiales y reporte de incidencias en viales.
+* [Sprint 4 — Panel Web Admin, Validación Global y Cierre](sprint-04/README.md): Portal web de administración, robustez offline en móvil, pruebas de sistema y entrega final.
 
 ## Qué contiene el registro
 
@@ -20,10 +22,10 @@ Cada registro debe describir, según avance el Sprint:
 
 ## Dónde guardar los materiales
 
-- Registro del Sprint y enlaces: `iterations/sprint-XX/README.md`.
-- Diapositivas y material de exposición: `presentations/`.
-- Actas de reuniones y acuerdos: `meetings/`.
-- Pruebas, feedback y evidencias: `validation/`.
+* Registro del Sprint y enlaces: `iterations/sprint-XX/README.md`.
+* Diapositivas y material de exposición: `presentations/`.
+* Actas de reuniones y acuerdos: `meetings/`.
+* Pruebas, feedback y evidencias: `validation/`.
 
 Enlaza esos materiales desde el registro del Sprint en lugar de duplicarlos. Usa nombres de archivo claros y evita incluir datos personales innecesarios.
 

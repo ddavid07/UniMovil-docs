@@ -1,162 +1,112 @@
-# Sprint 2 y Plan de Cierre — Motor de Rutas, Accesibilidad PMR, Multimodalidad y Pruebas OO
+# Sprint 2 — Motor de Rutas Peatonales y Accesibilidad PMR
 
 ## 1. Estado y Contexto
 
-* **Estado:** En curso (Planificación acordada para aceleración del proyecto).
-* **Horizonte temporal:** 3 semanas para alcanzar la versión de entrega final del proyecto (cierre de Sprint 2 y consolidación en Sprint 3).
-* **Marco metodológico:** Scrum puro y Gestión Proactiva de Riesgos (Barry Boehm RSGR).
-* **Marco de pruebas:** Pruebas Orientadas a Objetos y TDD según las directrices teóricas del Tema 3 (profesores Antonio Navarro y Gonzalo Méndez).
+* **Estado:** Planificado / En preparación para inicio tras aprobación de la PR #23.
+* **Objetivo principal:** Diseñar y desarrollar el motor de cálculo de rutas peatonales entre facultades del campus de Moncloa con filtro estricto de accesibilidad para personas con movilidad reducida (PMR).
+* **Marco metodológico:** Scrum puro y Gestión Proactiva del Riesgo (Barry Boehm RSGR).
+* **Marco de pruebas:** Pruebas Orientadas a Objetos y TDD según el Tema 3 (profesores Antonio Navarro y Gonzalo Méndez).
 
 ---
 
 ## 2. Sprint Goal
 
-> Como estudiante o visitante del campus de Moncloa, quiero calcular rutas peatonales entre facultades pudiendo activar filtros estrictos de accesibilidad para personas con movilidad reducida (PMR) y comparar alternativas con el autobús universitario (Líneas G y F de la EMT), disponiendo de una aplicación fiable y verificada mediante una suite rigurosa de pruebas automáticas.
+> Como estudiante o visitante del campus de Moncloa, quiero seleccionar un origen y un destino para calcular la ruta a pie más eficiente, disponiendo de un conmutador de accesibilidad PMR que garantice un itinerario sin escaleras ni barreras arquitectónicas, respaldado por una batería rigurosa de pruebas automáticas con Vitest y Jest.
 
 ---
 
-## 3. Calendario de 3 Semanas hacia la Entrega Final
+## 3. Alcance y Elementos del Sprint Backlog
 
-```text
-┌─────────────────────────────────────────────────────────────────────────────────┐
-│ SEMANA 1: Núcleo de Enrutamiento Peatonal y Suite de Pruebas TDD Inicial        │
-│ • Integrar la PR #23 en main para desbloquear el mapa base.                     │
-│ • Modelar el grafo de viales del campus en backend y contratos de rutas.        │
-│ • Implementar pantalla de selección Origen/Destino en app móvil.                │
-│ • Desplegar primeras pruebas unitarias (Vitest/Jest) con cobertura de ramas.   │
-├─────────────────────────────────────────────────────────────────────────────────┤
-│ SEMANA 2: Accesibilidad PMR, Integración EMT e Incidencias                      │
-│ • Algoritmo de rutas sin barreras arquitectónicas (evitar tramos con escaleras).│
-│ • Paradas y tiempos estimados de paso de autobuses EMT (Líneas G y F).          │
-│ • Pruebas de caja negra: particiones equivalentes y análisis de valores límite. │
-│ • Formulario básico de notificación de incidencias (obras y cortes de paso).    │
-├─────────────────────────────────────────────────────────────────────────────────┤
-│ SEMANA 3: Panel de Administración, Pruebas de Sistema y Cierre Académico        │
-│ • Panel web administrativo (React + Vite) para supervisión de datos y avisos.   │
-│ • Pruebas de integración basadas en hilos y pruebas de validación de sistema.   │
-│ • Cierre de DoD: cobertura de código, auditoría de seguridad y dependencias.    │
-│ • Actualización final de la memoria del proyecto y guion de la defensa oral.   │
-└─────────────────────────────────────────────────────────────────────────────────┘
-```
+| Historia / Tarea | Puntos (SP) | Resultado Esperado | Criterios de Aceptación Verificables |
+| :--- | :---: | :--- | :--- |
+| **HU-020** — Introducir origen y destino | 5 | Selector dual táctil y predictivo en la app móvil. | Permite marcar dos puntos en el mapa o elegirlos desde el buscador; valida que origen y destino no sean idénticos; muestra pines distintivos de salida y llegada. |
+| **HU-021** — Consultar una ruta a pie | 8 | Motor de rutas que devuelve el camino mínimo en el campus. | Calcula el itinerario óptimo entre edificios; calcula la distancia exacta en metros y el tiempo estimado en minutos a pie (velocidad media 4,5 km/h). |
+| **HU-023** — Consultar indicaciones paso a paso | 5 | Ficha desplegable con el desglose del recorrido. | Muestra la secuencia de tramos (ej. *"Avanza 120 m por Av. Complutense y gira a la derecha hacia Medicina"*). |
+| **HU-024 / HU-040** — Ruta accesible PMR | 8 | Filtro estricto que elimina barreras arquitectónicas. | Al activar el conmutador PMR, el algoritmo penaliza o bloquea aristas con escaleras o desniveles no adaptados, garantizando acceso por rampas homologadas. |
 
 ---
 
 ## 4. Reparto Detallado de Responsabilidades (5 Integrantes)
 
-Para garantizar la autonomía, evitar colisiones en Git y maximizar el rendimiento del equipo, las responsabilidades se distribuyen formalmente entre los cinco miembros:
+Para asegurar la autonomía, evitar conflictos de ramas en Git y estructurar el trabajo en equipo:
 
 ### 👤 1. Naoufal Kebli (`@Naoufal33`)
 
 * **Rol Scrum:** Developer — Frontend Móvil & Experiencia de Usuario.
-* **Historias asignadas:**
-  * [`HU-020 — Introducir origen y destino`](../../requirements/user-stories/03-rutas-y-transporte.md)
-  * [`HU-021 — Consultar una ruta a pie`](../../requirements/user-stories/03-rutas-y-transporte.md)
-  * [`HU-023 — Consultar indicaciones paso a paso`](../../requirements/user-stories/03-rutas-y-transporte.md)
+* **Historias asignadas:** `HU-020` (Origen y destino), `HU-021` (Ruta a pie en móvil), `HU-023` (Indicaciones paso a paso).
 * **Entregables técnicos:**
-  1. Selector reactivo de origen y destino en la app móvil (selección táctil en mapa o mediante buscador con autocompletado).
-  2. Renderizado del trazado de la ruta sobre el mapa (`CampusMapView` / `CampusMap`) con polyline/capas GeoJSON.
-  3. Tarjeta inferior flotante con la distancia en metros, tiempo estimado en minutos y lista plegable de indicaciones.
-* **Módulos / Archivos principales:** `apps/mobile/src/features/campus/`, `apps/mobile/src/components/routing/`.
+  1. Componente de selección de origen y destino (`RouteSelector.tsx`) integrado en la cabecera de la app móvil.
+  2. Dibujo de la línea de ruta (*polyline*) sobre el visor cartográfico (`CampusMap.tsx`) mediante capas GeoJSON.
+  3. Ficha inferior flotante (`RouteSheet.tsx`) con distancia, tiempo y lista desplegable de giros y pasos.
+* **Módulos / Archivos principales:** `apps/mobile/src/features/routing/`, `apps/mobile/src/features/campus/components/`.
 
 ---
 
 ### 👤 2. Daniel David (`@ddavid07`)
 
-* **Rol Scrum:** Developer & Arquitecto — Backend NestJS y Contratos.
-* **Historias asignadas:**
-  * Soporte backend a `HU-020` y `HU-021`.
-  * [`HU-075 — Consultar el estado de los datos`](../../requirements/user-stories/07-administracion-y-datos.md)
+* **Rol Scrum:** Developer / Arquitecto — Backend NestJS y Contratos Compartidos.
+* **Historias asignadas:** Soporte API a `HU-020` y `HU-021`, `HU-075` (Estado de los datos).
 * **Entregables técnicos:**
-  1. Definición formal de contratos TypeScript en `@unimovil/contracts` (`RouteRequest`, `RouteResponse`, `RouteSegment`, `TransportMode`).
-  2. Modelado del grafo de viales y sendas de Moncloa (coordenadas de cruces, distancias y transitabilidad).
-  3. Implementación del servicio de rutas en NestJS (`routes.service.ts`) aplicando el algoritmo de Dijkstra/A* con pesos según distancia física.
-  4. Endpoint REST `POST /routes/calculate` y endpoint de estado `GET /health`.
+  1. Definición formal de contratos TypeScript en `@unimovil/contracts` (`RouteRequest`, `RouteResponse`, `RouteSegment`, `Coordinates`).
+  2. Modelado del grafo de viales y sendas peatonales del campus de Moncloa (coordenadas de cruces y distancias euclídeas reales).
+  3. Implementación del algoritmo de Dijkstra/A* en NestJS (`routes.service.ts`) para resolver el camino más corto.
+  4. Endpoints REST `POST /routes/calculate` y `GET /routes/health`.
 * **Módulos / Archivos principales:** `packages/contracts/src/routes.ts`, `apps/api/src/routes/`.
 
 ---
 
 ### 👤 3. Pablo Palacios (`@pablopr06`)
 
-* **Rol Scrum:** Developer — Movilidad Especializada, Accesibilidad e Integración EMT.
-* **Historias asignadas:**
-  * [`HU-022 — Consultar rutas con diferentes medios`](../../requirements/user-stories/03-rutas-y-transporte.md)
-  * [`HU-024 — Consultar una ruta accesible`](../../requirements/user-stories/03-rutas-y-transporte.md)
-  * [`HU-026 — Consultar una línea de autobús`](../../requirements/user-stories/03-rutas-y-transporte.md)
-  * [`HU-040 — Configurar preferencias de accesibilidad`](../../requirements/user-stories/04-accesibilidad-y-recursos.md)
+* **Rol Scrum:** Developer — Lógica de Accesibilidad PMR.
+* **Historias asignadas:** `HU-024` (Ruta accesible), `HU-040` (Preferencias de accesibilidad), `HU-041` (Accesos adaptados).
 * **Entregables técnicos:**
-  1. Conmutador de "Ruta Accesible (PMR)": penalización o bloqueo en el grafo de aristas que contengan escaleras o desniveles no adaptados.
-  2. Catálogo de paradas y trazados de las líneas universitarias de la EMT (Línea G: Moncloa - Ciudad Universitaria; Línea F: Cuatro Caminos - Ciudad Universitaria).
-  3. Lógica comparativa multimodal: presentación conjunta de tiempo a pie vs. tiempo en autobús.
-* **Módulos / Archivos principales:** `apps/mobile/src/features/accessibility/`, `apps/api/src/transit/`.
+  1. Etiquetado de accesibilidad en el grafo de caminos: identificación de tramos con escaleras (ej. escalinatas de Medicina u Odontología) y tramos con rampas.
+  2. Lógica de exclusión de barreras en el algoritmo de enrutamiento cuando el parámetro `accessibleOnly: true` esté activo.
+  3. Conmutador accesible accesible en la interfaz móvil (`AccessibilityToggle.tsx`) con avisos auditivos y lectores de pantalla.
+* **Módulos / Archivos principales:** `apps/mobile/src/features/accessibility/`, `packages/contracts/src/routes.ts`.
 
 ---
 
 ### 👤 4. Pedro Cespón (`@pcespon`)
 
-* **Rol Scrum:** Developer & Responsable de Calidad (QA) — Batería de Pruebas y TDD.
-* **Historias asignadas:**
-  * [`HU-094 — Gestionar errores y falta de conexión`](../../requirements/user-stories/08-seguridad-privacidad-y-calidad.md)
-  * [`HU-095 — Utilizar una interfaz accesible`](../../requirements/user-stories/08-seguridad-privacidad-y-calidad.md)
-  * Verificación transversal de la suite de pruebas.
+* **Rol Scrum:** QA Lead / Developer — Batería de Pruebas Unitarias y TDD (Tema 3).
+* **Historias asignadas:** `HU-094` (Manejo de errores), verificación transversal de calidad del Sprint 2.
 * **Entregables técnicos (alineados con el Tema 3 de teoría):**
-  1. **Pruebas de Caja Blanca:** Cálculo de caminos básicos y complejidad ciclomática de McCabe sobre los algoritmos de enrutamiento y normalización de texto; garantía de cobertura de ramas y condiciones.
-  2. **Pruebas de Caja Negra:** Definición formal de particiones de equivalencia (clases válidas e inválidas) y análisis de valores límite (coordenadas extremas, consultas vacías, entradas de más de 100 caracteres).
-  3. **Adopción de TDD (Uncle Bob):** Aplicación de las 3 reglas de TDD (*Red-Green-Refactor*) para los nuevos servicios.
-  4. **Automatización:** Ejecución de Vitest y Jest en GitHub Actions (`ci.yml`), verificando que los tests sean Automáticos, Completos, Repetibles, Independientes y Profesionales.
-* **Módulos / Archivos principales:** `packages/testing/`, `apps/mobile/__tests__/`, `apps/api/src/**/*.spec.ts`.
+  1. **Pruebas de Caja Blanca:** Cálculo de caminos básicos y complejidad ciclomática de McCabe sobre el algoritmo de enrutamiento; garantía de cobertura de todas las decisiones lógicas y ramas.
+  2. **Pruebas de Caja Negra:** Partición en clases de equivalencia (rutas directas, rutas con transbordo peatonal, rutas imposibles) y análisis de valores límite (origen y destino idénticos, coordenadas en el borde del campus).
+  3. **TDD (The Three Rules of Uncle Bob):** Conducción del desarrollo del motor de rutas siguiendo el ciclo *Red $\rightarrow$ Green $\rightarrow$ Refactor*.
+* **Módulos / Archivos principales:** `apps/mobile/src/features/routing/__tests__/`, `apps/api/src/routes/*.spec.ts`.
 
 ---
 
 ### 👤 5. Charlie Fox / Carlos (`@yoespain`)
 
-* **Rol Scrum:** Scrum Master & Developer — Panel Web Admin e Incidencias.
-* **Historias asignadas:**
-  * [`HU-050 — Comunicar una incidencia`](../../requirements/user-stories/05-incidencias-y-comunicaciones.md)
-  * [`HU-057 — Publicar un aviso`](../../requirements/user-stories/05-incidencias-y-comunicaciones.md)
-  * [`HU-070 — Gestionar edificios y lugares`](../../requirements/user-stories/07-administracion-y-datos.md)
+* **Rol Scrum:** Scrum Master & Developer — Coordinación y Seguimiento.
+* **Historias asignadas:** `HU-097` (Trazabilidad de cambios), gestión del Sprint Backlog.
 * **Entregables técnicos:**
-  1. Portal web en `apps/admin` (React + Vite) con interfaz para gestores del campus: visualización de incidencias reportadas (obras, cortes de paso, ascensores averiados).
-  2. Formulario de reporte de incidencias desde la aplicación móvil.
-  3. Gestión del proceso Scrum: seguimiento diario, elaboración de los gráficos Burndown de cada Sprint, actas de planificación y retrospectiva.
-  4. Sincronización continua de la memoria del proyecto en [`UniMovil-docs`](../../memory/memoria-del-proyecto.md).
-* **Módulos / Archivos principales:** `apps/admin/src/`, `apps/mobile/src/features/incidents/`, `UniMovil-docs/meetings/`.
+  1. Facilitar los eventos de Scrum: Sprint Planning, Daily Scrum asíncrono y preparación de la Sprint Review.
+  2. Mantenimiento del *Product Backlog* y cálculo de la velocidad del equipo en Story Points.
+  3. Redacción del acta de planificación en `meetings/sprint-02-reparto-de-trabajo.md` y actualización de la memoria técnica en `UniMovil-docs`.
+* **Módulos / Archivos principales:** `UniMovil-docs/meetings/`, `UniMovil-docs/memory/memoria-del-proyecto.md`.
 
 ---
 
 ## 5. Estrategia de Pruebas Orientadas a Objetos (Tema 3)
 
-De acuerdo con el documento `03-Pruebas orientadas a objetos.pdf` (profesores Antonio Navarro y Gonzalo Méndez), la verificación del software no se deja al azar ni se limita a pruebas manuales, sino que se organiza por niveles rigurosos:
+Conforme a las diapositivas de la asignatura (profesores Antonio Navarro y Gonzalo Méndez):
 
-### 5.1. Pruebas Unitarias (Clases y Operaciones)
-
-* Unidad mínima de prueba: la clase.
-* Se probarán para cada operación crítica: interfaz, estructuras de datos locales, condiciones límite, caminos independientes y manejo de excepciones (`assertThrows` / `rejects`).
-* **Estructura paralela:** directorios de test replicando fielmente la estructura de paquetes de código de producción.
-
-### 5.2. Pruebas de Integración
-
-* **Pruebas basadas en hilos (encadenamiento de mensajes):** Verificación de las secuencias de interacción entre cliente móvil, contratos de datos y controladores de la API REST.
-* **Pruebas de regresión:** Ejecución automatizada de la suite ante cada Pull Request para garantizar que la incorporación de nuevas funciones no introduce efectos colaterales indeseados.
-
-### 5.3. Pruebas de Caja Blanca y Caja Negra
-
-* **Caja Blanca (Estructural):** Método del camino básico a partir del grafo de flujo de los métodos de búsqueda y enrutamiento, asegurando que cada sentencia y decisión lógica se ejercite al menos una vez.
-* **Caja Negra (Funcional):** Partición equivalente de entradas (tipos de vías transitables vs. intransitables) y análisis de valores frontera en coordenadas geográficas del campus (dentro del perímetro de Moncloa, en el límite exacto y fuera de rango).
-
-### 5.4. Las Tres Reglas de TDD (Uncle Bob)
-
-1. No se permite escribir código de producción a menos que sea para hacer pasar una prueba unitaria que falla.
-2. No se permite escribir más de una prueba unitaria de lo que sea suficiente para fallar (los errores de compilación cuentan como fallos).
-3. No se permite escribir más código de producción del necesario para hacer pasar la prueba unitaria que fallaba.
+* **Pruebas de Unidad:** Aislamiento de las clases `RouteService`, `GraphBuilder` y `RoutePresenter`.
+* **Pruebas de Integración basadas en hilos:** Secuencia completa: selección de coordenadas en móvil $\rightarrow$ serialización contra `@unimovil/contracts` $\rightarrow$ cálculo en servicio $\rightarrow$ respuesta y renderizado de la polilínea.
+* **Pruebas de Regresión:** Verificación automática en el pipeline de GitHub Actions (`ci.yml`) para garantizar que la incorporación de rutas no altere la búsqueda ni el catálogo de lugares existente.
 
 ---
 
-## 6. Definition of Done (DoD) Específica
+## 6. Definition of Done (DoD) del Sprint 2
 
-Para considerar un elemento del Sprint Backlog formalmente "Terminado", debe satisfacer:
+El incremento se considerará formalmente terminado si:
 
-1. **Código:** Escrito en TypeScript bajo configuración estricta, sin errores de tipado (`npm run typecheck`) ni avisos de linter (`npm run lint`).
-2. **Pruebas:** Pruebas unitarias asociadas creadas con Vitest o Jest, pasando en verde de forma reproducible e independiente.
-3. **Revisión por pares:** Pull Request en GitHub con al menos una aprobación formal de otro integrante del equipo.
-4. **Integración:** Integrado en la rama `main` tras validar que el pipeline de GitHub Actions finaliza con éxito.
-5. **Documentación:** Contratos reflejados en `@unimovil/contracts` y cambios registrados en `UniMovil-docs`.
+1. El cálculo de ruta peatonal y el filtro PMR funcionan en emulador Android nativo.
+2. Todo el código TypeScript compila sin errores (`npm run typecheck`) y sin avisos de ESLint (`npm run lint`).
+3. La cobertura de pruebas supera el 80% de líneas y 70% de ramas en los nuevos módulos.
+4. Los contratos están documentados y publicados en `@unimovil/contracts`.
+5. Se ha realizado Pull Request con al menos una aprobación formal de otro integrante.
