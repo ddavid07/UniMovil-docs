@@ -34,13 +34,13 @@ La implementación de este alcance está en revisión en la [PR #23 del reposito
 | [HU-013 — Buscar lugares](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Sprint 1 (Terminada) |
 | [HU-014 — Consultar la ficha de un lugar](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Sprint 1 (Terminada) |
 | [HU-016 — Consultar cierres y restricciones en el mapa](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Por confirmar |
-| [HU-020 — Introducir origen y destino](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 2 (Planificada) |
-| [HU-021 — Consultar una ruta a pie](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 2 (Planificada) |
-| [HU-022 — Consultar rutas con diferentes medios](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 3 (Planificada) |
-| [HU-023 — Consultar indicaciones paso a paso](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 2 (Planificada) |
-| [HU-024 — Consultar una ruta accesible](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 2 (Planificada) |
-| [HU-026 — Consultar una línea de autobús](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 3 (Planificada) |
-| [HU-027 — Consultar una parada](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 3 (Planificada) |
+| [HU-020 — Introducir origen y destino](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 2 (Terminada) |
+| [HU-021 — Consultar una ruta a pie](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 2 (Terminada) |
+| [HU-022 — Consultar rutas con diferentes medios](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 3 (Terminada) |
+| [HU-023 — Consultar indicaciones paso a paso](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 2 (Terminada) |
+| [HU-024 — Consultar una ruta accesible](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 2 (Terminada) |
+| [HU-026 — Consultar una línea de autobús](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 3 (Terminada) |
+| [HU-027 — Consultar una parada](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 3 (Terminada) |
 | [HU-040 — Configurar preferencias de accesibilidad](../requirements/user-stories/04-accesibilidad-y-recursos.md) | Alta | Sprint 2 (Planificada) |
 | [HU-041 — Consultar accesos y servicios adaptados](../requirements/user-stories/04-accesibilidad-y-recursos.md) | Alta | Sprint 2 (Planificada) |
 | [HU-050 — Comunicar una incidencia](../requirements/user-stories/05-incidencias-y-comunicaciones.md) | Alta | Sprint 3 (Planificada) |

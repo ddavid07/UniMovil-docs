@@ -1,9 +1,6 @@
 # Acta de Reunión — Planificación del Sprint 2 y Reparto de Responsabilidades
 
-* **Fecha:** 13 de noviembre de 2026
-* **Hora:** 13:30 - 14:15 CET
-* **Lugar:** Sesión de trabajo telemática y laboratorio de software
-* **Asistentes:**
+* **Asistentes / Integrantes:**
   * Naoufal Kebli (`@Naoufal33`)
   * Daniel David (`@ddavid07`)
   * Pablo Palacios (`@pablopr06`)

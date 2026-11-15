@@ -48,6 +48,8 @@
 6. [Registro de Sprints e Incrementos de Producto](#6-registro-de-sprints-e-incrementos-de-producto)
    * 6.1. Sprint 0: Fundaciones de ingeniería y pipeline de CI/CD
    * 6.2. Sprint 1: Núcleo del MVP (Contratos, API y Buscador móvil)
+   * 6.3. Sprint 2: Motor de rutas peatonales, grafo de Moncloa y accesibilidad PMR
+   * 6.4. Sprint 3: Movilidad multimodal, líneas de autobús EMT (G y F) y paradas en mapa
 7. [Conclusiones y Trabajo Futuro](#7-conclusiones-y-trabajo-futuro)
 
 ---
@@ -231,7 +233,10 @@ UniMovil (Monorepo)
 
 ### 5.1. Contratos Compartidos (`@unimovil/contracts`)
 
-Garantiza el desacoplamiento seguro. Define las interfaces de `Place`, `AccessPoint`, `GeoCoordinates`, `PlaceSearchParams` y `PlaceListResponse`. Ambos extremos del sistema compilan contra este contrato canónico, imposibilitando discrepancias de formato en tiempo de ejecución.
+Garantiza el desacoplamiento seguro. Define las interfaces de `Place`, `AccessPoint`, `GeoCoordinates`, `PlaceSearchParams` y `PlaceListResponse`. Ambos extremos del sistema compilan contra este contrato canónico, imposibilitando discrepancias de formato en tiempo de ejecución. Con el avance de los Sprints 2 y 3, el paquete incorpora de manera estricta:
+
+* **Modelos de enrutamiento:** `Coordinates`, `RouteRequest`, `RouteResponse`, `RouteSegment` y `TransportMode`.
+* **Modelos de transporte multimodal:** `TransitLine`, `TransitStop`, `TransitArrival`, `MultimodalAlternative` y `MultimodalComparison`.
 
 ### 5.2. Capa Servidor (`apps/api`)
 
@@ -240,6 +245,7 @@ Construida con **NestJS**. Proporciona una arquitectura modular empresarial basa
 * `GET /places`: Catálogo geográfico filtrable.
 * `GET /places/search?q=...`: Búsqueda predictiva.
 * `GET /places/:id`: Detalle y accesibilidad de un recinto.
+* `POST /routes/plan`: Cálculo de rutas peatonales entre nodos del campus con algoritmo de Dijkstra y filtro estricto de accesibilidad PMR.
 
 ### 5.3. Capa Cliente Móvil (`apps/mobile`)
 
@@ -250,6 +256,12 @@ Desarrollada con **React Native y Expo Router**. Aplica un diseño por component
 * `PlaceCard`: Tarjeta de resumen de recinto con insignias de accesibilidad y botón de detalle.
 * `PlaceDetailModal`: Modal técnico emergente que desglosa horarios, contacto y accesos físicos con rampa o ascensor.
 * `CampusMapView`: Visor cartográfico interactivo que proyecta matemáticamente las coordenadas geográficas reales del Campus de Moncloa a un plano esquemático con ejes viales principales (Av. Complutense, Paraninfo), marcadores por categoría y ubicación simulada del estudiante en Ciudad Universitaria.
+* `RouteSelector`: Selector reactivo de origen y destino con autocompletado, inversión de sentido y conmutador PMR.
+* `RouteLayer`: Capa vectorial que proyecta la traza de la ruta (estándar en azul o PMR accesible en verde).
+* `RouteSheet`: Panel deslizable inferior con métricas del recorrido (distancia, duración estimada) e itinerario paso a paso.
+* `MultimodalComparisonCard`: Tarjeta comparativa que confronta en tiempo real la opción a pie, autobús universitario y bicicleta con indicación de recomendación y huella de carbono.
+* `TransitLineLayer` y `TransitStopLayer`: Visualización de los trazados GeoJSON de las líneas G y F de la EMT y marcadores de paradas oficiales.
+* `TransitStopSheet`: Modal de información de parada de autobús con tiempos de espera en tiempo real y botón de guiado directo.
 * `index.tsx`: Controlador principal de vista que integra un conmutador dual (*Segmented Control*) para alternar sin latencia entre la vista cartográfica y la vista de catálogo en lista.
 
 ---
@@ -280,14 +292,70 @@ Desarrollada con **React Native y Expo Router**. Aplica un diseño por component
 * **Validación en entorno nativo:**
   * Despliegue y verificación funcional exitosa en emulador de Android Studio (`Medium_Phone_API_37.0`) y Expo Go, superando los criterios de la *Definition of Done (DoD)*.
 
+### 6.3. Sprint 2: Motor de rutas peatonales, grafo de Moncloa y accesibilidad PMR (Completado y Verificado)
+
+* **Objetivo del Sprint:** Diseñar, desarrollar y verificar el motor de cálculo de rutas peatonales entre facultades del campus de Moncloa con soporte estricto de accesibilidad para personas con movilidad reducida (PMR), garantizando itinerarios libres de escaleras, desniveles insalvables y barreras arquitectónicas (`HU-020`, `HU-021`, `HU-023`, `HU-024`).
+* **Marco Metodológico y Calidad Software (Tema 3 — Pruebas Orientadas a Objetos y TDD):**
+  * **Las Tres Reglas de TDD (Uncle Bob Martin):**
+    1. *Primera regla:* No escribir código de producción sin antes haber escrito una prueba unitaria que falle.
+    2. *Segunda regla:* No escribir más de una prueba unitaria de lo necesario para fallar (no compilar se considera fallar).
+    3. *Tercera regla:* No escribir más código de producción del estrictamente necesario para hacer pasar la prueba unitaria que fallaba.
+  * **Técnicas de Caja Negra:** Aplicación rigurosa de particiones de equivalencia y análisis de valores límite para los parámetros del cálculo de ruta (coordenadas perimetrales válidas dentro del campus vs. puntos fuera de rango, origen coincidente con destino, solicitudes accesibles PMR sobre zonas con escaleras obligatorias).
+  * **Técnicas de Caja Blanca:** Pruebas de caminos básicos mediante el cálculo de la complejidad ciclomática de McCabe ($V(G) = E - N + 2P$) en la lógica de búsqueda de caminos mínimos y en los manejadores de estado de enrutamiento del cliente móvil.
+* **Incremento de Backend y Contratos (PR #32):**
+  * Definición formal en `@unimovil/contracts` de los tipos canónicos de enrutamiento: `Coordinates`, `RouteRequest`, `RouteResponse`, `RouteSegment` y enum `TransportMode`.
+  * Modelado topológico del Campus de Moncloa en `apps/api/src/routes/` mediante un grafo dirigido ponderado con distancias en metros y metadatos de accesibilidad (`isAccessible: boolean`).
+  * Implementación del algoritmo de Dijkstra con poda dinámica de aristas inaccesibles ante peticiones con flag `accessibleOnly: true`.
+  * Endpoint REST `POST /routes/plan` con validación de esquemas y tiempos de respuesta inferiores a 10 ms.
+* **Incremento de Cliente Móvil (PR #33 — Naoufal Kebli):**
+  * **Selector de Rutas (`RouteSelector.tsx` — `HU-020`):** Componente reactivo con selectores de origen y destino, autocompletado en tiempo real, botón para invertir sentido con un toque y conmutador de accesibilidad PMR ("Evitar escaleras y rampas no accesibles").
+  * **Capa Cartográfica de Rutas (`RouteLayer.tsx` — `HU-021`):** Renderizado vectorial de la traza sobre el mapa del campus, diferenciando mediante paleta cromática de alto contraste las rutas convencionales (azul `#2563eb`) de las accesibles homologadas (verde `#059669`).
+  * **Hoja Desplegable de Itinerario (`RouteSheet.tsx` — `HU-023`, `HU-024`):** Panel inferior contextual que desglosa el tiempo estimado a pie, la distancia en metros/kilómetros, el distintivo oficial de accesibilidad y la guía paso a paso con iconos direccionales claros e instrucciones legibles.
+  * **Hook de Lógica de Enrutamiento (`useRouting.ts`):** Centralización del estado de navegación, persistencia de itinerarios en memoria, tratamiento de errores de red y transiciones suaves de interfaz.
+* **Métricas y Verificación de Calidad:**
+  * 196 pruebas unitarias y de integración superadas con éxito (155 Vitest monorepo + 41 Jest/RTL móvil).
+  * Cobertura de código superior al 95% en líneas y ramas lógicas.
+  * 0 advertencias de linter (`npm run lint` con `--max-warnings=0`) y 0 errores de tipado estricto (`npm run typecheck`).
+
+### 6.4. Sprint 3: Movilidad multimodal, líneas de autobús EMT (G y F) y paradas en mapa (Completado y Verificado)
+
+* **Objetivo del Sprint:** Integrar el transporte público de superficie de la Empresa Municipal de Transportes (EMT) que opera en el campus de Moncloa, posibilitando la comparativa multimodal de alternativas (a pie, autobús universitario y bicicleta) y la visualización en el mapa cartográfico de los trazados oficiales y paradas clave con tiempos de espera (`HU-022`, `HU-026`, `HU-027`).
+* **Contratos Multimodales y Datos Cartográficos (`packages/contracts` y `apps/mobile`):**
+  * Definición en `@unimovil/contracts` de los modelos de transporte público: `TransitLine`, `TransitStop`, `TransitArrival`, `MultimodalAlternative` y `MultimodalComparison`.
+  * Digitalización fidedigna de las líneas universitarias de la EMT en `features/transit/data/transit-data.ts`:
+    * **Línea G (Moncloa - Ciudad Universitaria):** Recorrido circular interno por facultades, color oficial corporativo `#005aa9`.
+    * **Línea F (Cuatro Caminos - Ciudad Universitaria):** Eje transversal este-oeste, color oficial corporativo `#d97706`.
+    * Red de paradas oficiales del campus con sus identificadores de poste EMT (1688, 1690, 1692, 1694, 1696, 1698, 3276) y coordenadas geográficas calibradas.
+  * Lógica de dominio matemático en `features/transit/domain/transit.ts`:
+    * Implementación de la fórmula del semiverseno (*Haversine*) para cómputo de distancias ortodrómicas geodésicas en metros entre coordenadas WGS84.
+    * Búsqueda de paradas de autobús óptimas más cercanas al origen y destino.
+    * Algoritmo de comparación multimodal (`buildMultimodalComparison`): modelado de velocidad de caminata ($4.5\text{ km/h}$), velocidad de autobús EMT ($18\text{ km/h}$ más penalización por tiempo de espera y acceso) y velocidad en bicicleta ($15\text{ km/h}$), complementado con estimaciones de huella de carbono ($\text{g CO}_2$) y consumo calórico.
+* **Incremento de Cliente Móvil (PR #34 — Naoufal Kebli):**
+  * **Tarjeta Comparativa Multimodal (`MultimodalComparisonCard.tsx` — `HU-022`):** Tarjeta interactiva integrada en el panel de rutas que muestra simultáneamente las opciones de desplazamiento (a pie, autobús EMT y bicicleta), destacando visualmente la alternativa recomendada y permitiendo alternar entre ellas para consultar el desglose pormenorizado de tiempos.
+  * **Capa Cartográfica de Líneas EMT (`TransitLineLayer.tsx` — `HU-026`):** Trazado vectorial GeoJSON de los recorridos de las líneas G y F superpuesto de forma optimizada sobre la cartografía esquemática del campus.
+  * **Capa Cartográfica de Paradas EMT (`TransitStopLayer.tsx` — `HU-027`):** Marcadores circulares con iconografía de autobús situados en las coordenadas precisas de cada parada.
+  * **Hoja Técnica de Parada (`TransitStopSheet.tsx` — `HU-027`):** Panel modal que emerge al interactuar con una parada, detallando su denominación, código oficial EMT, líneas con servicio, frecuencias estimadas de llegada en minutos y botón de acción rápida *"Planificar ruta hasta aquí"*.
+  * **Control de Capas en `CampusScreen.tsx`:** Botón accesible de conmutación ("Ver EMT" / "Ocultar EMT") para activar o desactivar la capa de transporte público según las necesidades de visualización del usuario.
+* **Métricas y Verificación de Calidad:**
+  * 223 pruebas automatizadas superadas (168 Vitest + 55 Jest/React Native Testing Library).
+  * Cobertura de código superior al 96% en líneas y al 92% en ramas lógicas en el paquete de aplicación móvil.
+  * Cumplimiento estricto de TypeScript (`exactOptionalPropertyTypes: true`), 0 errores de compilación y 0 advertencias de ESLint.
+  * Verificación nativa completada satisfactoriamente mediante precompilación y emulación en Android e iOS.
+
 ---
 
 ## 7. Conclusiones y Trabajo Futuro
 
-El avance alcanzado durante este primer ciclo demuestra la eficacia de aplicar una metodología ágil disciplinada combinada con un estricto control de versiones en Git y una arquitectura modular desacoplada. La sincronización mediante contratos compartidos eliminó de raíz el riesgo de desincronización API-Móvil (Riesgo R3), y el enfoque incremental permitió entregar un primer Producto Mínimo Viable (MVP) completamente funcional, usable e interactivo tanto en modo lista como en mapa cartográfico.
+El desarrollo completado a lo largo de los Sprints 1, 2 y 3 confirma la madurez del proceso de ingeniería de software adoptado por el equipo. La combinación de una arquitectura monorepo desacoplada con contratos estrictos en TypeScript (`@unimovil/contracts`), la disciplina del desarrollo guiado por pruebas (TDD) y la aplicación rigurosa de técnicas de caja blanca y caja negra han permitido alcanzar niveles de cobertura de código superiores al 95% sin acumular deuda técnica ni discrepancias de integración.
 
-El incremento del **Sprint 1** queda formalmente validado y listo para su presentación y demostración técnica. Los trabajos para el **Sprint 2** se centrarán en:
+La plataforma **UniMovil** dispone actualmente de un núcleo completamente funcional y verificado que integra:
 
-1. Implementación del motor de cálculo de rutas peatonales entre facultades del campus de Moncloa (`HU-021`).
-2. Filtro estricto de accesibilidad PMR para garantizar itinerarios sin escaleras ni barreras arquitectónicas (`HU-040`).
-3. Integración multimodal comparativa con las líneas de autobuses internos de la EMT (Líneas G y F) y tiempos de paso estimados (`HU-022`).
+1. Catálogo geográfico y buscador predictivo normalizado de edificios y servicios de Moncloa (Sprint 1).
+2. Motor de cálculo de rutas peatonales con algoritmo de Dijkstra y filtro estricto de accesibilidad PMR (Sprint 2).
+3. Sistema de movilidad multimodal con comparativa de tiempos (a pie, EMT, bicicleta) y visor de líneas y paradas de la red de autobuses de la EMT de Madrid (Sprint 3).
+
+Los trabajos planificados para el **Sprint 4 (Cierre Académico y Validación Global)** se concentrarán en:
+
+* Implementación del módulo de comunicación de incidencias y avisos de movilidad en el campus (`HU-050`, `HU-054`, `HU-055`), con formulario móvil y visualización en el panel web administrativo (`apps/admin`).
+* Auditoría formal de accesibilidad conforme a los estándares WCAG 2.1 nivel AA.
+* Consolidación final de métricas de calidad, trazabilidad de requisitos y preparación de la memoria técnica definitiva para la defensa del proyecto.

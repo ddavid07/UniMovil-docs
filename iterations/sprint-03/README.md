@@ -2,10 +2,12 @@
 
 ## 1. Estado y Contexto
 
-* **Estado:** Planificado / Siguiente iteración de aceleración.
+* **Estado:** En curso / Incremento móvil de transporte multimodal completado y verificado en la PR #34.
 * **Objetivo principal:** Integrar el transporte público interno del campus (líneas de autobús G y F de la EMT) con cálculo comparativo de tiempos respecto a la caminata, e implementar el sistema de reporte y consulta de incidencias y obras en viales de Moncloa.
 * **Marco metodológico:** Scrum puro y Gestión Proactiva del Riesgo (Barry Boehm RSGR).
 * **Marco de pruebas:** Pruebas Orientadas a Objetos y TDD según el Tema 3 (profesores Antonio Navarro y Gonzalo Méndez).
+* **Entregas en GitHub:** Pull Request #34 (`feature/sprint-03-multimodal-mobile` por Naoufal Kebli).
+* **Métricas alcanzadas:** 223 pruebas superadas (168 Vitest + 55 Jest), cobertura >96% en líneas y >92% en ramas, 0 advertencias de ESLint y compilación nativa en Expo.
 
 ---
 

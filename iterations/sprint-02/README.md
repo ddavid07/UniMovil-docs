@@ -2,10 +2,12 @@
 
 ## 1. Estado y Contexto
 
-* **Estado:** Planificado / En preparación para inicio tras aprobación de la PR #23.
+* **Estado:** Completado y Verificado (Done).
 * **Objetivo principal:** Diseñar y desarrollar el motor de cálculo de rutas peatonales entre facultades del campus de Moncloa con filtro estricto de accesibilidad para personas con movilidad reducida (PMR).
 * **Marco metodológico:** Scrum puro y Gestión Proactiva del Riesgo (Barry Boehm RSGR).
 * **Marco de pruebas:** Pruebas Orientadas a Objetos y TDD según el Tema 3 (profesores Antonio Navarro y Gonzalo Méndez).
+* **Entregas en GitHub:** Pull Request #32 (Backend y contratos por Pedro Cespón) y Pull Request #33 (Frontend móvil por Naoufal Kebli).
+* **Métricas alcanzadas:** 196 pruebas superadas (155 Vitest + 41 Jest), cobertura >95% en líneas y ramas, 0 advertencias de linter y compilación nativa en Expo.
 
 ---
 
