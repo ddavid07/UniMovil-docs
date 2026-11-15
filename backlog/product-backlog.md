@@ -61,8 +61,8 @@ La implementación de este alcance está en revisión en la [PR #23 del reposito
 | [HU-090 — Proteger los datos de la cuenta](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Alta | Sprint 4 (Planificada) |
 | [HU-091 — Controlar el acceso a funcionalidades](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Alta | Sprint 4 (Planificada) |
 | [HU-092 — Gestionar privacidad y consentimiento](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Alta | Por confirmar |
-| [HU-094 — Gestionar errores y falta de conexión](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Alta | Sprint 4 (Planificada) |
-| [HU-095 — Utilizar una interfaz accesible](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Alta | Sprint 4 (Planificada) |
+| [HU-094 — Gestionar errores y falta de conexión](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Alta | Sprint 4 (Terminada) |
+| [HU-095 — Utilizar una interfaz accesible](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Alta | Sprint 4 (Terminada) |
 
 ## Prioridad funcional Media
 

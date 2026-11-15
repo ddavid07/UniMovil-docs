@@ -2,10 +2,12 @@
 
 ## 1. Estado y Contexto
 
-* **Estado:** Planificado / Iteración de consolidación y cierre hacia la entrega final del proyecto.
+* **Estado:** En curso / Incremento móvil de resiliencia sin conexión (HU-094) y accesibilidad universal WCAG 2.1 AA (HU-095) completado y verificado.
 * **Objetivo principal:** Integrar el portal web de administración (`apps/admin`) para gestión de avisos y edificios del campus, garantizar la robustez offline de la app móvil, ejecutar la batería de pruebas de sistema y validación (Tema 3) y culminar la memoria académica y el material de la defensa oral.
 * **Marco metodológico:** Scrum puro y Gestión Proactiva del Riesgo (Barry Boehm RSGR).
 * **Marco de pruebas:** Pruebas Orientadas a Objetos y Validación Integral según el Tema 3 (profesores Antonio Navarro y Gonzalo Méndez).
+* **Entregas en GitHub:** Rama `feature/sprint-04-offline-accessibility` (Frontend móvil por Naoufal Kebli).
+* **Métricas alcanzadas:** 241 pruebas superadas (176 Vitest + 65 Jest), cobertura >96% en líneas y >92% en ramas, 0 advertencias de ESLint y compilación nativa en Expo (Android e iOS).
 
 ---
 

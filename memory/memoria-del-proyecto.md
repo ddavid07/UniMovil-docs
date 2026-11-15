@@ -50,6 +50,7 @@
    * 6.2. Sprint 1: Núcleo del MVP (Contratos, API y Buscador móvil)
    * 6.3. Sprint 2: Motor de rutas peatonales, grafo de Moncloa y accesibilidad PMR
    * 6.4. Sprint 3: Movilidad multimodal, líneas de autobús EMT (G y F) y paradas en mapa
+   * 6.5. Sprint 4: Resiliencia sin conexión (HU-094) y accesibilidad universal WCAG 2.1 AA (HU-095)
 7. [Conclusiones y Trabajo Futuro](#7-conclusiones-y-trabajo-futuro)
 
 ---
@@ -341,6 +342,22 @@ Desarrollada con **React Native y Expo Router**. Aplica un diseño por component
   * Cobertura de código superior al 96% en líneas y al 92% en ramas lógicas en el paquete de aplicación móvil.
   * Cumplimiento estricto de TypeScript (`exactOptionalPropertyTypes: true`), 0 errores de compilación y 0 advertencias de ESLint.
   * Verificación nativa completada satisfactoriamente mediante precompilación y emulación en Android e iOS.
+
+### 6.5. Sprint 4: Resiliencia sin conexión (HU-094) y accesibilidad universal WCAG 2.1 AA (HU-095)
+
+* **Objetivo del Incremento:** Dotar a la aplicación móvil de resiliencia operativa ante la pérdida de conectividad a internet en el campus de Moncloa (`HU-094`) y certificar el cumplimiento de las directrices de accesibilidad para el contenido web WCAG 2.1 nivel AA (`HU-095`).
+* **Resiliencia Operativa y Caché Local (`features/offline` — `HU-094`):**
+  * **Caché en Memoria y Persistencia (`OfflineCache`):** Estructura de almacenamiento desacoplada con política de desalojo por menor uso reciente (*Least Recently Used - LRU*) que almacena en memoria los últimos lugares consultados y las rutas calculadas.
+  * **Preservación de Estado de Usuario:** Cumplimiento del criterio 4 de `HU-094` ("No borra datos introducidos por el usuario sin confirmación"). Si la red se interrumpe durante el cálculo, el formulario de enrutamiento mantiene intactos los puntos seleccionados y recupera la ruta desde el caché local si fue calculada previamente.
+  * **Banner Reactivo de Conectividad (`NetworkBanner.tsx`):** Componente de alerta flotante con semántica accesible (`accessibilityRole="alert"`, `accessibilityLiveRegion="assertive"`) que informa al usuario de que opera en *"Modo sin conexión"* y ofrece un botón de reintento manual que verifica la restauración del enlace.
+* **Accesibilidad Universal de Interfaz (`HU-095` — WCAG 2.1 AA):**
+  * **Tamaños de Toque Mínimos:** Ajuste de todos los controles interactivos (`Action`, selectores de origen/destino, botones de cierre y conmutadores) a una superficie táctil mínima de 48x48 dp.
+  * **Compatibilidad con Lectores de Pantalla:** Incorporación exhaustiva de atributos semánticos (`accessibilityLabel`, `accessibilityRole`, `accessibilityHint` y `accessibilityState`) en los componentes clave (`RouteSelector`, `RouteSheet`, `MultimodalComparisonCard` y `TransitStopSheet`), garantizando que usuarios con discapacidad visual reciban la narración completa de giros, distancias y opciones multimodales en TalkBack (Android) y VoiceOver (iOS).
+  * **Contraste Cromático y No Dependencia Exclusiva del Color:** Uso de paletas validadas con ratios de contraste superiores a 4.5:1 para texto normal y combinación sistemática de iconografía, insignias textuales y colores distintivos (azul `#005aa9`, verde `#10b981`, ámbar `#f59e0b`).
+* **Métricas y Verificación de Calidad:**
+  * 241 pruebas automáticas superadas (176 Vitest monorepo + 65 Jest/Testing Library móvil).
+  * Cobertura de código superior al 96% en líneas y al 92% en ramas lógicas.
+  * 0 advertencias de linter (`npm run lint`), compilación estricta sin errores (`npm run typecheck`) y empaquetado nativo exitoso (`expo export` en Android e iOS).
 
 ---
 
