@@ -32,7 +32,7 @@ Para asegurar la autonomía, evitar conflictos de ramas en Git y estructurar el 
 
 ### 👤 1. Naoufal Kebli (`@Naoufal33`)
 
-* **Rol Scrum:** Developer — Frontend Móvil & Experiencia de Usuario.
+* **Rol Scrum:** Developer.
 * **Historias asignadas:** `HU-020` (Origen y destino), `HU-021` (Ruta a pie en móvil), `HU-023` (Indicaciones paso a paso).
 * **Entregables técnicos:**
   1. Componente de selección de origen y destino (`RouteSelector.tsx`) integrado en la cabecera de la app móvil.
@@ -44,7 +44,7 @@ Para asegurar la autonomía, evitar conflictos de ramas en Git y estructurar el 
 
 ### 👤 2. Daniel David (`@ddavid07`)
 
-* **Rol Scrum:** Developer / Arquitecto — Backend NestJS y Contratos Compartidos.
+* **Rol Scrum:** Developer.
 * **Historias asignadas:** Soporte API a `HU-020` y `HU-021`, `HU-075` (Estado de los datos).
 * **Entregables técnicos:**
   1. Definición formal de contratos TypeScript en `@unimovil/contracts` (`RouteRequest`, `RouteResponse`, `RouteSegment`, `Coordinates`).
@@ -57,7 +57,7 @@ Para asegurar la autonomía, evitar conflictos de ramas en Git y estructurar el 
 
 ### 👤 3. Pablo Palacios (`@pablopr06`)
 
-* **Rol Scrum:** Developer — Lógica de Accesibilidad PMR.
+* **Rol Scrum:** Developer.
 * **Historias asignadas:** `HU-024` (Ruta accesible), `HU-040` (Preferencias de accesibilidad), `HU-041` (Accesos adaptados).
 * **Entregables técnicos:**
   1. Etiquetado de accesibilidad en el grafo de caminos: identificación de tramos con escaleras (ej. escalinatas de Medicina u Odontología) y tramos con rampas.
@@ -69,7 +69,7 @@ Para asegurar la autonomía, evitar conflictos de ramas en Git y estructurar el 
 
 ### 👤 4. Pedro Cespón (`@pcespon`)
 
-* **Rol Scrum:** QA Lead / Developer — Batería de Pruebas Unitarias y TDD (Tema 3).
+* **Rol Scrum:** Developer (QA y Pruebas Unitarias TDD).
 * **Estado:** ✅ Completado (141 pruebas unitarias e integradas superadas, 99,27 % de cobertura).
 * **Historias asignadas:** `HU-094` (Manejo de errores), verificación transversal de calidad del Sprint 2.
 * **Entregables técnicos (alineados con el Tema 3 de teoría):**
@@ -83,9 +83,9 @@ Para asegurar la autonomía, evitar conflictos de ramas en Git y estructurar el 
 
 ---
 
-### 👤 5. Charlie Fox / Carlos (`@yoespain`)
+### 👤 5. Charlie Fox (`@charliefox06`)
 
-* **Rol Scrum:** Scrum Master & Developer — Coordinación y Seguimiento.
+* **Rol Scrum:** Developer.
 * **Historias asignadas:** `HU-097` (Trazabilidad de cambios), gestión del Sprint Backlog.
 * **Entregables técnicos:**
   1. Facilitar los eventos de Scrum: Sprint Planning, Daily Scrum asíncrono y preparación de la Sprint Review.

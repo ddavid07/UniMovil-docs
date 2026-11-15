@@ -8,7 +8,7 @@
   * Daniel David (`@ddavid07`)
   * Pablo Palacios (`@pablopr06`)
   * Pedro Cespón (`@pcespon`)
-  * Charlie Fox / Carlos (`@yoespain`)
+  * Charlie Fox (`@charliefox06`)
 
 ---
 
@@ -35,10 +35,10 @@ El equipo acuerda por unanimidad el objetivo del Sprint:
 | Miembro | Rol Scrum | Área Técnica Principal | Historias de Usuario |
 | :--- | :--- | :--- | :--- |
 | **Naoufal Kebli** | Developer | Frontend Móvil (React Native / Expo) | `HU-020` (Origen/Destino), `HU-021` (Ruta a pie), `HU-023` (Indicaciones paso a paso) |
-| **Daniel David** | Developer / Arquitecto | Backend NestJS y Contratos Compartidos | Soporte API a `HU-020`/`HU-021`, Contratos de Rutas, `HU-075` (Estado datos) |
+| **Daniel David** | Developer | Backend NestJS y Contratos Compartidos | Soporte API a `HU-020`/`HU-021`, Contratos de Rutas, `HU-075` (Estado datos) |
 | **Pablo Palacios** | Developer | Movilidad Especializada, PMR y Red EMT | `HU-022` (Multimodalidad), `HU-024` (Ruta accesible), `HU-026` (Líneas EMT), `HU-040` (Preferencias PMR) |
-| **Pedro Cespón** | QA Lead / Developer | Calidad del Software y Automatización de Pruebas | `HU-094` (Errores/Offline), `HU-095` (Accesibilidad UI), Batería de Tests Vitest/Jest (Tema 3) |
-| **Charlie Fox** | Scrum Master / Developer | Panel Web Admin y Seguimiento de Proyecto | `HU-050` (Incidencias), `HU-057` (Avisos), `HU-070` (Gestión edificios), Actas y Burndown |
+| **Pedro Cespón** | Developer | Calidad del Software y Automatización de Pruebas | `HU-094` (Errores/Offline), `HU-095` (Accesibilidad UI), Batería de Tests Vitest/Jest (Tema 3) |
+| **Charlie Fox** | Developer | Panel Web Admin y Seguimiento de Proyecto | `HU-050` (Incidencias), `HU-057` (Avisos), `HU-070` (Gestión edificios), Actas y Burndown |
 
 ### 2.4. Adopción de la Estrategia de Pruebas (Tema 3 de la Asignatura)
 
