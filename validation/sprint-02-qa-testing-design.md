@@ -19,6 +19,7 @@ Las historias de usuario abordadas en el Sprint 2 siguen la plantilla canónica:
 > **para** [beneficio o valor de negocio esperado].
 
 #### Principios INVEST
+
 1. **Independent (Independientes):** `HU-094` (Manejo de errores) se modela de forma transversal e independiente del transporte físico, permitiendo probar la lógica de fallos tanto en API como en cliente móvil sin acoplamiento.
 2. **Negotiable (Negociables):** Los umbrales de reintento automático (3 intentos con backoff de $100\text{ ms}$) y la tolerancia de proximidad ($5\text{ m}$) fueron acordados y refinados por el equipo.
 3. **Valuable (Valiosas):** Aportan seguridad y resiliencia al estudiante o visitante, evitando que la app quede congelada o exponga credenciales técnicas ante caídas.
@@ -27,6 +28,7 @@ Las historias de usuario abordadas en el Sprint 2 siguen la plantilla canónica:
 6. **Testable (Comprobables):** Respaldadas por criterios de aceptación unívocos y verificables automáticamente con Vitest.
 
 #### Las 3 Cs de Mike Cohn
+
 * **Card (Tarjeta):** La ficha resumen registrada en `UniMovil-docs/requirements/user-stories/08-seguridad-privacidad-y-calidad.md`.
 * **Conversation (Conversación):** Debates y acuerdos de diseño celebrados en la reunión de planificación del Sprint 2 (`meetings/sprint-02-reparto-de-trabajo.md`).
 * **Confirmation (Confirmación):** Los criterios de aceptación verificados mediante pruebas automatizadas de caja blanca y caja negra.
@@ -131,16 +133,20 @@ flowchart TD
 El temario de la asignatura establece tres métodos matemáticos equivalentes para calcular $V(G)$:
 
 #### Método 1: Número de regiones del grafo
+
 El grafo divide el plano en regiones delimitadas por aristas de decisión:
 $$\text{Regiones} = 7 \implies V(G) = 7$$
 
 #### Método 2: Fórmula de aristas y nodos
+
 Contando las aristas $A$ y los nodos $N$ del grafo de control:
+
 * Nodos ($N$): 15 nodos.
 * Aristas ($A$): 20 aristas.
 $$V(G) = A - N + 2 = 20 - 15 + 2 = 7$$
 
 #### Método 3: Fórmula de nodos predicado
+
 Identificando los nodos que contienen una condición lógica binaria ($P$):
 Los nodos predicado son 2, 4, 6, 8, 11 y 12 ($P = 6$):
 $$V(G) = P + 1 = 6 + 1 = 7$$
@@ -162,7 +168,9 @@ $$V(G) = P + 1 = 6 + 1 = 7$$
 | **Camino 7** | $1 \rightarrow 2 \rightarrow 4 \rightarrow 6 \rightarrow 8 \rightarrow 10 \rightarrow 11 \rightarrow 14$ | Ruta óptima encontrada | `Metro -> Medicina` con rampa PMR o por escalinata | `RouteResponse` con polyline y segmentos |
 
 ### 2.4. Prueba de Bucles (Loop Testing)
+
 Sobre el bucle `while (unvisited.size > 0)` del algoritmo de Dijkstra:
+
 * **Sin ejecutar bucle (0 pasos):** Puntos coincidentes que resuelven en el mismo nodo local.
 * **Pasando 1 vez:** Nodos adyacentes inmediatos ($N_1 \rightarrow N_2$).
 * **Pasando múltiples veces ($m$ iteraciones):** Itinerarios multietapa que cruzan el campus (ej. `Metro -> Farmacia -> Derecho -> Filosofía`).
@@ -248,13 +256,16 @@ flowchart LR
 De acuerdo con las diapositivas del *Tema 7: Gestión de Configuración*:
 
 ### 5.1. Estrategia de Ramificación (Branching Strategy)
+
 * **Rama base:** `origin/main` (y `origin/feature/sprint-01-campus` para el monorepositorio mientras se cierra la PR #23).
 * **Ramas de trabajo creadas:**
-  - En `UniMovil`: `feature/sprint-02-qa-routing`.
-  - En `UniMovil-docs`: `docs/sprint-02-qa-testing-design`.
+  * En `UniMovil`: `feature/sprint-02-qa-routing`.
+  * En `UniMovil-docs`: `docs/sprint-02-qa-testing-design`.
 
 ### 5.2. Formato de Commits Semánticos (Conventional Commits)
+
 Se adopta el estándar de commits semánticos para trazabilidad completa:
+
 * `feat(contracts): add routing contracts, bounds validation and error types for HU-094`
 * `feat(api): implement campus graph, routing engine and PMR accessibility filter`
 * `feat(mobile): implement routing GeoJSON utilities and error handling with retry (HU-094)`
@@ -262,9 +273,11 @@ Se adopta el estándar de commits semánticos para trazabilidad completa:
 * `docs(validation): document sprint 2 validation plan and testing design master`
 
 ### 5.3. Trazabilidad con Issues y Product Backlog
+
 Cada Pull Request referencia explícitamente las historias de usuario que cierra o valida:
-- `Closes #94` (Manejo de errores y falta de conexión).
-- `Addresses #20, #21, #23, #24, #40` (Validación cruzada del motor de rutas y accesibilidad).
+
+* `Closes #94` (Manejo de errores y falta de conexión).
+* `Addresses #20, #21, #23, #24, #40` (Validación cruzada del motor de rutas y accesibilidad).
 
 ---
 
