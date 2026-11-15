@@ -70,11 +70,15 @@ Para asegurar la autonomía, evitar conflictos de ramas en Git y estructurar el 
 ### 👤 4. Pedro Cespón (`@pcespon`)
 
 * **Rol Scrum:** QA Lead / Developer — Batería de Pruebas Unitarias y TDD (Tema 3).
+* **Estado:** ✅ Completado (141 pruebas unitarias e integradas superadas, 99,27 % de cobertura).
 * **Historias asignadas:** `HU-094` (Manejo de errores), verificación transversal de calidad del Sprint 2.
 * **Entregables técnicos (alineados con el Tema 3 de teoría):**
-  1. **Pruebas de Caja Blanca:** Cálculo de caminos básicos y complejidad ciclomática de McCabe sobre el algoritmo de enrutamiento; garantía de cobertura de todas las decisiones lógicas y ramas.
-  2. **Pruebas de Caja Negra:** Partición en clases de equivalencia (rutas directas, rutas con transbordo peatonal, rutas imposibles) y análisis de valores límite (origen y destino idénticos, coordenadas en el borde del campus).
+  1. **Pruebas de Caja Blanca:** Cálculo de caminos básicos y complejidad ciclomática de McCabe ($V(G) = 7$) sobre el algoritmo de enrutamiento; garantía de cobertura del 100 % de decisiones y ramas.
+  2. **Pruebas de Caja Negra:** Partición en clases de equivalencia (rutas directas, rutas con escaleras, rutas adaptadas PMR, entradas inválidas) y análisis de valores límite (origen y destino idénticos, frontera del bounding box de Moncloa).
   3. **TDD (The Three Rules of Uncle Bob):** Conducción del desarrollo del motor de rutas siguiendo el ciclo *Red $\rightarrow$ Green $\rightarrow$ Refactor*.
+* **Documentación y evidencias:**
+  * Plan de validación formal: [`validation/sprint-02-validation-plan.md`](../../validation/sprint-02-validation-plan.md).
+  * Diseño maestro de pruebas y TDD: [`validation/sprint-02-qa-testing-design.md`](../../validation/sprint-02-qa-testing-design.md).
 * **Módulos / Archivos principales:** `apps/mobile/src/features/routing/__tests__/`, `apps/api/src/routes/*.spec.ts`.
 
 ---
