@@ -3,11 +3,11 @@
 ## 1. Estado y Contexto
 
 * **Estado:** En curso / Incremento móvil de resiliencia sin conexión (HU-094) y accesibilidad universal WCAG 2.1 AA (HU-095) completado y verificado.
-* **Objetivo principal:** Integrar el portal web de administración (`apps/admin`) para gestión de avisos y edificios del campus, garantizar la robustez offline de la app móvil, ejecutar la batería de pruebas de sistema y validación (Tema 3) y culminar la memoria académica y el material de la defensa oral.
+* **Objetivo principal:** Integrar el portal web de administración (`apps/admin`) para gestión de avisos y edificios del campus, garantizar la robustez offline de la app móvil, ejecutar la batería de pruebas de sistema y validación según la teoría de pruebas del software orientado a objetos y culminar la memoria académica y el material de la defensa oral.
 * **Marco metodológico:** Scrum puro y Gestión Proactiva del Riesgo (Barry Boehm RSGR).
-* **Marco de pruebas:** Pruebas Orientadas a Objetos y Validación Integral según el Tema 3 (profesores Antonio Navarro y Gonzalo Méndez).
-* **Entregas en GitHub:** Rama `feature/sprint-04-offline-accessibility` (Frontend móvil por Naoufal Kebli).
-* **Métricas alcanzadas:** 241 pruebas superadas (176 Vitest + 65 Jest), cobertura >96% en líneas y >92% en ramas, 0 advertencias de ESLint y compilación nativa en Expo (Android e iOS).
+* **Marco de pruebas:** Pruebas Orientadas a Objetos y Validación Integral según la teoría de pruebas del software orientado a objetos (profesores Antonio Navarro y Gonzalo Méndez).
+* **Entregas en GitHub:** Ramas `feature/sprint-04-qa-system-validation` (Validación integral y QA) y `feature/sprint-04-offline-accessibility` (Frontend móvil).
+* **Métricas alcanzadas:** 250 pruebas automatizadas superadas (100 % de éxito), cobertura >98 % en líneas y >95 % en ramas, 0 advertencias de ESLint y compilación nativa en Expo (Android e iOS).
 
 ---
 
@@ -73,12 +73,12 @@ Para llevar el proyecto a su estado final terminado y listo para evaluación:
 
 * **Rol Scrum:** Developer.
 * **Historias asignadas:** Validación integral del sistema y cierre de calidad.
-* **Entregables técnicos (alineados con el Tema 3 de teoría):**
-  1. **Pruebas de Sistema Basadas en Casos de Uso:** Verificación de extremo a extremo de los flujos principales (desde búsqueda hasta navegación y reporte de incidencias).
-  2. **Pruebas de Recuperación:** Verificación de que el software se recupera airosamente ante pérdidas forzadas de conexión o respuestas lentas de la API.
-  3. **Pruebas de Seguridad:** Validación de que los endpoints administrativos no admiten inyecciones ni parámetros corruptos.
-  4. **Matriz de Trazabilidad:** Documento formal que vincula cada Historia de Usuario con su prueba unitaria o de integración correspondiente.
-* **Módulos / Archivos principales:** `packages/testing/`, `apps/api/test/`, `apps/mobile/__tests__/system/`.
+* **Entregables técnicos (alineados con la teoría de pruebas del software orientado a objetos):**
+  1. **Pruebas de Sistema Basadas en Casos de Uso:** Verificación de extremo a extremo de los flujos principales (desde búsqueda hasta navegación y reporte de incidencias en `apps/mobile/__tests__/system/use-cases.spec.ts`).
+  2. **Pruebas de Recuperación:** Verificación de que el software se recupera airosamente ante pérdidas forzadas de conexión o respuestas lentas de la API en `apps/mobile/__tests__/system/recovery.spec.ts`.
+  3. **Pruebas de Seguridad:** Validación de que los endpoints no admiten inyecciones ni parámetros corruptos y enmascaran secretos en `apps/api/test/security-endpoints.spec.ts` y `packages/testing/src/security-audit.spec.ts`.
+  4. **Matriz de Trazabilidad:** Documento formal y suite automatizada (`packages/testing/src/traceability.ts`) que vincula el 100 % de las 68 Historias de Usuario con sus pruebas correspondientes.
+* **Módulos / Archivos principales:** `packages/testing/`, `apps/api/test/`, `apps/mobile/__tests__/system/`, `validation/sprint-04-qa-system-validation.md`, `validation/sprint-04-matriz-de-trazabilidad.md`.
 
 ---
 
@@ -94,9 +94,9 @@ Para llevar el proyecto a su estado final terminado y listo para evaluación:
 
 ---
 
-## 5. Estrategia de Pruebas de Sistema y Validación (Tema 3)
+## 5. Estrategia de Pruebas de Sistema y Validación
 
-Según las diapositivas de la asignatura (profesores Antonio Navarro y Gonzalo Méndez, páginas 13-17 de `03-Pruebas orientadas a objetos.pdf`):
+Según la teoría de pruebas orientadas a objetos y validación integral de la asignatura (profesores Antonio Navarro y Gonzalo Méndez):
 
 * **Pruebas de Sistema:** A nivel de sistema los detalles de conexiones de clases desaparecen; la validación se centra en las acciones visibles al usuario y salidas reconocibles mediante los casos de uso.
 * **Pruebas de Recuperación:** Fuerza el fallo del software (ej. corte súbito de red) y verifica que la recuperación se realiza de forma satisfactoria.
