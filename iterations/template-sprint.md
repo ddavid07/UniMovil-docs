@@ -1,57 +1,59 @@
-# Sprint XX — [nombre breve del objetivo]
+# Sprint XX — [resultado breve de valor]
 
-> Plantilla: completa solo información confirmada. Borra esta nota al cerrar el registro. No presentes previsiones como resultados.
+> Registro vivo. Distingue plan, trabajo en curso e incremento integrado. No rellenes campos con supuestos.
 
-## Estado
+## 1. Estado y fuente de información
 
-Por planificar / En curso / Cerrado
+- **Estado:** Propuesta / En curso / Integrado y verificado.
+- **Fuente del estado:** PR, commit, evidencia o acuerdo enlazado.
+- **Periodo:** pendiente hasta que el equipo acuerde inicio y duración; al cerrar, registrar fechas reales.
+- **Capacidad y estimación:** las acuerdan los Developers en Planning. No convertir Story Points en horas ni asignar puntos desde este documento.
+- **Responsabilidades Scrum:** enlazar acuerdo cuando exista; no repartir trabajo individual aquí.
 
-## Sprint Goal
+## 2. Sprint Goal
 
-[¿Qué valor concreto pretende entregar este Sprint?]
+[Resultado de valor único, comprensible y comprobable. Marcar como propuesta hasta acordarlo.]
 
-## Periodo
+## 3. Historias candidatas y criterios de aceptación
 
-- Inicio:
-- Cierre previsto:
-- Cierre real:
-
-## Sprint Backlog
-
-| Historia / trabajo | Resultado esperado | Criterios de aceptación o verificación |
+| Historia candidata | Resultado de valor | Criterio observable y evidencia |
 | --- | --- | --- |
-| [ID y enlace] | [Resultado] | [Criterio observable] |
+| [ID y enlace] | [Qué podrá hacer la persona usuaria] | [Cómo se comprobará] |
 
-## Plan inicial y seguimiento
+Las historias son candidatas hasta que el equipo las seleccione según Sprint Goal, capacidad y dependencias. Refinar o dividir las que no puedan terminarse dentro del Sprint.
 
-[Describe el plan inicial del equipo y anota cambios relevantes respecto al Sprint Goal. No hace falta registrar cada tarea diaria.]
+## 4. Plan inicial y dependencias
 
-## Incremento producido
+[Orden inicial del trabajo, decisiones/spikes, dependencias y cambios relevantes hacia el Sprint Goal. Los Developers mantienen el plan.]
 
-[Describe el comportamiento usable que quedó integrado. Si no se completó una historia, indícalo y no la marques como terminada.]
+## 5. Riesgos — RSGR
 
-## Verificación y evidencias
+Valoración inicial propuesta para revisar con el equipo. Identifica probabilidad y consecuencia, prioriza, reduce, supervisa y prepara contingencia.
 
-- Pruebas ejecutadas:
-- Evidencias en `validation/`:
-- Limitaciones conocidas:
+| Riesgo (causa → posible efecto) | Probabilidad / consecuencia / prioridad | Reducción y señal de seguimiento | Contingencia si ocurre |
+| --- | --- | --- | --- |
+| [Riesgo específico] | [Estimación inicial] | [Acción preventiva y señal] | [Respuesta prevista] |
 
-## Sprint Review
+## 6. Verificación y Definition of Done
 
-- Incremento mostrado:
-- Contexto de la revisión:
-- Feedback recibido:
-- Acuerdos y cambios propuestos al Product Backlog:
-- Material de presentación en `presentations/`:
+Por cada historia terminada, enlazar requisito, código integrado y evidencia. Elegir pruebas según el riesgo: caja negra (clases de equivalencia y valores límite), caja blanca (decisiones/caminos cuando aplique), unitarias, integración, sistema, aceptación y regresión.
 
-[Si no hubo feedback o revisión con interesados, indícalo claramente; no inventes participantes ni resultados.]
+- **Criterios de aceptación comprobados:**
+- **Pruebas/herramientas, commit y entorno:**
+- **Builds/plataformas, cuando proceda:**
+- **Trazabilidad requisito → cambio → prueba/evidencia:**
+- **Limitaciones, datos no verificados y riesgos abiertos:**
 
-## Sprint Retrospective
+DoD: criterios cumplidos; comprobaciones requeridas en verde; cambio integrado en `main`; documentación y procedencia actualizadas; sin secretos/datos privados. PR abierta, cobertura o demo aislada no bastan para declarar Done. Aplicar TDD durante el desarrollo cuando corresponda; no afirmar retrospectivamente una secuencia sin evidencia.
 
-- Qué ayudó al equipo:
-- Qué dificultó el trabajo:
-- Acción de mejora acordada para el próximo Sprint:
+## 7. Sprint Review y retrospectiva
 
-## Trabajo no terminado, riesgos y siguientes pasos
+- **Review:** fecha/contexto, incremento inspeccionado, feedback real y cambios acordados al Product Backlog.
+- **Retrospectiva:** observaciones y una acción concreta de mejora.
+- **Enlaces:** `meetings/`, `validation/` y `presentations/`.
 
-[Indica trabajo pendiente y riesgos conocidos. No lo marques automáticamente como compromiso del siguiente Sprint.]
+Si no se celebraron, indicar “Pendiente”; una agenda o presentación no es una Review ni un acta.
+
+## 8. Trabajo no terminado y siguiente paso
+
+[Historias que no cumplen DoD, riesgos vigentes y propuesta de reordenación del Product Backlog. No prometer su inclusión automática en el siguiente Sprint.]
