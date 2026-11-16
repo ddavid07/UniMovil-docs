@@ -85,12 +85,13 @@ Para llevar el proyecto a su estado final terminado y listo para evaluación:
 ### 👤 5. Charlie Fox (`@charliefox06`)
 
 * **Rol Scrum:** Developer.
-* **Historias asignadas:** Documentación académica, actas de cierre y presentación final.
-* **Entregables técnicos:**
-  1. Redacción completa de las conclusiones, métricas finales del proceso y trabajo futuro en `memory/memoria-del-proyecto.md`.
-  2. Elaboración de las diapositivas de la defensa final en `presentations/presentacion-del-proyecto.md` y estructura de la demo técnica en vivo (5 minutos).
-  3. Acta de retrospectiva final del proyecto con lecciones aprendidas y balance del uso de Scrum puro frente a modelos en cascada.
-* **Módulos / Archivos principales:** `UniMovil-docs/memory/`, `UniMovil-docs/presentations/`.
+* **Historias asignadas:** `HU-057`/`HU-058` (Avisos y Alertas en Web Admin), `HU-097` (Trazabilidad auditable), Documentación académica, actas de cierre y presentación final.
+* **Entregables técnicos completados y verificados:**
+  1. ✅ **Conclusiones, Métricas y Trabajo Futuro:** Redacción formal de la Sección 7 y actualización de la Sección 6.5 en `memory/memoria-del-proyecto.md`, incluyendo cierre de la matriz de riesgos Barry Boehm RSGR (10/10 riesgos resueltos) y métricas globales de testing.
+  2. ✅ **Presentación de la Defensa Final y Guión de Demo:** Elaboración de las diapositivas oficiales en `presentations/presentacion-del-proyecto.md` y estructura de la demo técnica en vivo (5 minutos) cubriendo panel web, contratos e incidencias.
+  3. ✅ **Acta de Retrospectiva Final del Proyecto:** Redacción formal en `meetings/sprint-04-retrospectiva-y-cierre.md` con lecciones aprendidas, balance metodológico Scrum vs. Cascada y verificación de la Definition of Done.
+  4. ✅ **Módulo de Avisos y Alertas en Web Admin:** Implementación en `apps/admin` (`AnnouncementsView.tsx`, `admin-service.ts`) con tipado estricto, métricas y emisión automática de logs de auditoría para trazabilidad inmutable.
+* **Módulos / Archivos principales:** `UniMovil-docs/memory/`, `UniMovil-docs/presentations/`, `UniMovil-docs/meetings/`, `UniMovil/apps/admin/`.
 
 ---
 
