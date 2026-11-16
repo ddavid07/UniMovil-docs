@@ -85,7 +85,7 @@ Para asegurar la autonomía, evitar conflictos de ramas en Git y estructurar el 
 
 ---
 
-### 👤 5. Charlie Fox (`@charliefox06`)
+### 👤 5. Charlie Fox / Carlos (`@charliefox06`)
 
 * **Rol Scrum:** Developer.
 * **Historias asignadas:** `HU-097` (Trazabilidad de cambios), gestión del Sprint Backlog.
