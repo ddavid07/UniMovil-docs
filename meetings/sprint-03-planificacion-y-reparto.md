@@ -1,14 +1,11 @@
 # Acta de Reunión — Planificación del Sprint 3 y Reparto de Responsabilidades
 
-* **Fecha:** 13 de noviembre de 2026
-* **Hora:** 14:00 - 14:30 CET
-* **Lugar:** Sesión de trabajo telemática y laboratorio de software
-* **Asistentes:**
+* **Asistentes / Integrantes:**
   * Naoufal Kebli (`@Naoufal33`)
   * Daniel David (`@ddavid07`)
   * Pablo Palacios (`@pablopr06`)
   * Pedro Cespón (`@pcespon`)
-  * Charlie Fox / Carlos (`@yoespain`)
+  * Charlie Fox (`@charliefox06`)
 
 ---
 
@@ -30,15 +27,15 @@ Planificar el **Sprint 3**, consolidar el trabajo sobre el transporte público m
 Aprobado por unanimidad:
 > *"Integrar el transporte público interno del campus (líneas G y F de la EMT) con cálculo comparativo de tiempos respecto a la caminata, e implementar el sistema de reporte y consulta de incidencias y obras en viales de Moncloa."*
 
-### 2.3. Asignación de Historias y Responsables
+### 2.3. Asignación de Roles y Responsabilidades (5 Integrantes)
 
-| Miembro | Responsabilidad Principal | Historias Asignadas |
-| :--- | :--- | :--- |
-| **Naoufal Kebli** | Frontend Móvil: Tarjeta comparativa multimodal y trazado de líneas EMT | `HU-022`, `HU-026` |
-| **Daniel David** | Backend NestJS: Catálogo de paradas y endpoints de transporte EMT | `HU-026`, `HU-027`, `HU-072` |
-| **Pablo Palacios** | Móvil: Formulario de incidencias y capas cartográficas de obras | `HU-050`, `HU-051`, `HU-053` |
-| **Pedro Cespón** | QA: Pruebas de integración basadas en hilos y caja negra (Tema 3) | `HU-094`, Verificación Sprint 3 |
-| **Charlie Fox** | Web Admin: Panel de visualización de incidencias reportadas en `apps/admin` | `HU-054`, `HU-055`, Burndown |
+| Miembro | Rol Scrum | Área Técnica Principal | Historias Asignadas |
+| :--- | :--- | :--- | :--- |
+| **Naoufal Kebli** | Developer | Frontend Móvil: Tarjeta comparativa multimodal y trazado de líneas EMT | `HU-022`, `HU-026` |
+| **Daniel David** | Developer | Backend NestJS: Catálogo de paradas y endpoints de transporte EMT | `HU-026`, `HU-027`, `HU-072` |
+| **Pablo Palacios** | Developer | Móvil: Formulario de incidencias y capas cartográficas de obras | `HU-050`, `HU-051`, `HU-053` |
+| **Pedro Cespón** | Developer | QA: Pruebas de integración basadas en hilos y caja negra (Tema 3) | `HU-094`, Verificación Sprint 3 |
+| **Charlie Fox** | Developer | Web Admin: Panel de visualización de incidencias reportadas en `apps/admin` | `HU-054`, `HU-055`, Burndown |
 
 ---
 

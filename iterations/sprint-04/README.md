@@ -2,10 +2,12 @@
 
 ## 1. Estado y Contexto
 
-* **Estado:** Planificado / Iteración de consolidación y cierre hacia la entrega final del proyecto.
+* **Estado:** En curso / Incremento móvil de resiliencia sin conexión (HU-094) y accesibilidad universal WCAG 2.1 AA (HU-095) completado y verificado.
 * **Objetivo principal:** Integrar el portal web de administración (`apps/admin`) para gestión de avisos y edificios del campus, garantizar la robustez offline de la app móvil, ejecutar la batería de pruebas de sistema y validación (Tema 3) y culminar la memoria académica y el material de la defensa oral.
 * **Marco metodológico:** Scrum puro y Gestión Proactiva del Riesgo (Barry Boehm RSGR).
 * **Marco de pruebas:** Pruebas Orientadas a Objetos y Validación Integral según el Tema 3 (profesores Antonio Navarro y Gonzalo Méndez).
+* **Entregas en GitHub:** Rama `feature/sprint-04-offline-accessibility` (Frontend móvil por Naoufal Kebli).
+* **Métricas alcanzadas:** 241 pruebas superadas (176 Vitest + 65 Jest), cobertura >96% en líneas y >92% en ramas, 0 advertencias de ESLint y compilación nativa en Expo (Android e iOS).
 
 ---
 
@@ -33,7 +35,7 @@ Para llevar el proyecto a su estado final terminado y listo para evaluación:
 
 ### 👤 1. Naoufal Kebli (`@Naoufal33`)
 
-* **Rol Scrum:** Developer — Robustez Móvil, Modo Offline y Accesibilidad UI.
+* **Rol Scrum:** Developer.
 * **Historias asignadas:** `HU-094` (Modo offline y recuperación de red), `HU-095` (Accesibilidad UI).
 * **Entregables técnicos:**
   1. Estrategia de caché local en la app móvil: persistencia de lugares y rutas recientes para consulta sin conexión a internet.
@@ -45,7 +47,7 @@ Para llevar el proyecto a su estado final terminado y listo para evaluación:
 
 ### 👤 2. Daniel David (`@ddavid07`)
 
-* **Rol Scrum:** Developer / Arquitecto — Seguridad, Métricas y Hardening del Backend.
+* **Rol Scrum:** Developer.
 * **Historias asignadas:** `HU-090` (Protección de datos), `HU-091` (Control de acceso), `HU-075` (Métricas de estado).
 * **Entregables técnicos:**
   1. Endpoints de salud y métricas de producción en NestJS (`GET /health`, `GET /metrics`).
@@ -57,7 +59,7 @@ Para llevar el proyecto a su estado final terminado y listo para evaluación:
 
 ### 👤 3. Pablo Palacios (`@pablopr06`)
 
-* **Rol Scrum:** Developer — Panel Web Administrativo en `apps/admin`.
+* **Rol Scrum:** Developer.
 * **Historias asignadas:** `HU-070` (Gestión de edificios), `HU-071` (Gestión de categorías), `HU-057` (Publicación de avisos).
 * **Entregables técnicos:**
   1. Pantalla de administración en React + Vite (`apps/admin/src/pages/PlacesAdmin.tsx`) con tabla filtrable y formulario de edición.
@@ -69,7 +71,7 @@ Para llevar el proyecto a su estado final terminado y listo para evaluación:
 
 ### 👤 4. Pedro Cespón (`@pcespon`)
 
-* **Rol Scrum:** QA Lead / Developer — Pruebas de Sistema, Recuperación y Validación Final (Tema 3).
+* **Rol Scrum:** Developer.
 * **Historias asignadas:** Validación integral del sistema y cierre de calidad.
 * **Entregables técnicos (alineados con el Tema 3 de teoría):**
   1. **Pruebas de Sistema Basadas en Casos de Uso:** Verificación de extremo a extremo de los flujos principales (desde búsqueda hasta navegación y reporte de incidencias).
@@ -80,9 +82,9 @@ Para llevar el proyecto a su estado final terminado y listo para evaluación:
 
 ---
 
-### 👤 5. Charlie Fox / Carlos (`@yoespain`)
+### 👤 5. Charlie Fox (`@charliefox06`)
 
-* **Rol Scrum:** Scrum Master & Redactor Técnico — Memoria Final y Preparación de la Defensa.
+* **Rol Scrum:** Developer.
 * **Historias asignadas:** Documentación académica, actas de cierre y presentación final.
 * **Entregables técnicos:**
   1. Redacción completa de las conclusiones, métricas finales del proceso y trabajo futuro en `memory/memoria-del-proyecto.md`.
