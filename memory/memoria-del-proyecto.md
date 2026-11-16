@@ -349,6 +349,10 @@ Desarrollada con **React 19, TypeScript y Vite** por Charlie Fox (`@charliefox06
   * **Capa Cartográfica de Paradas EMT (`TransitStopLayer.tsx` — `HU-027`):** Marcadores circulares con iconografía de autobús situados en las coordenadas precisas de cada parada.
   * **Hoja Técnica de Parada (`TransitStopSheet.tsx` — `HU-027`):** Panel modal que emerge al interactuar con una parada, detallando su denominación, código oficial EMT, líneas con servicio, frecuencias estimadas de llegada en minutos y botón de acción rápida *"Planificar ruta hasta aquí"*.
   * **Control de Capas en `CampusScreen.tsx`:** Botón accesible de conmutación ("Ver EMT" / "Ocultar EMT") para activar o desactivar la capa de transporte público según las necesidades de visualización del usuario.
+* **Panel Web de Moderación y Triaje de Incidencias (`apps/admin` — Charlie Fox):**
+  * **Supervisión de Incidencias del Campus (`HU-054`):** Tablero con indicadores KPI agregados y filtrado por categoría y severidad, integrando la gestión de afecciones y cortes en paradas de la EMT (Línea G).
+  * **Ciclo de Vida y Transiciones Validadas (`HU-055`):** Autómata de estados finitos que valida transiciones coherentes con notas técnicas de intervención obligatorias y reclasificación de prioridad y unidad técnica asignada (*Mantenimiento UCM*, *Conserjería*, *EMT Madrid*).
+  * **Trazabilidad Inmutable (`HU-097`):** Registro inmediato en log de auditoría con diff de estados y ofuscación de credenciales.
 * **Métricas y Verificación de Calidad:**
   * 223 pruebas automatizadas superadas (168 Vitest + 55 Jest/React Native Testing Library).
   * Cobertura de código superior al 96% en líneas y al 92% en ramas lógicas en el paquete de aplicación móvil.

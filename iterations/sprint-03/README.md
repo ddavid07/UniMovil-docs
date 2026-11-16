@@ -84,12 +84,20 @@ Para mantener la autonomía y el avance simétrico de los cinco miembros del equ
 ### 👤 5. Charlie Fox (`@charliefox06`)
 
 * **Rol Scrum:** Developer.
-* **Historias asignadas:** `HU-054` (Gestionar incidencias), `HU-055` (Actualizar estado de incidencia).
+* **Historias asignadas:** `HU-054` (Gestionar incidencias), `HU-055` (Actualizar estado de incidencia), `HU-097` (Trazabilidad).
 * **Entregables técnicos:**
-  1. Vista básica en el portal web de administración (`apps/admin`) en React + Vite para visualizar la tabla de incidencias enviadas por los estudiantes.
-  2. Botón de moderación para que el gestor pueda marcar una obra como *"En curso"* o *"Resuelta"*.
-  3. Redacción del acta de planificación en `meetings/sprint-03-planificacion-y-reparto.md` y actualización del *Burndown Chart*.
-* **Módulos / Archivos principales:** `apps/admin/src/features/incidents/`, `UniMovil-docs/meetings/`.
+  1. **Tablero de Supervisión y Triaje de Incidencias (`apps/admin` — `HU-054`):**
+     * Tabla interactiva con métricas operativas por estado (Total, Pendientes, En Intervención, Resueltas) y filtrado predictivo por categoría y severidad.
+     * Integración de incidencias sobre la red de paradas del campus (ej. afecciones a paradas EMT y desvíos de Línea G).
+     * Modal de gestión que permite reclasificar la prioridad operativa (`baja`, `media`, `alta`, `urgente`) y asignar la intervención a unidades responsables (ej. *Mantenimiento UCM*, *Conserjería*, *EMT Madrid*).
+  2. **Motor de Transiciones de Ciclo de Vida (`apps/admin` / `@unimovil/contracts` — `HU-055`):**
+     * Control de autómata de estados finitos que valida transiciones coherentes (`recibida` ➔ `en_revision` ➔ `en_proceso` ➔ `resuelta` ➔ `cerrada`) con bloqueo en interfaz de opciones inválidas.
+     * Requerimiento de notas técnicas de intervención o informe de resolución en cada cambio de estado.
+     * Generación automática de registros de auditoría inmutable con diff de cambios (`HU-097`).
+  3. **Pruebas y Documentación:**
+     * Batería de pruebas unitarias en `apps/admin/src/domain/admin-service.spec.ts` y contratos en Vitest bajo las 3 reglas de TDD.
+     * Redacción del acta de sincronización del Sprint 3 en `meetings/sprint-03-sync-teammate.md` y actualización del Burndown.
+* **Módulos / Archivos principales:** `apps/admin/src/components/IncidentsView.tsx`, `apps/admin/src/domain/admin-service.ts`, `packages/contracts/src/incidents.ts`, `UniMovil-docs/meetings/sprint-03-sync-teammate.md`.
 
 ---
 
