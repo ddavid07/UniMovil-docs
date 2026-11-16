@@ -31,7 +31,7 @@ El equipo constata el cumplimiento del 100% de los objetivos comprometidos para 
 * **Trazabilidad Inmutable del Administrador (`HU-097`):**
   * Cada publicación genera automáticamente un evento de auditoría en la pestaña de Trazabilidad (`AuditView.tsx`) con formato estructurado, diff de cambios y preservación de autoría institucional (`@admin.campus`).
 * **Calidad y Verificación:**
-  * 5 nuevas pruebas unitarias añadidas en `admin-service.spec.ts` (28 pruebas en dominio admin, 125 pruebas verdes en el workspace).
+  * 22 nuevas pruebas unitarias añadidas en `admin-service.spec.ts` (45 pruebas en dominio admin, 142 pruebas verdes en el workspace de Vitest).
 
 ### 2.2. Modo Offline y Accesibilidad Móvil (`apps/mobile`) — Naoufal Kebli
 * Implementación de la caché local en SQLite / AsyncStorage para consulta de edificios y paradas sin conexión (`HU-094`).
@@ -72,7 +72,7 @@ El equipo concluye que abordar UniMovil mediante un modelo en cascada tradiciona
 | Criterio de la DoD | Estado | Evidencia |
 | :--- | :---: | :--- |
 | **Compilación Íntegra** | ✅ CUMPLIDO | Monorepo compila con 0 errores TypeScript (`npm run build`). |
-| **Pruebas Automatizadas** | ✅ CUMPLIDO | 125 tests en verde en Vitest (`admin-service`, `contracts`, `mobile`). |
+| **Pruebas Automatizadas** | ✅ CUMPLIDO | 142 tests en verde en Vitest (`admin-service`, `contracts`, `mobile`). |
 | **Calidad de Código** | ✅ CUMPLIDO | 0 errores y 0 warnings en ESLint (`--max-warnings=0`). |
 | **Memoria Académica** | ✅ CUMPLIDO | Secciones 1 a 7 completas y revisadas (`memory/memoria-del-proyecto.md`). |
 | **Presentación de Defensa** | ✅ CUMPLIDO | Slides y guión de demo de 5 minutos cerrados (`presentations/presentacion-del-proyecto.md`). |
