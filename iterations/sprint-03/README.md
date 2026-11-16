@@ -5,7 +5,7 @@
 * **Estado:** En curso / Incremento móvil de transporte multimodal completado y verificado en la PR #34.
 * **Objetivo principal:** Integrar el transporte público interno del campus (líneas de autobús G y F de la EMT) con cálculo comparativo de tiempos respecto a la caminata, e implementar el sistema de reporte y consulta de incidencias y obras en viales de Moncloa.
 * **Marco metodológico:** Scrum puro y Gestión Proactiva del Riesgo (Barry Boehm RSGR).
-* **Marco de pruebas:** Pruebas Orientadas a Objetos y TDD según el Tema 3 (profesores Antonio Navarro y Gonzalo Méndez).
+* **Marco de pruebas:** Pruebas Orientadas a Objetos y TDD (profesores Antonio Navarro y Gonzalo Méndez).
 * **Entregas en GitHub:** Pull Request #34 (`feature/sprint-03-multimodal-mobile` por Naoufal Kebli).
 * **Métricas alcanzadas:** 223 pruebas superadas (168 Vitest + 55 Jest), cobertura >96% en líneas y >92% en ramas, 0 advertencias de ESLint y compilación nativa en Expo.
 
@@ -73,11 +73,13 @@ Para mantener la autonomía y el avance simétrico de los cinco miembros del equ
 
 * **Rol Scrum:** Developer.
 * **Historias asignadas:** `HU-094` (Manejo de errores de transporte), verificación transversal del Sprint 3.
-* **Entregables técnicos (alineados con el Tema 3 de teoría):**
-  1. **Pruebas de Caja Negra (Particiones Equivalentes):** Verificación de las entradas de incidencias (reportes válidos, textos con caracteres especiales, coordenadas fuera de límites de la universidad).
+* **Entregables técnicos (alineados con la teoría de pruebas del software orientado a objetos):**
+  1. **Pruebas de Caja Negra (Particiones Equivalentes y Valores Límite):** Verificación de las entradas de incidencias (reportes válidos, textos con caracteres especiales, coordenadas fuera de límites de la universidad).
   2. **Pruebas de Integración Basadas en Hilos:** Validación de la secuencia completa: reporte de incidencia en móvil $\rightarrow$ validación de contrato $\rightarrow$ persistencia temporal $\rightarrow$ refresco en la capa cartográfica.
   3. **Pruebas de Regresión:** Verificación de que la incorporación de las líneas EMT no degrade el rendimiento de renderizado del mapa ni el cálculo de rutas peatonales.
+* **Documentación técnica:** [Plan de Validación — Sprint 3](../../validation/sprint-03-validation-plan.md) y [Diseño de Pruebas Orientadas a Objetos](../../validation/sprint-03-qa-testing-design.md).
 * **Módulos / Archivos principales:** `apps/mobile/src/features/transit/__tests__/`, `apps/mobile/src/features/incidents/__tests__/`.
+* **Estado de la entrega:** Completado y verificado (210 tests pasados, >98 % cobertura).
 
 ---
 
@@ -93,7 +95,7 @@ Para mantener la autonomía y el avance simétrico de los cinco miembros del equ
 
 ---
 
-## 5. Estrategia de Pruebas Orientadas a Objetos (Tema 3)
+## 5. Estrategia de Pruebas Orientadas a Objetos
 
 * **Pruebas de Unidad:** Clases `TransitService`, `IncidentValidator` y `ScheduleEstimator`.
 * **Pruebas de Integración basadas en usos:** Se comprueban primero las clases independientes (`GeoPoint`, `Contracts`) y a continuación las clases dependientes por capas (`IncidentController` $\rightarrow$ `IncidentService`).
