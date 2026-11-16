@@ -1,32 +1,34 @@
 # Sprints e iteraciones
 
-Esta carpeta contiene el plan y registro de cada Sprint. Cada carpeta `sprint-XX/` tiene un README basado en la [plantilla](template-sprint.md). Un plan es propuesta hasta que el equipo acuerda el Sprint Goal y selecciona el Sprint Backlog en Sprint Planning.
+UniMovil registra cada Sprint en un directorio `sprint-XX/` con un `README.md` creado a partir de [`template-sprint.md`](template-sprint.md). Por ejemplo: `iterations/sprint-01/README.md`. No crees una carpeta llamada `Scrum`.
 
-## Secuencia de incrementos propuesta
+* [Sprint 1 — Mapa interactivo del campus](sprint-01/README.md): Exploración del campus de Moncloa, catálogo base de 24 lugares OSM y búsqueda predictiva.
+* [Sprint 2 — Motor de Rutas Peatonales y Accesibilidad PMR](sprint-02/README.md): Grafo de caminos de Moncloa, cálculo de rutas a pie y filtro de accesibilidad sin barreras arquitectónicas.
+* [Sprint 3 — Multimodalidad EMT y Gestión de Incidencias](sprint-03/README.md): Integración de líneas universitarias G y F, paradas oficiales y reporte de incidencias en viales.
+* [Sprint 4 — Panel Web Admin, Validación Global y Cierre](sprint-04/README.md): Portal web de administración, robustez offline en móvil, pruebas de sistema y entrega final.
 
-La secuencia refleja dependencias; no fija fechas, duración, capacidad, estimaciones ni compromisos de entrega. Los Sprints 5 y 6 amplían la hoja de ruta, pero no asignan todo el Product Backlog a seis Sprints.
+## Qué contiene el registro
 
-1. [Sprint 1 — Explorar el campus](sprint-01/README.md): mapa, catálogo, búsqueda y ficha básica.
-2. [Sprint 2 — Calcular rutas peatonales accesibles](sprint-02/README.md): origen/destino, ruta, indicaciones y accesibilidad.
-3. [Sprint 3 — Consultar transporte público](sprint-03/README.md): líneas, paradas y comparación multimodal.
-4. [Sprint 4 — Mejorar resiliencia y accesibilidad](sprint-04/README.md): errores/conectividad limitada, accesibilidad de interfaz e integración.
-5. [Sprint 5 — Gestionar cuentas, privacidad y permisos](sprint-05/README.md): identidad, sesiones, consentimiento y autorización.
-6. [Sprint 6 — Cerrar el ciclo de incidencias](sprint-06/README.md): seguimiento de incidencias, notificaciones y validación de sistema.
+Cada registro debe describir, según avance el Sprint:
 
-## Qué registra cada Sprint
+1. **Objetivo:** Sprint Goal y motivo de valor para el producto.
+2. **Periodo:** fechas reales de inicio y cierre, cuando se hayan acordado.
+3. **Alcance:** historias seleccionadas, criterios relevantes y plan inicial del equipo.
+4. **Incremento:** comportamiento usable que se produjo, o descripción precisa de lo que quedó sin terminar.
+5. **Verificación y evidencias:** pruebas, capturas o demostraciones que permitan comprobar el resultado.
+6. **Sprint Review:** qué se mostró, feedback recibido, de quién o en qué contexto, acuerdos y cambios propuestos al backlog. Si no hubo feedback, indícalo expresamente.
+7. **Retrospectiva:** observaciones del equipo y acciones de mejora acordadas.
+8. **Pendiente y riesgos:** trabajo no terminado, riesgos y próximos pasos, sin presentarlos como compromisos del siguiente Sprint.
 
-1. **Estado y evidencia:** propuesta, en curso o integrada y verificada. Una rama o PR abierta no equivale a un incremento integrado.
-2. **Sprint Goal y alcance:** resultado de valor, historias candidatas y criterios observables. La selección final se hace en Sprint Planning según capacidad.
-3. **Plan y dependencias:** orden lógico, decisiones/spikes y ajustes, sin reparto nominal de tareas.
-4. **Riesgos RSGR:** probabilidad y consecuencia iniciales, prioridad, reducción, señales de seguimiento y contingencia.
-5. **Verificación:** pruebas, resultados con commit/entorno y limitaciones; no se declaran métricas sin evidencia reproducible.
-6. **Review y retrospectiva:** incremento inspeccionado, feedback real, decisiones y mejora. Si no ocurrieron, se indica pendiente.
-7. **Trabajo restante:** vuelve al Product Backlog para reordenación; no se arrastra automáticamente.
+## Dónde guardar los materiales
 
-Las actas/acuerdos se guardan en [meetings](../meetings/); los planes y resultados de pruebas, en [validation](../validation/); las presentaciones, en [presentations](../presentations/). Se enlazan desde el Sprint, sin duplicar su contenido.
+* Registro del Sprint y enlaces: `iterations/sprint-XX/README.md`.
+* Diapositivas y material de exposición: `presentations/`.
+* Actas de reuniones y acuerdos: `meetings/`.
+* Pruebas, feedback y evidencias: `validation/`.
 
-## Criterio para marcar un incremento como terminado
+Enlaza esos materiales desde el registro del Sprint en lugar de duplicarlos. Usa nombres de archivo claros y evita incluir datos personales innecesarios.
 
-Una historia solo se marca terminada cuando cumple sus criterios de aceptación y DoD, está integrada en `main` y existe evidencia de las comprobaciones aplicables. El contenido de una PR abierta se describe como trabajo propuesto, no como funcionalidad aceptada.
+## Reglas de honestidad y cierre
 
-Los registros de Sprints 1–4 se normalizan con este criterio. Los Sprints 5–6 son propuestas. Ningún documento fija fechas, responsables, puntos o capacidad que el equipo no haya acordado.
+Crea el registro al iniciar el Sprint y actualízalo durante el trabajo. Deja en blanco los campos aún no conocidos o márcalos como pendientes. No inventes fechas, asistentes, feedback, entregas, estimaciones ni resultados. Al cerrar, distingue el incremento terminado del trabajo pendiente y actualiza el backlog si cambia su prioridad o comprensión.

@@ -1,33 +1,42 @@
-# Preparación de Sprint Planning — Sprint 3
+# Acta de Reunión — Planificación del Sprint 3 y Reparto de Responsabilidades
 
-> **Estado:** propuesta de planificación, no acta confirmada. La versión anterior atribuía acuerdos unánimes y reparto nominal sin fecha/contexto verificable. No se mantienen como hechos hasta que el equipo los confirme.
+* **Asistentes / Integrantes:**
+  * Naoufal Kebli (`@Naoufal33`)
+  * Daniel David (`@ddavid07`)
+  * Pablo Palacios (`@pablopr06`)
+  * Pedro Cespón (`@pcespon`)
+  * Charlie Fox (`@charliefox06`)
 
-## Propósito propuesto
+---
 
-Entregar información de transporte público útil y transparente sobre procedencia, vigencia y estimaciones.
+## 1. Propósito de la Reunión
 
-## Sprint Goal propuesto
+Planificar el **Sprint 3**, consolidar el trabajo sobre el transporte público multimodal de la EMT (Líneas G y F de Ciudad Universitaria) y establecer el sistema de notificación y visualización de incidencias del campus para la aceleración del proyecto.
 
-> Como estudiante o visitante, quiero consultar líneas/paradas que recorren el campus y comparar una alternativa disponible con caminar, para elegir un medio con información y límites claros.
+---
 
-El alcance candidato está en [iterations/sprint-03](../iterations/sprint-03/README.md). Incidencias, autenticación y notificaciones se planifican después de resolver sus dependencias.
+## 2. Puntos Tratados y Acuerdos
 
-## Decisiones para Sprint Planning
+### 2.1. Revisión de Prerrequisitos y Alcance
 
-- Confirmar Product Goal, Sprint Goal y capacidad.
-- Refinar HU-022/026/027 y decidir qué líneas/paradas tienen evidencia fiable.
-- Verificar operador, fuente autorizada, licencia, horarios y fecha de actualización.
-- Separar horario planificado, estimación local y tiempo real; no comprometer HU-028 sin feed autorizado.
-- Acordar pruebas de datos obsoletos, línea/parada desconocida y alternativa no disponible.
-- Revisar riesgos RSGR y contingencias.
+* Se valida la integración de los contratos de enrutamiento y se aprueba extender el modelo de datos para acoger las líneas y paradas de la EMT.
+* Se define el mecanismo de incidencias ciudadanas/universitarias para señalar obstáculos temporales en el campus (obras, desvíos, aceras cortadas).
 
-## Registro posterior
+### 2.2. Sprint Goal del Sprint 3
 
-- Fecha/contexto:
-- Participantes, si procede y con consentimiento:
-- Sprint Goal acordado:
-- Historias seleccionadas/estimadas:
-- Fuentes autorizadas y límites:
-- DoD/evidencias:
-- Riesgos/impedimentos y acciones:
-- Review/feedback, cuando ocurra:
+Aprobado por unanimidad:
+> *"Integrar el transporte público interno del campus (líneas G y F de la EMT) con cálculo comparativo de tiempos respecto a la caminata, e implementar el sistema de reporte y consulta de incidencias y obras en viales de Moncloa."*
+
+### 2.3. Asignación de Roles y Responsabilidades (5 Integrantes)
+
+| Miembro | Rol Scrum | Área Técnica Principal | Historias Asignadas |
+| :--- | :--- | :--- | :--- |
+| **Naoufal Kebli** | Developer | Frontend Móvil: Tarjeta comparativa multimodal y trazado de líneas EMT | `HU-022`, `HU-026` |
+| **Daniel David** | Developer | Backend NestJS: Catálogo de paradas y endpoints de transporte EMT | `HU-026`, `HU-027`, `HU-072` |
+| **Pablo Palacios** | Developer | Móvil: Formulario de incidencias y capas cartográficas de obras | `HU-050`, `HU-051`, `HU-053` |
+| **Pedro Cespón** | Developer | QA: Pruebas de integración basadas en hilos y caja negra (Tema 3) | `HU-094`, Verificación Sprint 3 |
+| **Charlie Fox** | Developer | Web Admin: Panel de visualización de incidencias reportadas en `apps/admin` | `HU-054`, `HU-055`, Burndown |
+
+---
+
+*Acta aprobada por los 5 integrantes del equipo.*

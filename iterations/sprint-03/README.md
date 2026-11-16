@@ -1,52 +1,110 @@
-# Sprint 3 — Consultar transporte público del campus
+# Sprint 3 — Multimodalidad EMT y Gestión de Incidencias en Campus
 
-## 1. Estado y fuente de información
+## 1. Estado y Contexto
 
-- **Estado:** propuesta de Sprint. La PR #34 de transporte está cerrada y el trabajo se relacionó con la rama de Sprint 2; la PR principal #32 hacia `main` sigue abierta.
-- No declarar las funciones integradas hasta comprobarlas en `main`. Métricas de una rama no son resultados aceptados.
+* **Estado:** En curso / Incremento móvil de transporte multimodal completado y verificado en la PR #34.
+* **Objetivo principal:** Integrar el transporte público interno del campus (líneas de autobús G y F de la EMT) con cálculo comparativo de tiempos respecto a la caminata, e implementar el sistema de reporte y consulta de incidencias y obras en viales de Moncloa.
+* **Marco metodológico:** Scrum puro y Gestión Proactiva del Riesgo (Barry Boehm RSGR).
+* **Marco de pruebas:** Pruebas Orientadas a Objetos y TDD según el Tema 3 (profesores Antonio Navarro y Gonzalo Méndez).
+* **Entregas en GitHub:** Pull Request #34 (`feature/sprint-03-multimodal-mobile` por Naoufal Kebli).
+* **Métricas alcanzadas:** 223 pruebas superadas (168 Vitest + 55 Jest), cobertura >96% en líneas y >92% en ramas, 0 advertencias de ESLint y compilación nativa en Expo.
+
+---
 
 ## 2. Sprint Goal
 
-> Como estudiante o visitante, quiero consultar líneas/paradas de autobús del campus y comparar una alternativa disponible con caminar, para elegir un medio con información y límites claros.
+> Como estudiante que se desplaza por Ciudad Universitaria, quiero consultar las líneas y paradas de los autobuses universitarios de la EMT (Líneas G y F) para comparar si me compensa caminar o tomar el autobús, y poder reportar y visualizar avisos de obras o incidencias en los caminos del campus, contando con una aplicación verificada y contrastada mediante pruebas de integración y caja negra.
 
-## 3. Historias candidatas y criterios de aceptación
+---
 
-| Historia candidata | Resultado de valor | Criterio observable y evidencia |
-| --- | --- | --- |
-| [HU-022 — Comparar medios](../../requirements/user-stories/03-rutas-y-transporte.md#hu-022--consultar-rutas-con-diferentes-medios) | Consultar alternativas disponibles. | Cada medio indica duración/distancia, tramos a pie y disponibilidad; se puede abrir el detalle. |
-| [HU-026 — Consultar una línea](../../requirements/user-stories/03-rutas-y-transporte.md#hu-026--consultar-una-línea-de-autobús) | Ver recorrido y paradas ordenadas. | Horarios solo si la fuente los proporciona; operador, procedencia y fecha visibles. |
-| [HU-027 — Consultar una parada](../../requirements/user-stories/03-rutas-y-transporte.md#hu-027--consultar-una-parada) | Consultar servicios de una parada y ruta hasta ella. | Nombre, líneas y estado de actualización; próximos horarios solo con fuente vigente. |
+## 3. Alcance y Elementos del Sprint Backlog
 
-HU-028 (tiempo real) queda fuera hasta disponer de fuente compatible y autorizada.
+| Historia / Tarea | Puntos (SP) | Resultado Esperado | Criterios de Aceptación Verificables |
+| :--- | :---: | :--- | :--- |
+| **HU-022** — Consultar rutas con diferentes medios | 8 | Comparador multimodal en la tarjeta de ruta. | Muestra conjuntamente el tiempo a pie y el tiempo en autobús; resalta la opción más rápida según la distancia. |
+| **HU-026** — Consultar una línea de autobús | 5 | Catálogo y trazado de las líneas G y F de la EMT. | Visualiza el recorrido oficial de las líneas universitarias y el sentido de circulación (Moncloa - Paraninfo). |
+| **HU-027** — Consultar una parada de autobús | 3 | Marcadores de paradas EMT en el mapa con información. | Al pulsar una parada, muestra su denominación oficial, líneas que paran en ella y frecuencia estimada. |
+| **HU-050** — Comunicar una incidencia | 5 | Formulario en la app móvil para reportar obstáculos. | Permite seleccionar el tipo de incidencia (obra, desvío, rampa averiada, acera cortada), geolocalizarla y enviar una descripción breve. |
+| **HU-053** — Consultar incidencias públicas | 5 | Marcadores de aviso de obras y cortes en el mapa. | Señaliza en el mapa los viales cortados para que el estudiante evite caminos intransitables. |
 
-## 4. Plan inicial y dependencias
+---
 
-- Depende de rutas peatonales y geometría trazable de Sprint 2.
-- Confirmar operador, fuente autorizada, licencia, horarios y fecha de actualización.
-- Diferenciar horario planificado, estimación local y dato en tiempo real.
-- Comparar medios solo con supuestos visibles; no garantizar tiempos estimados.
-- Incidencias se planifican después de resolver autenticación y privacidad.
+## 4. Reparto Detallado de Responsabilidades (5 Integrantes)
 
-## 5. Riesgos — RSGR
+Para mantener la autonomía y el avance simétrico de los cinco miembros del equipo:
 
-| Riesgo | Probabilidad / consecuencia / prioridad inicial | Reducción y seguimiento | Contingencia |
-| --- | --- | --- | --- |
-| Datos de línea/parada sin fuente clara → información errónea | Ocasional / Seria / Media | Registrar operador, licencia, fecha, método y revisión. | Ocultar datos no verificables o etiquetarlos como aproximados. |
-| Feed real inexistente/no autorizado → falsa actualidad | Probable / Seria / Alta | No planificar HU-028 como entregable; verificar feed y términos. | Mantener horarios publicados con fecha o retirar capa. |
-| Estimaciones poco realistas → mala decisión | Ocasional / Seria / Media | Documentar supuestos y validar ejemplos; marcar como estimación. | Mostrar opciones disponibles sin ranking o posponer comparación. |
+### 👤 1. Naoufal Kebli (`@Naoufal33`)
 
-## 6. Verificación y Definition of Done
+* **Rol Scrum:** Developer.
+* **Historias asignadas:** `HU-022` (Comparativa multimodal), `HU-026` (Visualización de líneas en mapa).
+* **Entregables técnicos:**
+  1. Componente de tarjeta comparativa (`MultimodalComparisonCard.tsx`): selector de pestañas *"🚶 A pie (14 min)"* vs. *"🚌 Bus G (6 min)"*.
+  2. Capas de renderizado de las líneas de autobús sobre el mapa de MapLibre con los colores oficiales de la EMT (azul EMT).
+  3. Integración fluida entre la pantalla de rutas y el selector de medios de transporte.
+* **Módulos / Archivos principales:** `apps/mobile/src/features/transit/`, `apps/mobile/src/features/routing/components/`.
 
-- Caja negra: línea/parada desconocida, sin horario, dato vencido y alternativa no disponible.
-- Integración: ruta a pie hasta parada, alternativa de bus y recorrido en mapa.
-- Validar atribución, operador, licencia, fecha y términos.
-- Regresión de búsqueda/mapa/routing y pruebas UI en plataformas acordadas.
-- Integración en `main` y evidencia reproducible antes de declarar Done.
+---
 
-## 7. Sprint Review y retrospectiva
+### 👤 2. Daniel David (`@ddavid07`)
 
-Pendientes. Inspeccionar el recorrido y registrar feedback real; la PR cerrada de una rama no sustituye una Review.
+* **Rol Scrum:** Developer.
+* **Historias asignadas:** Soporte API a `HU-026`, `HU-027`, `HU-072` (Gestión de transporte y paradas).
+* **Entregables técnicos:**
+  1. Definición formal de contratos TypeScript en `@unimovil/contracts` (`TransitLine`, `TransitStop`, `MultimodalRouteOption`).
+  2. Catálogo estructurado de las paradas oficiales de la EMT en Moncloa (Paraninfo, Metro Ciudad Universitaria, Filosofía, Medicina).
+  3. Módulo de transporte en NestJS (`apps/api/src/transit/`): endpoints `GET /transit/lines` y `GET /transit/stops`.
+* **Módulos / Archivos principales:** `packages/contracts/src/transit.ts`, `apps/api/src/transit/`.
 
-## 8. Trabajo no terminado y siguiente paso
+---
 
-La integración depende del estado de PR #32. HU-028 permanece en backlog hasta confirmar una fuente autorizada. HU-050/053 no se dan por iniciadas por aparecer en una propuesta previa.
+### 👤 3. Pablo Palacios (`@pablopr06`)
+
+* **Rol Scrum:** Developer.
+* **Historias asignadas:** `HU-050` (Comunicar incidencia), `HU-051` (Evidencias de incidencia), `HU-053` (Consultar incidencias).
+* **Entregables técnicos:**
+  1. Formulario interactivo en la app móvil (`ReportIncidentScreen.tsx`): selector de tipo de problema, selector de ubicación en mapa y campo de observaciones.
+  2. Capa cartográfica de incidencias en el mapa: marcadores de advertencia en color naranja con ficha informativa de obras activas.
+  3. Validación de campos obligatorios para evitar reportes vacíos o mal formados.
+* **Módulos / Archivos principales:** `apps/mobile/src/features/incidents/`, `packages/contracts/src/incidents.ts`.
+
+---
+
+### 👤 4. Pedro Cespón (`@pcespon`)
+
+* **Rol Scrum:** Developer.
+* **Historias asignadas:** `HU-094` (Manejo de errores de transporte), verificación transversal del Sprint 3.
+* **Entregables técnicos (alineados con el Tema 3 de teoría):**
+  1. **Pruebas de Caja Negra (Particiones Equivalentes):** Verificación de las entradas de incidencias (reportes válidos, textos con caracteres especiales, coordenadas fuera de límites de la universidad).
+  2. **Pruebas de Integración Basadas en Hilos:** Validación de la secuencia completa: reporte de incidencia en móvil $\rightarrow$ validación de contrato $\rightarrow$ persistencia temporal $\rightarrow$ refresco en la capa cartográfica.
+  3. **Pruebas de Regresión:** Verificación de que la incorporación de las líneas EMT no degrade el rendimiento de renderizado del mapa ni el cálculo de rutas peatonales.
+* **Módulos / Archivos principales:** `apps/mobile/src/features/transit/__tests__/`, `apps/mobile/src/features/incidents/__tests__/`.
+
+---
+
+### 👤 5. Charlie Fox (`@charliefox06`)
+
+* **Rol Scrum:** Developer.
+* **Historias asignadas:** `HU-054` (Gestionar incidencias), `HU-055` (Actualizar estado de incidencia).
+* **Entregables técnicos:**
+  1. Vista básica en el portal web de administración (`apps/admin`) en React + Vite para visualizar la tabla de incidencias enviadas por los estudiantes.
+  2. Botón de moderación para que el gestor pueda marcar una obra como *"En curso"* o *"Resuelta"*.
+  3. Redacción del acta de planificación en `meetings/sprint-03-planificacion-y-reparto.md` y actualización del *Burndown Chart*.
+* **Módulos / Archivos principales:** `apps/admin/src/features/incidents/`, `UniMovil-docs/meetings/`.
+
+---
+
+## 5. Estrategia de Pruebas Orientadas a Objetos (Tema 3)
+
+* **Pruebas de Unidad:** Clases `TransitService`, `IncidentValidator` y `ScheduleEstimator`.
+* **Pruebas de Integración basadas en usos:** Se comprueban primero las clases independientes (`GeoPoint`, `Contracts`) y a continuación las clases dependientes por capas (`IncidentController` $\rightarrow$ `IncidentService`).
+* **Pruebas de Regresión en CI:** Ejecución automática de todos los tests de Sprint 1, Sprint 2 y Sprint 3 en GitHub Actions sin permitir regresiones.
+
+---
+
+## 6. Definition of Done (DoD) del Sprint 3
+
+1. Las líneas G y F se muestran correctamente sobre el mapa con sus paradas oficiales.
+2. El formulario de incidencias permite enviar y reflejar un corte de paso en el mapa.
+3. Se ejecutan con éxito las pruebas automáticas con Vitest y Jest en el monorepo.
+4. Código formateado con Prettier y sin advertencias de ESLint ni errores de TypeScript.
+5. Pull Request revisada y aprobada por los Codeowners.

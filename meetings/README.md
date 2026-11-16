@@ -1,18 +1,10 @@
 # Reuniones y acuerdos
 
-Esta carpeta conserva agendas, actas de reuniones que realmente ocurrieron y acuerdos con su contexto. Una propuesta de Sprint no es un acta. Si fecha, contexto o resultado no constan, no se atribuyen asistentes, aprobación ni acuerdos.
+Las actas registran solo reuniones realizadas. Cuando sea pertinente, incluyen fecha, propósito, participantes con su consentimiento, temas tratados, acuerdos, responsables y asuntos pendientes. Evita datos personales innecesarios.
 
-- Las agendas y planes de Sprint enlazan a [iterations](../iterations/README.md).
-- Decisiones de producto se reflejan en el Product Backlog y registro del Sprint.
-- Decisiones técnicas ligadas al código se registran como ADR en el repositorio principal.
-- Pruebas y feedback se evidencian en [validation](../validation/README.md).
-- No se duplica aquí el Sprint Backlog completo.
+Las decisiones de producto o seguimiento pueden enlazarse desde el backlog o la iteración correspondiente. Las decisiones técnicas que cambien con el código se registran como ADR en el repositorio principal. Para reuniones futuras puede usarse una plantilla claramente marcada como tal; no la presentes como un acta real.
 
-## Documentos actuales
-
-- [Agenda de Sprint Planning 1](sprint-01-planning-agenda.md): preparación/campos pendientes; no es acta.
-- [Preparación de Sprint 2](sprint-02-reparto-de-trabajo.md): propuesta; falta confirmar si hubo reunión.
-- [Preparación de Sprint 3](sprint-03-planificacion-y-reparto.md): propuesta; falta confirmar si hubo reunión.
-- [Preparación de Sprint 4](sprint-04-planificacion-y-cierre.md): propuesta; falta confirmar si hubo reunión.
-
-Los documentos disponibles no registran fecha/contexto verificable para las reuniones 2–4. Hasta confirmarlo con el equipo, son propuestas de planificación y no evidencia de acuerdos realizados.
+* [Agenda de Sprint Planning 1](sprint-01-planning-agenda.md): Preparación y alcance de la primera iteración.
+* [Acta de Planificación del Sprint 2](sprint-02-reparto-de-trabajo.md): Formalización de acuerdos, motor de rutas peatonales y reparto de responsabilidades para 5 integrantes.
+* [Acta de Planificación del Sprint 3](sprint-03-planificacion-y-reparto.md): Acuerdos para la multimodalidad EMT (líneas G y F) y gestión móvil de incidencias.
+* [Acta de Planificación del Sprint 4 y Cierre](sprint-04-planificacion-y-cierre.md): Acuerdos de cierre, panel web admin, validación global del sistema y entrega final.
