@@ -238,6 +238,8 @@ Garantiza el desacoplamiento seguro. Define las interfaces de `Place`, `AccessPo
 
 * **Modelos de enrutamiento:** `Coordinates`, `RouteRequest`, `RouteResponse`, `RouteSegment` y `TransportMode`.
 * **Modelos de transporte multimodal:** `TransitLine`, `TransitStop`, `TransitArrival`, `MultimodalAlternative` y `MultimodalComparison`.
+* **Modelos de incidencias y ciclo de vida:** `Incident`, `IncidentStatus`, `IncidentPriority`, `IncidentCategory` y validador de transiciones coherentes `isValidIncidentTransition`.
+* **Modelos de auditoría y trazabilidad:** `AuditEntry`, `AuditAction`, `AuditResource` y funciones de saneamiento estricto de secretos y credenciales (`createAuditEntry`, `parseAuditEntry`).
 
 ### 5.2. Capa Servidor (`apps/api`)
 
@@ -264,6 +266,16 @@ Desarrollada con **React Native y Expo Router**. Aplica un diseño por component
 * `TransitLineLayer` y `TransitStopLayer`: Visualización de los trazados GeoJSON de las líneas G y F de la EMT y marcadores de paradas oficiales.
 * `TransitStopSheet`: Modal de información de parada de autobús con tiempos de espera en tiempo real y botón de guiado directo.
 * `index.tsx`: Controlador principal de vista que integra un conmutador dual (*Segmented Control*) para alternar sin latencia entre la vista cartográfica y la vista de catálogo en lista.
+
+### 5.4. Capa Web de Administración (`apps/admin`)
+
+Desarrollada con **React 19, TypeScript y Vite** por Charlie Fox (`@charliefox06`), constituye el portal de administración del campus universitario, enfocado en la gestión operativa, resolución de incidencias de movilidad y auditoría de cambios:
+
+* `Header`: Identificación institucional de la UCM, badge de sesión (Administrador de Campus · `@admin.campus` · Administración UCM) y señal de disponibilidad operativa en tiempo real del campus.
+* `PlacesView` (`HU-070`): Panel de gestión de lugares con búsqueda predictiva, filtros de categoría y accesibilidad PMR, y conmutador de estado operativo (`active`, `maintenance`, `inactive`) con justificación técnica obligatoria.
+* `IncidentsView` (`HU-050`, `HU-054`, `HU-055`): Tablero de incidencias de movilidad urbana (rampas bloqueadas, averías en salvaescaleras, aceras deterioradas) con métricas en tiempo real y control de transiciones de ciclo de vida strictly-typed.
+* `TraceabilityView` (`HU-097`): Registro inmutable y cronológico de todas las modificaciones sobre datos sensibles del campus con ofuscación automática de contraseñas y claves privadas.
+* `admin-service.ts`: Lógica de dominio pura y desacoplada, con cobertura total de pruebas unitarias en Vitest.
 
 ---
 
