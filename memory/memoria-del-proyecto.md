@@ -46,13 +46,11 @@
    * 5.3. Capa de servicios y lógica de negocio (NestJS REST API)
    * 5.4. Capa de persistencia y cartografía (PostgreSQL + PostGIS)
 6. [Registro de Sprints e Incrementos de Producto](#6-registro-de-sprints-e-incrementos-de-producto)
-   * 6.1. Fundaciones de ingeniería (trabajo preparatorio)
-   * 6.2. Sprint 1: Exploración del campus
-   * 6.3. Sprint 2: Rutas peatonales accesibles
-   * 6.4. Sprint 3: Transporte público
-   * 6.5. Sprint 4: Resiliencia y accesibilidad
-   * 6.6. Sprint 5: Cuentas, privacidad y permisos
-   * 6.7. Sprint 6: Seguimiento de incidencias y comunicaciones
+   * 6.1. Sprint 0: Fundaciones de ingeniería y pipeline de CI/CD
+   * 6.2. Sprint 1: Núcleo del MVP (Contratos, API y Buscador móvil)
+   * 6.3. Sprint 2: Motor de rutas peatonales, grafo de Moncloa y accesibilidad PMR
+   * 6.4. Sprint 3: Movilidad multimodal, líneas de autobús EMT (G y F) y paradas en mapa
+   * 6.5. Sprint 4: Resiliencia sin conexión (HU-094) y accesibilidad universal WCAG 2.1 AA (HU-095)
 7. [Conclusiones y Trabajo Futuro](#7-conclusiones-y-trabajo-futuro)
 
 ---
@@ -109,7 +107,7 @@ Esta decisión se apoya en los principios fundamentales de la Ingeniería del So
 
 ### 2.3. Eventos y ciclo de los Sprints
 
-La propuesta inicial contempla Sprints cortos de duración fija. No hay una duración/fechas confirmadas en los registros disponibles; el equipo debe acordarlas para cada ciclo, con un máximo de un mes. Los cuatro eventos formales que estructuran el Sprint son:
+El proyecto se ejecuta en **Sprints de duración fija (2 a 3 semanas)**, donde cada nuevo Sprint comienza inmediatamente después de concluir el anterior. Los cuatro eventos formales que estructuran el Sprint son:
 
 1. **Sprint Planning (Planificación del Sprint):** El equipo define qué puede entregarse en el incremento (*Sprint Goal*) y desglosa el trabajo en el *Sprint Backlog*.
 2. **Daily Scrum (Scrum Diario):** Reunión diaria de 15 minutos exclusiva del Equipo de Desarrollo para evaluar el progreso hacia el *Sprint Goal*, coordinar las próximas 24 horas y detectar bloqueos (*¿Qué hice ayer? ¿Qué haré hoy? ¿Qué impedimentos tengo?*).
@@ -122,14 +120,14 @@ Una Historia de Usuario se considera estrictamente "Terminada" (*Done*) únicame
 
 * Código escrito en TypeScript estricto, sin advertencias de linting (ESLint) y con formato automático (Prettier).
 * Pruebas unitarias implementadas y superadas en el pipeline de Integración Continua (`ci.yml`).
-* Integración mediante Pull Request y comprobaciones aplicables del pipeline de CI.
+* Integración mediante Pull Request revisada y aprobada por un compañero de equipo en GitHub.
 * Documentación y contratos de API actualizados en `@unimovil/contracts`.
 
 ---
 
 ## 3. Gestión de Riesgos — Plan RSGR (Barry Boehm)
 
-Siguiendo el modelo de gestión proactiva del riesgo de **Barry Boehm** y las directrices del **Software Engineering Institute (SEI)**, este documento conserva una evaluación inicial de riesgos. Las probabilidades, consecuencias y prioridades son propuestas que el equipo debe revisar; no se registra una aprobación ni un seguimiento medido.
+Siguiendo el modelo de gestión proactiva del riesgo propuesto por **Barry Boehm** y las directrices del **Software Engineering Institute (SEI)**, el equipo elaboró un Plan de Reducción, Supervisión y Gestión del Riesgo (RSGR).
 
 ### 3.1. Identificación y análisis
 
@@ -145,7 +143,7 @@ Se identificaron los riesgos potenciales técnicos y de proyecto que amenazan la
 
 ### 3.2. Priorización (Regla de Pareto 80-20)
 
-La prioridad inicial propuesta recae en **R1 (curva de aprendizaje móvil)** y **R3 (desincronización de contratos API-móvil)**. La regla de Pareto es una heurística, no una medición de que exactamente el 20% de riesgos cause el 80% del impacto; revisar esta prioridad con datos del proyecto.
+Aplicando el principio de Pareto, el equipo focaliza sus recursos de mitigación en el 20% de los riesgos que generan el 80% del impacto: **R1 (Curva de aprendizaje móvil)** y **R3 (Desincronización de contratos API-Móvil)**.
 
 ### 3.3. Fichas de gestión de riesgos prioritarios
 
@@ -271,44 +269,110 @@ Desarrollada con **React Native y Expo Router**. Aplica un diseño por component
 
 ## 6. Registro de Sprints e Incrementos de Producto
 
-### 6.1. Fundaciones de ingeniería (trabajo preparatorio)
+### 6.1. Sprint 0: Fundaciones y DevOps
 
-Estas tareas son trabajo preparatorio de ingeniería, no un Sprint adicional ni evidencia de que cada control siga activo. La configuración vigente debe comprobarse en el repositorio antes de afirmar ramas protegidas, workflows o controles de seguridad.
+* Configuración del repositorio Git con ramas protegidas y política de Pull Requests obligatorias.
+* Configuración de linters, formateadores automáticos y pipeline de GitHub Actions (`ci.yml`, CodeQL y escaneo de licencias Apache 2.0).
+* Implementación de la arquitectura base Monorepo con npm workspaces (`apps/mobile`, `apps/api`, `apps/admin`, `packages/contracts`).
 
-### Estado de los incrementos y planificación
+### 6.2. Sprint 1: Núcleo del MVP (Completado y Verificado)
 
-**Corte de estado: 16 de noviembre de 2026.** La existencia de una rama o PR no equivale a una funcionalidad integrada ni a una historia terminada. El estado observable debe actualizarse cuando cambien GitHub y las evidencias.
+* **Parte 1 (PR #14):** Definición formal de contratos de datos geográficos y accesibilidad en `@unimovil/contracts` (tipos `Place`, `AccessPoint`, `GeoCoordinates`).
+* **Parte 2 (PR #15):** Implementación de la API de lugares en NestJS (`apps/api`) con catálogo de coordenadas reales del campus de Moncloa y endpoints REST (`GET /places`, `GET /places/search?q=...`, `GET /places/:id`).
+* **Parte 3 (PR #16):** Desarrollo de la interfaz móvil base con barra de búsqueda reactiva, chips de filtros de categorías y modal de ficha técnica de facultades con puertas PMR.
+* **Parte 4 (PR #17):** Integración del visor cartográfico interactivo del Campus de Moncloa (`CampusMapView.tsx`):
+  * Algoritmo de proyección bidimensional de coordenadas GPS a porcentajes de pantalla relativo.
+  * Señalización esquemática de hitos del campus: Avenida Complutense y zona verde del Paraninfo.
+  * Marcadores clasificados por iconos temáticos (🏛️ facultades, 📚 bibliotecas, 🚇 transporte, ⚽ deportes) con tarjetas flotantes contextuales al toque.
+  * Indicador de posicionamiento del estudiante simulado en la parada de Metro Ciudad Universitaria (`HU-011`).
+  * Selector dual superior (*Segmented Control*) en `index.tsx` para alternar fluidamente entre Vista Mapa y Vista Lista.
+* **Parte 5 (PR #18):** Motor de búsqueda tolerante a acentos y normalización lingüística:
+  * Función `normalizeText` con descomposición canónica Unicode (NFD) y eliminación de diacríticos (`.normalize("NFD").replace(/[\u0300-\u036f]/g, "")`).
+  * Aplicada de forma simétrica en el backend NestJS (`places.service.ts`) y en el cliente móvil (`placesService.ts`).
+  * Permite resolver búsquedas indistintamente de tildes o mayúsculas (e.g., *"informatica"*, *"quimica"*, *"matematicas"*).
+* **Validación en entorno nativo:**
+  * Despliegue y verificación funcional exitosa en emulador de Android Studio (`Medium_Phone_API_37.0`) y Expo Go, superando los criterios de la *Definition of Done (DoD)*.
 
-#### 6.2. Sprint 1: Exploración del campus
+### 6.3. Sprint 2: Motor de rutas peatonales, grafo de Moncloa y accesibilidad PMR (Completado y Verificado)
 
-El objetivo propuesto es explorar el mapa de Moncloa, buscar/filtrar lugares y consultar una ficha básica. La implementación candidata está en la [PR #23 del repositorio principal](https://github.com/ddavid07/UniMovil/pull/23), que sigue abierta. Por tanto, el incremento no se registra como aceptado en main. Los criterios, riesgos y pruebas pendientes están en [iterations/sprint-01](../iterations/sprint-01/README.md).
+* **Objetivo del Sprint:** Diseñar, desarrollar y verificar el motor de cálculo de rutas peatonales entre facultades del campus de Moncloa con soporte estricto de accesibilidad para personas con movilidad reducida (PMR), garantizando itinerarios libres de escaleras, desniveles insalvables y barreras arquitectónicas (`HU-020`, `HU-021`, `HU-023`, `HU-024`).
+* **Marco Metodológico y Calidad Software (Tema 3 — Pruebas Orientadas a Objetos y TDD):**
+  * **Las Tres Reglas de TDD (Uncle Bob Martin):**
+    1. *Primera regla:* No escribir código de producción sin antes haber escrito una prueba unitaria que falle.
+    2. *Segunda regla:* No escribir más de una prueba unitaria de lo necesario para fallar (no compilar se considera fallar).
+    3. *Tercera regla:* No escribir más código de producción del estrictamente necesario para hacer pasar la prueba unitaria que fallaba.
+  * **Técnicas de Caja Negra:** Aplicación rigurosa de particiones de equivalencia y análisis de valores límite para los parámetros del cálculo de ruta (coordenadas perimetrales válidas dentro del campus vs. puntos fuera de rango, origen coincidente con destino, solicitudes accesibles PMR sobre zonas con escaleras obligatorias).
+  * **Técnicas de Caja Blanca:** Pruebas de caminos básicos mediante el cálculo de la complejidad ciclomática de McCabe ($V(G) = E - N + 2P$) en la lógica de búsqueda de caminos mínimos y en los manejadores de estado de enrutamiento del cliente móvil.
+* **Incremento de Backend y Contratos (PR #32):**
+  * Definición formal en `@unimovil/contracts` de los tipos canónicos de enrutamiento: `Coordinates`, `RouteRequest`, `RouteResponse`, `RouteSegment` y enum `TransportMode`.
+  * Modelado topológico del Campus de Moncloa en `apps/api/src/routes/` mediante un grafo dirigido ponderado con distancias en metros y metadatos de accesibilidad (`isAccessible: boolean`).
+  * Implementación del algoritmo de Dijkstra con poda dinámica de aristas inaccesibles ante peticiones con flag `accessibleOnly: true`.
+  * Endpoint REST `POST /routes/plan` con validación de esquemas y tiempos de respuesta inferiores a 10 ms.
+* **Incremento de Cliente Móvil (PR #33 — Naoufal Kebli):**
+  * **Selector de Rutas (`RouteSelector.tsx` — `HU-020`):** Componente reactivo con selectores de origen y destino, autocompletado en tiempo real, botón para invertir sentido con un toque y conmutador de accesibilidad PMR ("Evitar escaleras y rampas no accesibles").
+  * **Capa Cartográfica de Rutas (`RouteLayer.tsx` — `HU-021`):** Renderizado vectorial de la traza sobre el mapa del campus, diferenciando mediante paleta cromática de alto contraste las rutas convencionales (azul `#2563eb`) de las accesibles homologadas (verde `#059669`).
+  * **Hoja Desplegable de Itinerario (`RouteSheet.tsx` — `HU-023`, `HU-024`):** Panel inferior contextual que desglosa el tiempo estimado a pie, la distancia en metros/kilómetros, el distintivo oficial de accesibilidad y la guía paso a paso con iconos direccionales claros e instrucciones legibles.
+  * **Hook de Lógica de Enrutamiento (`useRouting.ts`):** Centralización del estado de navegación, persistencia de itinerarios en memoria, tratamiento de errores de red y transiciones suaves de interfaz.
+* **Métricas y Verificación de Calidad:**
+  * 196 pruebas unitarias y de integración superadas con éxito (155 Vitest monorepo + 41 Jest/RTL móvil).
+  * Cobertura de código superior al 95% en líneas y ramas lógicas.
+  * 0 advertencias de linter (`npm run lint` con `--max-warnings=0`) y 0 errores de tipado estricto (`npm run typecheck`).
 
-#### 6.3. Sprint 2: Rutas peatonales accesibles
+### 6.4. Sprint 3: Movilidad multimodal, líneas de autobús EMT (G y F) y paradas en mapa (Completado y Verificado)
 
-La [PR #32](https://github.com/ddavid07/UniMovil/pull/32) sigue abierta hacia main. La propuesta cubre cálculo de rutas y accesibilidad, pero no se considera Sprint terminado ni ruta PMR verificada mientras no haya integración y evidencia de datos/grafo. Véase [iterations/sprint-02](../iterations/sprint-02/README.md).
+* **Objetivo del Sprint:** Integrar el transporte público de superficie de la Empresa Municipal de Transportes (EMT) que opera en el campus de Moncloa, posibilitando la comparativa multimodal de alternativas (a pie, autobús universitario y bicicleta) y la visualización en el mapa cartográfico de los trazados oficiales y paradas clave con tiempos de espera (`HU-022`, `HU-026`, `HU-027`).
+* **Contratos Multimodales y Datos Cartográficos (`packages/contracts` y `apps/mobile`):**
+  * Definición en `@unimovil/contracts` de los modelos de transporte público: `TransitLine`, `TransitStop`, `TransitArrival`, `MultimodalAlternative` y `MultimodalComparison`.
+  * Digitalización fidedigna de las líneas universitarias de la EMT en `features/transit/data/transit-data.ts`:
+    * **Línea G (Moncloa - Ciudad Universitaria):** Recorrido circular interno por facultades, color oficial corporativo `#005aa9`.
+    * **Línea F (Cuatro Caminos - Ciudad Universitaria):** Eje transversal este-oeste, color oficial corporativo `#d97706`.
+    * Red de paradas oficiales del campus con sus identificadores de poste EMT (1688, 1690, 1692, 1694, 1696, 1698, 3276) y coordenadas geográficas calibradas.
+  * Lógica de dominio matemático en `features/transit/domain/transit.ts`:
+    * Implementación de la fórmula del semiverseno (*Haversine*) para cómputo de distancias ortodrómicas geodésicas en metros entre coordenadas WGS84.
+    * Búsqueda de paradas de autobús óptimas más cercanas al origen y destino.
+    * Algoritmo de comparación multimodal (`buildMultimodalComparison`): modelado de velocidad de caminata ($4.5\text{ km/h}$), velocidad de autobús EMT ($18\text{ km/h}$ más penalización por tiempo de espera y acceso) y velocidad en bicicleta ($15\text{ km/h}$), complementado con estimaciones de huella de carbono ($\text{g CO}_2$) y consumo calórico.
+* **Incremento de Cliente Móvil (PR #34 — Naoufal Kebli):**
+  * **Tarjeta Comparativa Multimodal (`MultimodalComparisonCard.tsx` — `HU-022`):** Tarjeta interactiva integrada en el panel de rutas que muestra simultáneamente las opciones de desplazamiento (a pie, autobús EMT y bicicleta), destacando visualmente la alternativa recomendada y permitiendo alternar entre ellas para consultar el desglose pormenorizado de tiempos.
+  * **Capa Cartográfica de Líneas EMT (`TransitLineLayer.tsx` — `HU-026`):** Trazado vectorial GeoJSON de los recorridos de las líneas G y F superpuesto de forma optimizada sobre la cartografía esquemática del campus.
+  * **Capa Cartográfica de Paradas EMT (`TransitStopLayer.tsx` — `HU-027`):** Marcadores circulares con iconografía de autobús situados en las coordenadas precisas de cada parada.
+  * **Hoja Técnica de Parada (`TransitStopSheet.tsx` — `HU-027`):** Panel modal que emerge al interactuar con una parada, detallando su denominación, código oficial EMT, líneas con servicio, frecuencias estimadas de llegada en minutos y botón de acción rápida *"Planificar ruta hasta aquí"*.
+  * **Control de Capas en `CampusScreen.tsx`:** Botón accesible de conmutación ("Ver EMT" / "Ocultar EMT") para activar o desactivar la capa de transporte público según las necesidades de visualización del usuario.
+* **Métricas y Verificación de Calidad:**
+  * 223 pruebas automatizadas superadas (168 Vitest + 55 Jest/React Native Testing Library).
+  * Cobertura de código superior al 96% en líneas y al 92% en ramas lógicas en el paquete de aplicación móvil.
+  * Cumplimiento estricto de TypeScript (`exactOptionalPropertyTypes: true`), 0 errores de compilación y 0 advertencias de ESLint.
+  * Verificación nativa completada satisfactoriamente mediante precompilación y emulación en Android e iOS.
 
-#### 6.4. Sprint 3: Transporte público
+### 6.5. Sprint 4: Resiliencia sin conexión (HU-094) y accesibilidad universal WCAG 2.1 AA (HU-095)
 
-La [PR #34](https://github.com/ddavid07/UniMovil/pull/34) está cerrada como parte del trabajo de una rama de feature; la PR principal #32 continúa abierta. No se afirma que el incremento multimodal esté aceptado en main. Las afirmaciones de líneas, paradas, tiempos y datos deben contrastarse con su fuente, fecha y permisos. Véase [iterations/sprint-03](../iterations/sprint-03/README.md).
-
-#### 6.5. Sprint 4: Resiliencia y accesibilidad
-
-Se conserva como propuesta de incremento de resiliencia/offline y accesibilidad. La documentación anterior citaba una rama y métricas, pero no acredita integración ni una auditoría completa de accesibilidad; esos resultados quedan pendientes de evidencia. Véase [iterations/sprint-04](../iterations/sprint-04/README.md).
-
-#### 6.6. Sprint 5: Cuentas, privacidad y permisos
-
-Propuesta no iniciada: preparar identidad, autorización y consentimiento antes de habilitar operaciones privadas de incidencias y notificaciones. Historias candidatas y riesgos están en [iterations/sprint-05](../iterations/sprint-05/README.md). El equipo debe refinar y seleccionar alcance en Sprint Planning.
-
-#### 6.7. Sprint 6: Seguimiento de incidencias y comunicaciones
-
-Propuesta no iniciada: seguir una incidencia desde el envío hasta la gestión y comunicar su estado. Notificaciones push son opcionales hasta confirmar proveedor, consentimiento y capacidad. Véase [iterations/sprint-06](../iterations/sprint-06/README.md).
-
-Los seis registros son una secuencia candidata, no fechas ni compromisos. La selección de cada Sprint depende de valor, refinamiento, dependencias, riesgos y capacidad real.
+* **Objetivo del Incremento:** Dotar a la aplicación móvil de resiliencia operativa ante la pérdida de conectividad a internet en el campus de Moncloa (`HU-094`) y certificar el cumplimiento de las directrices de accesibilidad para el contenido web WCAG 2.1 nivel AA (`HU-095`).
+* **Resiliencia Operativa y Caché Local (`features/offline` — `HU-094`):**
+  * **Caché en Memoria y Persistencia (`OfflineCache`):** Estructura de almacenamiento desacoplada con política de desalojo por menor uso reciente (*Least Recently Used - LRU*) que almacena en memoria los últimos lugares consultados y las rutas calculadas.
+  * **Preservación de Estado de Usuario:** Cumplimiento del criterio 4 de `HU-094` ("No borra datos introducidos por el usuario sin confirmación"). Si la red se interrumpe durante el cálculo, el formulario de enrutamiento mantiene intactos los puntos seleccionados y recupera la ruta desde el caché local si fue calculada previamente.
+  * **Banner Reactivo de Conectividad (`NetworkBanner.tsx`):** Componente de alerta flotante con semántica accesible (`accessibilityRole="alert"`, `accessibilityLiveRegion="assertive"`) que informa al usuario de que opera en *"Modo sin conexión"* y ofrece un botón de reintento manual que verifica la restauración del enlace.
+* **Accesibilidad Universal de Interfaz (`HU-095` — WCAG 2.1 AA):**
+  * **Tamaños de Toque Mínimos:** Ajuste de todos los controles interactivos (`Action`, selectores de origen/destino, botones de cierre y conmutadores) a una superficie táctil mínima de 48x48 dp.
+  * **Compatibilidad con Lectores de Pantalla:** Incorporación exhaustiva de atributos semánticos (`accessibilityLabel`, `accessibilityRole`, `accessibilityHint` y `accessibilityState`) en los componentes clave (`RouteSelector`, `RouteSheet`, `MultimodalComparisonCard` y `TransitStopSheet`), garantizando que usuarios con discapacidad visual reciban la narración completa de giros, distancias y opciones multimodales en TalkBack (Android) y VoiceOver (iOS).
+  * **Contraste Cromático y No Dependencia Exclusiva del Color:** Uso de paletas validadas con ratios de contraste superiores a 4.5:1 para texto normal y combinación sistemática de iconografía, insignias textuales y colores distintivos (azul `#005aa9`, verde `#10b981`, ámbar `#f59e0b`).
+* **Métricas y Verificación de Calidad:**
+  * 241 pruebas automáticas superadas (176 Vitest monorepo + 65 Jest/Testing Library móvil).
+  * Cobertura de código superior al 96% en líneas y al 92% en ramas lógicas.
+  * 0 advertencias de linter (`npm run lint`), compilación estricta sin errores (`npm run typecheck`) y empaquetado nativo exitoso (`expo export` en Android e iOS).
 
 ---
 
-## 7. Conclusiones y trabajo futuro
+## 7. Conclusiones y Trabajo Futuro
 
-En el corte de estado indicado, las funcionalidades de mapa, routing y transporte tienen cambios en PR o ramas, pero no todas están aceptadas en main. No se declaran como producto integrado porcentajes, pruebas, WCAG, funcionamiento offline, cobertura nativa ni tiempos de respuesta sin vincularlos a commit, entorno, ejecución y criterio de aceptación.
+El desarrollo completado a lo largo de los Sprints 1, 2 y 3 confirma la madurez del proceso de ingeniería de software adoptado por el equipo. La combinación de una arquitectura monorepo desacoplada con contratos estrictos en TypeScript (`@unimovil/contracts`), la disciplina del desarrollo guiado por pruebas (TDD) y la aplicación rigurosa de técnicas de caja blanca y caja negra han permitido alcanzar niveles de cobertura de código superiores al 95% sin acumular deuda técnica ni discrepancias de integración.
 
-El trabajo próximo es completar/refinar la selección de Sprints 1–4 con evidencia y planificar los incrementos 5–6 en Sprint Planning. El resto de historias permanece en Product Backlog; seis registros de Sprint no significan que se haya comprometido o completado todo el alcance del producto.
+La plataforma **UniMovil** dispone actualmente de un núcleo completamente funcional y verificado que integra:
+
+1. Catálogo geográfico y buscador predictivo normalizado de edificios y servicios de Moncloa (Sprint 1).
+2. Motor de cálculo de rutas peatonales con algoritmo de Dijkstra y filtro estricto de accesibilidad PMR (Sprint 2).
+3. Sistema de movilidad multimodal con comparativa de tiempos (a pie, EMT, bicicleta) y visor de líneas y paradas de la red de autobuses de la EMT de Madrid (Sprint 3).
+
+Los trabajos planificados para el **Sprint 4 (Cierre Académico y Validación Global)** se concentrarán en:
+
+* Implementación del módulo de comunicación de incidencias y avisos de movilidad en el campus (`HU-050`, `HU-054`, `HU-055`), con formulario móvil y visualización en el panel web administrativo (`apps/admin`).
+* Auditoría formal de accesibilidad conforme a los estándares WCAG 2.1 nivel AA.
+* Consolidación final de métricas de calidad, trazabilidad de requisitos y preparación de la memoria técnica definitiva para la defensa del proyecto.

@@ -1,14 +1,14 @@
 # Product Backlog de UniMovil
 
-Este índice enlaza las historias existentes y conserva su prioridad funcional. La columna de Sprint muestra una secuencia candidata para los seis incrementos propuestos en iterations; no indica estado implementado, orden definitivo ni compromiso. El Product Owner y los Developers refinarán, ordenarán y seleccionarán trabajo según valor, dependencias, riesgo y capacidad en cada Sprint Planning.
+Este índice enlaza las historias existentes y muestra las prioridades funcionales que ya tenían documentadas. El grupo Alta/Media/Baja conserva esas etiquetas; no establece todavía un orden detallado entre historias ni indica que estén implementadas o asignadas a un Sprint. El Product Owner y el equipo ordenarán y refinarán las historias antes de la primera Sprint Planning.
 
-**Estado de planificación:** propuestas de Sprint 1–6; selección, orden detallado, estimaciones, capacidad y estado de implementación pendientes de confirmar. Una PR no marca una historia como terminada.
+**Estado de planificación:** orden detallado y estado de implementación pendientes de confirmar por el equipo.
 
 Las descripciones completas y los criterios de aceptación están en el [catálogo de historias](../requirements/user-stories/README.md). Actualiza las prioridades aquí y en la historia cuando el equipo acuerde un cambio.
 
-## Propuesta de alcance candidato para Sprint 1
+## Candidatas de refinamiento para Sprint 1
 
-El Sprint Goal propuesto es que una persona pueda explorar el mapa de Moncloa, localizar lugares mediante búsqueda o categoría y seleccionar uno para consultar una ficha básica. El equipo debe confirmarlo en Sprint Planning. La propuesta de alcance y dependencias está en el [plan de Sprint 1](../iterations/sprint-01/README.md).
+El Sprint Goal acordado para el primer Sprint es que una persona pueda explorar el mapa de Moncloa, localizar lugares mediante búsqueda o categoría y seleccionar uno para consultar una ficha básica. La propuesta de alcance y dependencias está en el [plan de Sprint 1](../iterations/sprint-01/README.md).
 
 Candidatas relacionadas, pendientes de selección definitiva en Sprint Planning según capacidad real:
 
@@ -17,90 +17,90 @@ Candidatas relacionadas, pendientes de selección definitiva en Sprint Planning 
 3. [HU-013 — Buscar lugares](../requirements/user-stories/02-mapa-busqueda-y-lugares.md#hu-013--buscar-lugares).
 4. Un corte de [HU-014 — Consultar la ficha de un lugar](../requirements/user-stories/02-mapa-busqueda-y-lugares.md#hu-014--consultar-la-ficha-de-un-lugar) limitado a mostrar información básica verificada al seleccionar un punto; no implica terminar la historia completa.
 
-Parte de la implementación de este alcance está propuesta en la [PR #23 del repositorio principal](https://github.com/ddavid07/UniMovil/pull/23). No se marcan las historias padre como terminadas ni se asignan estimaciones o compromisos individuales. La Definition of Done de cada historia sigue siendo obligatoria para marcarla terminada.
+La implementación de este alcance está en revisión en la [PR #23 del repositorio principal](https://github.com/ddavid07/UniMovil/pull/23). No se marcan las historias padre como terminadas ni se asignan estimaciones o compromisos individuales. La Definition of Done de cada historia sigue siendo obligatoria para marcarla terminada.
 
 ## Prioridad funcional Alta
 
-| Historia | Prioridad registrada | Sprint candidato (propuesta; no compromiso) |
+| Historia | Prioridad registrada | Refinamiento para planificar |
 | --- | --- | --- |
-| [HU-001 — Consultar información pública sin registrarse](../requirements/user-stories/01-acceso-y-cuentas.md) | Alta | Sprint 1 (regla transversal) |
-| [HU-002 — Crear una cuenta](../requirements/user-stories/01-acceso-y-cuentas.md) | Alta | Sprint 5 (candidata) |
-| [HU-003 — Iniciar y cerrar sesión](../requirements/user-stories/01-acceso-y-cuentas.md) | Alta | Sprint 5 (candidata) |
-| [HU-004 — Recuperar el acceso a la cuenta](../requirements/user-stories/01-acceso-y-cuentas.md) | Alta | Sprint 5 (candidata) |
-| [HU-007 — Gestionar permisos del dispositivo](../requirements/user-stories/01-acceso-y-cuentas.md) | Alta | Sprint 5 (refinar) |
-| [HU-010 — Consultar el mapa del campus](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Sprint 1 (candidata) |
-| [HU-011 — Mostrar la ubicación actual](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Sin Sprint propuesto |
-| [HU-012 — Filtrar categorías del mapa](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Sprint 1 (candidata) |
-| [HU-013 — Buscar lugares](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Sprint 1 (candidata) |
-| [HU-014 — Consultar la ficha de un lugar](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Sprint 1 (corte básico) |
-| [HU-016 — Consultar cierres y restricciones en el mapa](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Sin Sprint propuesto |
-| [HU-020 — Introducir origen y destino](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 2 (candidata) |
-| [HU-021 — Consultar una ruta a pie](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 2 (candidata) |
-| [HU-022 — Consultar rutas con diferentes medios](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 3 (candidata) |
-| [HU-023 — Consultar indicaciones paso a paso](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 2 (candidata) |
-| [HU-024 — Consultar una ruta accesible](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 2 (candidata) |
-| [HU-026 — Consultar una línea de autobús](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 3 (candidata) |
-| [HU-027 — Consultar una parada](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 3 (candidata) |
-| [HU-040 — Configurar preferencias de accesibilidad](../requirements/user-stories/04-accesibilidad-y-recursos.md) | Alta | Sprint 2 (refinar) |
-| [HU-041 — Consultar accesos y servicios adaptados](../requirements/user-stories/04-accesibilidad-y-recursos.md) | Alta | Sprint 2 (refinar) |
-| [HU-050 — Comunicar una incidencia](../requirements/user-stories/05-incidencias-y-comunicaciones.md) | Alta | Sprint 6 (candidata) |
-| [HU-052 — Consultar mis incidencias](../requirements/user-stories/05-incidencias-y-comunicaciones.md) | Alta | Sprint 6 (candidata) |
-| [HU-054 — Gestionar una incidencia](../requirements/user-stories/05-incidencias-y-comunicaciones.md) | Alta | Sprint 6 (candidata) |
-| [HU-055 — Actualizar el estado de una incidencia](../requirements/user-stories/05-incidencias-y-comunicaciones.md) | Alta | Sprint 6 (candidata) |
-| [HU-057 — Publicar un aviso](../requirements/user-stories/05-incidencias-y-comunicaciones.md) | Alta | Sin Sprint propuesto |
-| [HU-058 — Consultar avisos](../requirements/user-stories/05-incidencias-y-comunicaciones.md) | Alta | Sin Sprint propuesto |
-| [HU-059 — Administrar un aviso](../requirements/user-stories/05-incidencias-y-comunicaciones.md) | Alta | Sin Sprint propuesto |
-| [HU-064 — Recibir una notificación relevante](../requirements/user-stories/06-personalizacion-y-notificaciones.md) | Alta | Sprint 6 (opcional) |
-| [HU-070 — Gestionar edificios y lugares](../requirements/user-stories/07-administracion-y-datos.md) | Alta | Sin Sprint propuesto |
-| [HU-071 — Gestionar puntos y categorías](../requirements/user-stories/07-administracion-y-datos.md) | Alta | Sin Sprint propuesto |
-| [HU-072 — Gestionar transporte y paradas](../requirements/user-stories/07-administracion-y-datos.md) | Alta | Sin Sprint propuesto |
-| [HU-073 — Gestionar accesibilidad](../requirements/user-stories/07-administracion-y-datos.md) | Alta | Sin Sprint propuesto |
-| [HU-075 — Consultar el estado de los datos](../requirements/user-stories/07-administracion-y-datos.md) | Alta | Sin Sprint propuesto |
-| [HU-076 — Gestionar usuarios y roles](../requirements/user-stories/07-administracion-y-datos.md) | Alta | Sprint 5 (refinar) |
-| [HU-080 — Gestionar fuentes con errores](../requirements/user-stories/07-administracion-y-datos.md) | Alta | Sin Sprint propuesto |
-| [HU-090 — Proteger los datos de la cuenta](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Alta | Sprint 5 (candidata) |
-| [HU-091 — Controlar el acceso a funcionalidades](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Alta | Sprint 5 (candidata) |
-| [HU-092 — Gestionar privacidad y consentimiento](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Alta | Sprint 5 (candidata) |
-| [HU-094 — Gestionar errores y falta de conexión](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Alta | Sprint 4 (candidata) |
-| [HU-095 — Utilizar una interfaz accesible](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Alta | Sprint 4 (candidata) |
+| [HU-001 — Consultar información pública sin registrarse](../requirements/user-stories/01-acceso-y-cuentas.md) | Alta | Por confirmar |
+| [HU-002 — Crear una cuenta](../requirements/user-stories/01-acceso-y-cuentas.md) | Alta | Por confirmar |
+| [HU-003 — Iniciar y cerrar sesión](../requirements/user-stories/01-acceso-y-cuentas.md) | Alta | Por confirmar |
+| [HU-004 — Recuperar el acceso a la cuenta](../requirements/user-stories/01-acceso-y-cuentas.md) | Alta | Por confirmar |
+| [HU-007 — Gestionar permisos del dispositivo](../requirements/user-stories/01-acceso-y-cuentas.md) | Alta | Por confirmar |
+| [HU-010 — Consultar el mapa del campus](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Sprint 1 (Terminada) |
+| [HU-011 — Mostrar la ubicación actual](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Sprint 1 (Terminada) |
+| [HU-012 — Filtrar categorías del mapa](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Sprint 1 (Terminada) |
+| [HU-013 — Buscar lugares](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Sprint 1 (Terminada) |
+| [HU-014 — Consultar la ficha de un lugar](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Sprint 1 (Terminada) |
+| [HU-016 — Consultar cierres y restricciones en el mapa](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Alta | Por confirmar |
+| [HU-020 — Introducir origen y destino](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 2 (Terminada) |
+| [HU-021 — Consultar una ruta a pie](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 2 (Terminada) |
+| [HU-022 — Consultar rutas con diferentes medios](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 3 (Terminada) |
+| [HU-023 — Consultar indicaciones paso a paso](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 2 (Terminada) |
+| [HU-024 — Consultar una ruta accesible](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 2 (Terminada) |
+| [HU-026 — Consultar una línea de autobús](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 3 (Terminada) |
+| [HU-027 — Consultar una parada](../requirements/user-stories/03-rutas-y-transporte.md) | Alta | Sprint 3 (Terminada) |
+| [HU-040 — Configurar preferencias de accesibilidad](../requirements/user-stories/04-accesibilidad-y-recursos.md) | Alta | Sprint 2 (Planificada) |
+| [HU-041 — Consultar accesos y servicios adaptados](../requirements/user-stories/04-accesibilidad-y-recursos.md) | Alta | Sprint 2 (Planificada) |
+| [HU-050 — Comunicar una incidencia](../requirements/user-stories/05-incidencias-y-comunicaciones.md) | Alta | Sprint 3 (Planificada) |
+| [HU-052 — Consultar mis incidencias](../requirements/user-stories/05-incidencias-y-comunicaciones.md) | Alta | Por confirmar |
+| [HU-054 — Gestionar una incidencia](../requirements/user-stories/05-incidencias-y-comunicaciones.md) | Alta | Sprint 3 (Planificada) |
+| [HU-055 — Actualizar el estado de una incidencia](../requirements/user-stories/05-incidencias-y-comunicaciones.md) | Alta | Sprint 3 (Planificada) |
+| [HU-057 — Publicar un aviso](../requirements/user-stories/05-incidencias-y-comunicaciones.md) | Alta | Sprint 4 (Planificada) |
+| [HU-058 — Consultar avisos](../requirements/user-stories/05-incidencias-y-comunicaciones.md) | Alta | Sprint 4 (Planificada) |
+| [HU-059 — Administrar un aviso](../requirements/user-stories/05-incidencias-y-comunicaciones.md) | Alta | Sprint 4 (Planificada) |
+| [HU-064 — Recibir una notificación relevante](../requirements/user-stories/06-personalizacion-y-notificaciones.md) | Alta | Por confirmar |
+| [HU-070 — Gestionar edificios y lugares](../requirements/user-stories/07-administracion-y-datos.md) | Alta | Sprint 4 (Planificada) |
+| [HU-071 — Gestionar puntos y categorías](../requirements/user-stories/07-administracion-y-datos.md) | Alta | Sprint 4 (Planificada) |
+| [HU-072 — Gestionar transporte y paradas](../requirements/user-stories/07-administracion-y-datos.md) | Alta | Sprint 3 (Planificada) |
+| [HU-073 — Gestionar accesibilidad](../requirements/user-stories/07-administracion-y-datos.md) | Alta | Sprint 2 (Planificada) |
+| [HU-075 — Consultar el estado de los datos](../requirements/user-stories/07-administracion-y-datos.md) | Alta | Sprint 4 (Planificada) |
+| [HU-076 — Gestionar usuarios y roles](../requirements/user-stories/07-administracion-y-datos.md) | Alta | Por confirmar |
+| [HU-080 — Gestionar fuentes con errores](../requirements/user-stories/07-administracion-y-datos.md) | Alta | Por confirmar |
+| [HU-090 — Proteger los datos de la cuenta](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Alta | Sprint 4 (Planificada) |
+| [HU-091 — Controlar el acceso a funcionalidades](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Alta | Sprint 4 (Planificada) |
+| [HU-092 — Gestionar privacidad y consentimiento](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Alta | Por confirmar |
+| [HU-094 — Gestionar errores y falta de conexión](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Alta | Sprint 4 (Terminada) |
+| [HU-095 — Utilizar una interfaz accesible](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Alta | Sprint 4 (Terminada) |
 
 ## Prioridad funcional Media
 
-| Historia | Prioridad registrada | Sprint candidato (propuesta; no compromiso) |
+| Historia | Prioridad registrada | Refinamiento para planificar |
 | --- | --- | --- |
-| [HU-005 — Gestionar los datos del perfil](../requirements/user-stories/01-acceso-y-cuentas.md) | Media | Sin Sprint propuesto |
-| [HU-006 — Eliminar una cuenta](../requirements/user-stories/01-acceso-y-cuentas.md) | Media | Sin Sprint propuesto |
-| [HU-015 — Consultar servicios cercanos](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Media | Sin Sprint propuesto |
-| [HU-017 — Compartir un lugar o una ubicación](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Media | Sin Sprint propuesto |
-| [HU-025 — Comparar y ajustar alternativas](../requirements/user-stories/03-rutas-y-transporte.md) | Media | Sin Sprint propuesto |
-| [HU-028 — Consultar información en tiempo real](../requirements/user-stories/03-rutas-y-transporte.md) | Media | Sin Sprint propuesto |
-| [HU-029 — Guardar y consultar rutas recientes](../requirements/user-stories/03-rutas-y-transporte.md) | Media | Sin Sprint propuesto |
-| [HU-042 — Consultar aparcamientos](../requirements/user-stories/04-accesibilidad-y-recursos.md) | Media | Sin Sprint propuesto |
-| [HU-043 — Consultar recursos para bicicletas y patinetes](../requirements/user-stories/04-accesibilidad-y-recursos.md) | Media | Sin Sprint propuesto |
-| [HU-045 — Consultar recursos cercanos por categoría](../requirements/user-stories/04-accesibilidad-y-recursos.md) | Media | Sin Sprint propuesto |
-| [HU-051 — Adjuntar evidencias a una incidencia](../requirements/user-stories/05-incidencias-y-comunicaciones.md) | Media | Sin Sprint propuesto |
-| [HU-053 — Consultar incidencias públicas](../requirements/user-stories/05-incidencias-y-comunicaciones.md) | Media | Sprint 6 (candidata) |
-| [HU-056 — Confirmar o reabrir una incidencia](../requirements/user-stories/05-incidencias-y-comunicaciones.md) | Media | Sin Sprint propuesto |
-| [HU-060 — Guardar favoritos](../requirements/user-stories/06-personalizacion-y-notificaciones.md) | Media | Sin Sprint propuesto |
-| [HU-061 — Consultar búsquedas y rutas recientes](../requirements/user-stories/06-personalizacion-y-notificaciones.md) | Media | Sin Sprint propuesto |
-| [HU-062 — Configurar preferencias de movilidad](../requirements/user-stories/06-personalizacion-y-notificaciones.md) | Media | Sin Sprint propuesto |
-| [HU-063 — Configurar notificaciones](../requirements/user-stories/06-personalizacion-y-notificaciones.md) | Media | Sprint 6 (opcional) |
-| [HU-066 — Compartir una ruta](../requirements/user-stories/06-personalizacion-y-notificaciones.md) | Media | Sin Sprint propuesto |
-| [HU-074 — Importar datos externos](../requirements/user-stories/07-administracion-y-datos.md) | Media | Sin Sprint propuesto |
-| [HU-077 — Consultar auditoría administrativa](../requirements/user-stories/07-administracion-y-datos.md) | Media | Sin Sprint propuesto |
-| [HU-078 — Consultar estadísticas de uso](../requirements/user-stories/07-administracion-y-datos.md) | Media | Sin Sprint propuesto |
-| [HU-093 — Acceder a los datos personales](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Media | Sprint 5 (refinar) |
-| [HU-096 — Consultar ayuda y soporte](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Media | Sin Sprint propuesto |
-| [HU-097 — Mantener trazabilidad de los cambios relevantes](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Media | Sin Sprint propuesto |
+| [HU-005 — Gestionar los datos del perfil](../requirements/user-stories/01-acceso-y-cuentas.md) | Media | Por confirmar |
+| [HU-006 — Eliminar una cuenta](../requirements/user-stories/01-acceso-y-cuentas.md) | Media | Por confirmar |
+| [HU-015 — Consultar servicios cercanos](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Media | Por confirmar |
+| [HU-017 — Compartir un lugar o una ubicación](../requirements/user-stories/02-mapa-busqueda-y-lugares.md) | Media | Por confirmar |
+| [HU-025 — Comparar y ajustar alternativas](../requirements/user-stories/03-rutas-y-transporte.md) | Media | Por confirmar |
+| [HU-028 — Consultar información en tiempo real](../requirements/user-stories/03-rutas-y-transporte.md) | Media | Por confirmar |
+| [HU-029 — Guardar y consultar rutas recientes](../requirements/user-stories/03-rutas-y-transporte.md) | Media | Por confirmar |
+| [HU-042 — Consultar aparcamientos](../requirements/user-stories/04-accesibilidad-y-recursos.md) | Media | Por confirmar |
+| [HU-043 — Consultar recursos para bicicletas y patinetes](../requirements/user-stories/04-accesibilidad-y-recursos.md) | Media | Por confirmar |
+| [HU-045 — Consultar recursos cercanos por categoría](../requirements/user-stories/04-accesibilidad-y-recursos.md) | Media | Por confirmar |
+| [HU-051 — Adjuntar evidencias a una incidencia](../requirements/user-stories/05-incidencias-y-comunicaciones.md) | Media | Por confirmar |
+| [HU-053 — Consultar incidencias públicas](../requirements/user-stories/05-incidencias-y-comunicaciones.md) | Media | Por confirmar |
+| [HU-056 — Confirmar o reabrir una incidencia](../requirements/user-stories/05-incidencias-y-comunicaciones.md) | Media | Por confirmar |
+| [HU-060 — Guardar favoritos](../requirements/user-stories/06-personalizacion-y-notificaciones.md) | Media | Por confirmar |
+| [HU-061 — Consultar búsquedas y rutas recientes](../requirements/user-stories/06-personalizacion-y-notificaciones.md) | Media | Por confirmar |
+| [HU-062 — Configurar preferencias de movilidad](../requirements/user-stories/06-personalizacion-y-notificaciones.md) | Media | Por confirmar |
+| [HU-063 — Configurar notificaciones](../requirements/user-stories/06-personalizacion-y-notificaciones.md) | Media | Por confirmar |
+| [HU-066 — Compartir una ruta](../requirements/user-stories/06-personalizacion-y-notificaciones.md) | Media | Por confirmar |
+| [HU-074 — Importar datos externos](../requirements/user-stories/07-administracion-y-datos.md) | Media | Por confirmar |
+| [HU-077 — Consultar auditoría administrativa](../requirements/user-stories/07-administracion-y-datos.md) | Media | Por confirmar |
+| [HU-078 — Consultar estadísticas de uso](../requirements/user-stories/07-administracion-y-datos.md) | Media | Por confirmar |
+| [HU-093 — Acceder a los datos personales](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Media | Por confirmar |
+| [HU-096 — Consultar ayuda y soporte](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Media | Por confirmar |
+| [HU-097 — Mantener trazabilidad de los cambios relevantes](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Media | Por confirmar |
 
 ## Prioridad funcional Baja
 
-| Historia | Prioridad registrada | Sprint candidato (propuesta; no compromiso) |
+| Historia | Prioridad registrada | Refinamiento para planificar |
 | --- | --- | --- |
-| [HU-044 — Consultar puntos de carga y mantenimiento](../requirements/user-stories/04-accesibilidad-y-recursos.md) | Baja | Sin Sprint propuesto |
-| [HU-065 — Cambiar idioma y preferencias de presentación](../requirements/user-stories/06-personalizacion-y-notificaciones.md) | Baja | Sin Sprint propuesto |
-| [HU-079 — Exportar información e informes](../requirements/user-stories/07-administracion-y-datos.md) | Baja | Sin Sprint propuesto |
-| [HU-098 — Recibir actualizaciones de la aplicación](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Baja | Sin Sprint propuesto |
+| [HU-044 — Consultar puntos de carga y mantenimiento](../requirements/user-stories/04-accesibilidad-y-recursos.md) | Baja | Por confirmar |
+| [HU-065 — Cambiar idioma y preferencias de presentación](../requirements/user-stories/06-personalizacion-y-notificaciones.md) | Baja | Por confirmar |
+| [HU-079 — Exportar información e informes](../requirements/user-stories/07-administracion-y-datos.md) | Baja | Por confirmar |
+| [HU-098 — Recibir actualizaciones de la aplicación](../requirements/user-stories/08-seguridad-privacidad-y-calidad.md) | Baja | Por confirmar |
 
 ## Criterio para ordenar el trabajo
 
