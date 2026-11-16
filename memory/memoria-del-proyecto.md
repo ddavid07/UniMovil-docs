@@ -238,6 +238,8 @@ Garantiza el desacoplamiento seguro. Define las interfaces de `Place`, `AccessPo
 
 * **Modelos de enrutamiento:** `Coordinates`, `RouteRequest`, `RouteResponse`, `RouteSegment` y `TransportMode`.
 * **Modelos de transporte multimodal:** `TransitLine`, `TransitStop`, `TransitArrival`, `MultimodalAlternative` y `MultimodalComparison`.
+* **Modelos de incidencias y ciclo de vida:** `Incident`, `IncidentStatus`, `IncidentPriority`, `IncidentCategory` y validador de transiciones coherentes `isValidIncidentTransition`.
+* **Modelos de auditoría y trazabilidad:** `AuditEntry`, `AuditAction`, `AuditResource` y funciones de saneamiento estricto de secretos y credenciales (`createAuditEntry`, `parseAuditEntry`).
 
 ### 5.2. Capa Servidor (`apps/api`)
 
@@ -264,6 +266,16 @@ Desarrollada con **React Native y Expo Router**. Aplica un diseño por component
 * `TransitLineLayer` y `TransitStopLayer`: Visualización de los trazados GeoJSON de las líneas G y F de la EMT y marcadores de paradas oficiales.
 * `TransitStopSheet`: Modal de información de parada de autobús con tiempos de espera en tiempo real y botón de guiado directo.
 * `index.tsx`: Controlador principal de vista que integra un conmutador dual (*Segmented Control*) para alternar sin latencia entre la vista cartográfica y la vista de catálogo en lista.
+
+### 5.4. Capa Web de Administración (`apps/admin`)
+
+Desarrollada con **React 19, TypeScript y Vite** por Charlie Fox (`@charliefox06`), constituye el portal de administración del campus universitario, enfocado en la gestión operativa, resolución de incidencias de movilidad y auditoría de cambios:
+
+* `Header`: Identificación institucional de la UCM, badge de sesión (Administrador de Campus · `@admin.campus` · Administración UCM) y señal de disponibilidad operativa en tiempo real del campus.
+* `PlacesView` (`HU-070`): Panel de gestión de lugares con búsqueda predictiva, filtros de categoría y accesibilidad PMR, y conmutador de estado operativo (`active`, `maintenance`, `inactive`) con justificación técnica obligatoria.
+* `IncidentsView` (`HU-050`, `HU-054`, `HU-055`): Tablero de incidencias de movilidad urbana (rampas bloqueadas, averías en salvaescaleras, aceras deterioradas) con métricas en tiempo real y control de transiciones de ciclo de vida strictly-typed.
+* `TraceabilityView` (`HU-097`): Registro inmutable y cronológico de todas las modificaciones sobre datos sensibles del campus con ofuscación automática de contraseñas y claves privadas.
+* `admin-service.ts`: Lógica de dominio pura y desacoplada, con cobertura total de pruebas unitarias en Vitest.
 
 ---
 
@@ -337,6 +349,10 @@ Desarrollada con **React Native y Expo Router**. Aplica un diseño por component
   * **Capa Cartográfica de Paradas EMT (`TransitStopLayer.tsx` — `HU-027`):** Marcadores circulares con iconografía de autobús situados en las coordenadas precisas de cada parada.
   * **Hoja Técnica de Parada (`TransitStopSheet.tsx` — `HU-027`):** Panel modal que emerge al interactuar con una parada, detallando su denominación, código oficial EMT, líneas con servicio, frecuencias estimadas de llegada en minutos y botón de acción rápida *"Planificar ruta hasta aquí"*.
   * **Control de Capas en `CampusScreen.tsx`:** Botón accesible de conmutación ("Ver EMT" / "Ocultar EMT") para activar o desactivar la capa de transporte público según las necesidades de visualización del usuario.
+* **Panel Web de Moderación y Triaje de Incidencias (`apps/admin` — Charlie Fox):**
+  * **Supervisión de Incidencias del Campus (`HU-054`):** Tablero con indicadores KPI agregados y filtrado por categoría y severidad, integrando la gestión de afecciones y cortes en paradas de la EMT (Línea G).
+  * **Ciclo de Vida y Transiciones Validadas (`HU-055`):** Autómata de estados finitos que valida transiciones coherentes con notas técnicas de intervención obligatorias y reclasificación de prioridad y unidad técnica asignada (*Mantenimiento UCM*, *Conserjería*, *EMT Madrid*).
+  * **Trazabilidad Inmutable (`HU-097`):** Registro inmediato en log de auditoría con diff de estados y ofuscación de credenciales.
 * **Métricas y Verificación de Calidad:**
   * 223 pruebas automatizadas superadas (168 Vitest + 55 Jest/React Native Testing Library).
   * Cobertura de código superior al 96% en líneas y al 92% en ramas lógicas en el paquete de aplicación móvil.
