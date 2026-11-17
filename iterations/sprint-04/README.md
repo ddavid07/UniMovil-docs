@@ -85,13 +85,24 @@ Para llevar el proyecto a su estado final terminado y listo para evaluación:
 ### 👤 5. Charlie Fox (`@charliefox06`)
 
 * **Rol Scrum:** Developer.
-* **Historias asignadas:** `HU-057`/`HU-058` (Avisos y Alertas en Web Admin), `HU-097` (Trazabilidad auditable), Documentación académica, actas de cierre y presentación final.
+* **Historias asignadas:** `HU-021`/`HU-022` (Visualización y filtrado de categorías en campus interactivo), `HU-031`/`HU-032`/`HU-034` (Planificación de rutas accesibles PMR y multimodales EMT/Bicicleta), `HU-057`/`HU-058` (Avisos y Alertas en Web Admin), `HU-097` (Trazabilidad auditable), Documentación académica, actas de cierre y presentación final.
 * **Entregables técnicos completados y verificados:**
   1. ✅ **Conclusiones, Métricas y Trabajo Futuro:** Redacción formal de la Sección 7 y actualización de la Sección 6.5 en `memory/memoria-del-proyecto.md`, incluyendo cierre de la matriz de riesgos Barry Boehm RSGR (10/10 riesgos resueltos) y métricas globales de testing.
   2. ✅ **Presentación de la Defensa Final y Guión de Demo:** Elaboración de las diapositivas oficiales en `presentations/presentacion-del-proyecto.md` y estructura de la demo técnica en vivo (5 minutos) cubriendo panel web, contratos e incidencias.
   3. ✅ **Acta de Retrospectiva Final del Proyecto:** Redacción formal en `meetings/sprint-04-retrospectiva-y-cierre.md` con lecciones aprendidas, balance metodológico Scrum vs. Cascada y verificación de la Definition of Done.
   4. ✅ **Módulo de Avisos y Alertas en Web Admin:** Implementación en `apps/admin` (`AnnouncementsView.tsx`, `admin-service.ts`) con tipado estricto, métricas y emisión automática de logs de auditoría para trazabilidad inmutable.
-* **Módulos / Archivos principales:** `UniMovil-docs/memory/`, `UniMovil-docs/presentations/`, `UniMovil-docs/meetings/`, `UniMovil/apps/admin/`.
+  5. ✅ **Navegación Web y Móvil Campus Completa (Paridad Web & Móvil, HU-021, HU-022, HU-031, HU-032, HU-034):**
+     * **Visor Dual Web / Móvil:** Implementación de vistas adaptativas (`CampusScreen.web.tsx`, `CampusMap.web.tsx`, `RouteSheet.web.tsx`) con alternador de vista (`Vista Web` / `Vista Móvil`).
+     * **Mapa a Pantalla Completa:** Expansión del mapa interactivo Leaflet/OpenStreetMap a todo el panel derecho con controles flotantes superpuestos (`Centrar campus`, zoom `+` / `−`, insignia de licencia OpenStreetMap).
+     * **Filtros por Categoría en Tarjetas:** Checkboxes en dos columnas (Edificios, Aparcamientos, Servicios, Transporte, Bicicletas, Accesos) integradas bajo el mapa en vista móvil y en el panel lateral en web.
+     * **Flujo Completo de Rutas Interactivas:** Botón *"Aceptar y ver en el mapa"*, panel colapsable del planificador, hoja de itinerario detallado paso a paso y eliminación de controles redundantes.
+     * **Integración Multimodal y Extracción de Sub-polilíneas:** Selección dinámica de modos Peatonal (estándar y PMR accesible), Autobús EMT y Bicicleta, coloreado diferenciado (ámbar para bicis, azul para peatón), extracción de sub-polilíneas para eliminar bucles de ruta en autobuses y fallback automático a ruta a pie cuando las paradas carecen de línea compartida.
+     * **Ampliación de Coordenadas del Campus:** Ajuste del bounding box sur para incluir Bellas Artes y Gregorio del Amo.
+  6. ✅ **Ampliación de Pruebas Unitarias y TDD Riguroso:**
+     * 3 rondas sucesivas de TDD (Test-Driven Development) con detección y corrección de bugs en rutas de bus inconexas, coloreado de polilíneas de bicicletas y etiquetas de tiempo multimodal.
+     * Nuevas suites de pruebas unitarias (`MapStatus.test.tsx`, `ExplorerControls.test.tsx`, `RouteLayer.test.tsx`, `RouteSheet.test.tsx`, `transit.spec.ts`).
+     * Elevación del conjunto de pruebas a **420 tests verdes** (312 en Vitest y 108 en Jest), cumpliendo umbrales de cobertura (>80% líneas, >70% ramas) y 0 errores de TypeScript.
+* **Módulos / Archivos principales:** `UniMovil-docs/memory/`, `UniMovil-docs/presentations/`, `UniMovil-docs/meetings/`, `UniMovil/apps/admin/`, `UniMovil/apps/mobile/src/features/campus/`, `UniMovil/apps/mobile/src/features/routing/`, `UniMovil/apps/mobile/src/features/transit/`.
 
 ---
 

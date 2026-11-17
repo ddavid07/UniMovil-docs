@@ -371,10 +371,14 @@ Desarrollada con **React 19, TypeScript y Vite** por Charlie Fox (`@charliefox06
   * **Compatibilidad con Lectores de Pantalla:** Incorporación exhaustiva de atributos semánticos (`accessibilityLabel`, `accessibilityRole`, `accessibilityHint` y `accessibilityState`) en los componentes clave (`RouteSelector`, `RouteSheet`, `MultimodalComparisonCard` y `TransitStopSheet`), garantizando que usuarios con discapacidad visual reciban la narración completa de giros, distancias y opciones multimodales en TalkBack (Android) y VoiceOver (iOS).
   * **Contraste Cromático y No Dependencia Exclusiva del Color:** Uso de paletas validadas con ratios de contraste superiores a 4.5:1 para texto normal y combinación sistemática de iconografía, insignias textuales y colores distintivos (azul `#005aa9`, verde `#10b981`, ámbar `#f59e0b`).
 * **Difusión y Emisión de Avisos de Campus (`apps/admin` — `HU-057` / `HU-058`):** Módulo web administrativo para publicar alertas urgentes sobre afecciones viales, cortes de túneles y refuerzo de transporte, con selector de alcance (campus general, línea EMT, facultad/edificio), fecha límite de vigencia y trazabilidad inmutable automática (`HU-097`).
+* **Navegación Web/Móvil Paritaria, Cartografía y Multimodalidad (Charlie Fox — `@charliefox06`):**
+  * **Visor Dual Responsive (`CampusScreen.web.tsx`, `CampusMap.web.tsx`, `RouteSheet.web.tsx`):** Arquitectura de paridad visual y funcional web/móvil con mapa a pantalla completa y controles flotantes superpuestos (`Centrar campus`, zoom y licencia).
+  * **Exploración por Categorías en Tarjetas:** Checkboxes en 2 columnas (Edificios, Aparcamientos, Servicios, Transporte, Bicicletas, Accesos) adaptadas bajo el mapa en móvil y en el lateral en escritorio.
+  * **Planificación Interactiva y Rutas Multimodales sin Bucles:** Flujo completo de rutas peatonales (estándar y accesibles PMR), autobuses EMT y bicicletas, con eliminación de bucles mediante extracción de sub-polilíneas y fallback automático a pie ante paradas disjuntas.
 * **Métricas y Verificación de Calidad:**
-  * 246 pruebas automáticas superadas (181 Vitest monorepo + 65 Jest/Testing Library móvil).
-  * Cobertura de código superior al 96% en líneas y al 92% en ramas lógicas.
-  * 0 advertencias de linter (`npm run lint`), compilación estricta sin errores (`npm run typecheck`) y empaquetado nativo exitoso (`expo export` en Android e iOS).
+  * 420 pruebas automáticas superadas (312 Vitest monorepo + 108 Jest/Testing Library móvil).
+  * Cobertura de código superior al 96% en líneas y al 90% en ramas lógicas en todos los módulos.
+  * 0 advertencias de linter (`npm run lint`), compilación estricta sin errores (`npm run typecheck`) y empaquetado nativo/web exitoso (`expo export` en Android, iOS y Web).
 
 ---
 
@@ -389,7 +393,7 @@ El equipo de 5 integrantes (Naoufal Kebli, Daniel David, Pablo Palacios, Pedro C
 1. **Sprint 1 (Fundaciones Cartográficas y Exploración):** Digitalización del campus de Moncloa sobre MapLibre, buscador predictivo tolerante a tildes (`HU-013`) y catálogo interactivo de facultades y accesos PMR (`HU-010`, `HU-011`, `HU-014`).
 2. **Sprint 2 (Enrutamiento Peatonal y Accesibilidad PMR):** Motor de cálculo de rutas peatonales con algoritmo de Dijkstra, filtro estricto de accesibilidad para evitar escaleras y barreras arquitectónicas (`HU-020`, `HU-021`), y panel web de administración (`apps/admin`) con trazabilidad inmutable y ofuscación de secretos (`HU-070`, `HU-073`, `HU-097`).
 3. **Sprint 3 (Multimodalidad EMT y Gestión de Incidencias):** Comparador de tiempos a pie vs. autobús universitario (Líneas G y F de la EMT) mediante la fórmula del semiverseno (`HU-022`, `HU-026`, `HU-027`), junto con el sistema de reporte ciudadano y triaje administrativo de incidencias con máquina de estados estricta (`HU-050`, `HU-054`, `HU-055`).
-4. **Sprint 4 (Resiliencia Offline, Accesibilidad WCAG y Difusión de Avisos):** Modo sin conexión con política de desalojo LRU (`HU-094`), auditoría de accesibilidad universal WCAG 2.1 nivel AA (`HU-095`), módulo administrativo de publicación de alertas urgentes (`HU-057`) y batería de pruebas de validación de sistema (Tema 3).
+4. **Sprint 4 (Navegación Web/Móvil Paritaria, Resiliencia Offline, Accesibilidad WCAG y Difusión de Avisos):** Visor interactivo web y móvil de campus con mapa a pantalla completa y exploración por categorías (`HU-021`, `HU-022`), rutas multimodales (a pie, PMR, bus EMT con eliminación de bucles y bicis) (`HU-031`, `HU-032`, `HU-034`), modo sin conexión con política de desalojo LRU (`HU-094`), auditoría de accesibilidad universal WCAG 2.1 nivel AA (`HU-095`), módulo administrativo de publicación de alertas urgentes (`HU-057`), batería de pruebas de validación de sistema y ciclos TDD rigurosos (Tema 3).
 
 ### 7.2. Métricas Finales Consolidadas del Proceso
 
@@ -397,9 +401,9 @@ El proyecto concluye con un nivel de aseguramiento de calidad excepcional en el 
 
 | Métrica de Calidad | Valor Obtenido | Criterio de Aceptación UCM | Estado |
 | :--- | :---: | :---: | :---: |
-| **Pruebas Automatizadas Totales** | **246 tests superados** | $\ge 120$ tests | **Superado (+105%)** |
-| **Cobertura en Líneas** | **96.4%** | $\ge 80\%$ | **Superado** |
-| **Cobertura en Ramas Lógicas** | **92.8%** | $\ge 75\%$ | **Superado** |
+| **Pruebas Automatizadas Totales** | **420 tests superados** (312 Vitest, 108 Jest) | $\ge 120$ tests | **Superado (+250%)** |
+| **Cobertura en Líneas** | **96.1%** | $\ge 80\%$ | **Superado** |
+| **Cobertura en Ramas Lógicas** | **90.6%** | $\ge 75\%$ | **Superado** |
 | **Errores de Compilación TypeScript** | **0 errores** (`tsc -b`) | 0 errores | **Superado** |
 | **Advertencias de ESLint** | **0 advertencias** (`--max-warnings=0`) | 0 advertencias | **Superado** |
 | **Auditoría de Accesibilidad Móvil** | **WCAG 2.1 AA (100%)** | Nivel AA en pantallas clave | **Superado** |

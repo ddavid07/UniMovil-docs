@@ -45,6 +45,19 @@ El equipo constata el cumplimiento del 100% de los objetivos comprometidos para 
 * Ejecución de pruebas de recuperación forzada ante cortes de red y pruebas de sistema basadas en casos de uso (Tema 3).
 * Matriz de trazabilidad exhaustiva vinculando cada HU con su respectiva prueba automatizada.
 
+### 2.5. Navegación Web y Móvil Campus, Rutas Multimodales y TDD — Charlie Fox
+* **Paridad Web/Móvil y Mapa Interactivo a Pantalla Completa (`HU-021`, `HU-022`, `HU-031`, `HU-032`, `HU-034`):**
+  * Implementación de la vista interactiva adaptativa (`CampusScreen.web.tsx`, `CampusMap.web.tsx`, `RouteSheet.web.tsx`) con visor dual (`Vista Web` y `Vista Móvil`).
+  * Mapa Leaflet/OpenStreetMap a pantalla completa en el panel derecho con controles flotantes superpuestos de centrado, zoom y licencia.
+  * Filtros de categorías interactivos en tarjetas checkbox de dos columnas (Edificios, Aparcamientos, Servicios, Transporte, Bicicletas, Accesos) integradas bajo el mapa en móvil y en panel lateral en web.
+  * Planificador de rutas interactivo con acción *"Aceptar y ver en el mapa"*, itinerario detallado paso a paso y paneles colapsables.
+  * Soporte multimodal integral (Peatonal estándar y PMR accesible, Autobuses EMT y Bicicletas) con coloreado diferencial (ámbar para bicis), extracción de sub-polilíneas para eliminar bucles en trayectos de bus y fallback automático a ruta a pie cuando las paradas carecen de línea en común.
+  * Ampliación del bounding box del campus para abarcar toda la zona sur (Bellas Artes, Gregorio del Amo).
+* **Ciclos TDD y Calidad Integral:**
+  * 3 rondas sucesivas de TDD detectando y corrigiendo fallos en rutas disjuntas, polilíneas de bicis y etiquetas dinámicas.
+  * Nuevas suites de pruebas (`MapStatus.test.tsx`, `ExplorerControls.test.tsx`, `RouteLayer.test.tsx`, `RouteSheet.test.tsx`, `transit.spec.ts`).
+  * Elevación del conjunto global hasta **420 tests verdes** (312 en Vitest y 108 en Jest), cumpliendo holgadamente los umbrales de cobertura (>80% líneas y >70% ramas).
+
 ---
 
 ## 3. Retrospectiva Final del Proyecto: Análisis Metodológico
@@ -71,8 +84,8 @@ El equipo concluye que abordar UniMovil mediante un modelo en cascada tradiciona
 
 | Criterio de la DoD | Estado | Evidencia |
 | :--- | :---: | :--- |
-| **Compilación Íntegra** | ✅ CUMPLIDO | Monorepo compila con 0 errores TypeScript (`npm run build`). |
-| **Pruebas Automatizadas** | ✅ CUMPLIDO | 142 tests en verde en Vitest (`admin-service`, `contracts`, `mobile`). |
+| **Compilación Íntegra** | ✅ CUMPLIDO | Monorepo compila con 0 errores TypeScript (`npm run build` / `npm run typecheck`). |
+| **Pruebas Automatizadas** | ✅ CUMPLIDO | 420 tests en verde (312 en Vitest, 108 en Jest con cobertura >80% líneas y >70% ramas). |
 | **Calidad de Código** | ✅ CUMPLIDO | 0 errores y 0 warnings en ESLint (`--max-warnings=0`). |
 | **Memoria Académica** | ✅ CUMPLIDO | Secciones 1 a 7 completas y revisadas (`memory/memoria-del-proyecto.md`). |
 | **Presentación de Defensa** | ✅ CUMPLIDO | Slides y guión de demo de 5 minutos cerrados (`presentations/presentacion-del-proyecto.md`). |
