@@ -56,7 +56,7 @@ El equipo constata el cumplimiento del 100% de los objetivos comprometidos para 
 * **Ciclos TDD y Calidad Integral:**
   * 3 rondas sucesivas de TDD detectando y corrigiendo fallos en rutas disjuntas, polilíneas de bicis y etiquetas dinámicas.
   * Nuevas suites de pruebas (`MapStatus.test.tsx`, `ExplorerControls.test.tsx`, `RouteLayer.test.tsx`, `RouteSheet.test.tsx`, `transit.spec.ts`).
-  * Elevación del conjunto global hasta **420 tests verdes** (312 en Vitest y 108 en Jest), cumpliendo holgadamente los umbrales de cobertura (>80% líneas y >70% ramas).
+  * Elevación del conjunto global hasta **422 tests verdes** (313 en Vitest y 109 en Jest), cumpliendo holgadamente los umbrales de cobertura (>80% líneas y >70% ramas).
 
 ---
 
@@ -85,7 +85,7 @@ El equipo concluye que abordar UniMovil mediante un modelo en cascada tradiciona
 | Criterio de la DoD | Estado | Evidencia |
 | :--- | :---: | :--- |
 | **Compilación Íntegra** | ✅ CUMPLIDO | Monorepo compila con 0 errores TypeScript (`npm run build` / `npm run typecheck`). |
-| **Pruebas Automatizadas** | ✅ CUMPLIDO | 420 tests en verde (312 en Vitest, 108 en Jest con cobertura >80% líneas y >70% ramas). |
+| **Pruebas Automatizadas** | ✅ CUMPLIDO | 422 tests en verde (313 en Vitest, 109 en Jest con cobertura >80% líneas y >70% ramas). |
 | **Calidad de Código** | ✅ CUMPLIDO | 0 errores y 0 warnings en ESLint (`--max-warnings=0`). |
 | **Memoria Académica** | ✅ CUMPLIDO | Secciones 1 a 7 completas y revisadas (`memory/memoria-del-proyecto.md`). |
 | **Presentación de Defensa** | ✅ CUMPLIDO | Slides y guión de demo de 5 minutos cerrados (`presentations/presentacion-del-proyecto.md`). |
