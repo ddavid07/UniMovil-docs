@@ -54,9 +54,9 @@ El equipo constata el cumplimiento del 100% de los objetivos comprometidos para 
   * Soporte multimodal integral (Peatonal estándar y PMR accesible, Autobuses EMT y Bicicletas) con coloreado diferencial (ámbar para bicis), extracción de sub-polilíneas para eliminar bucles en trayectos de bus y fallback automático a ruta a pie cuando las paradas carecen de línea en común.
   * Ampliación del bounding box del campus para abarcar toda la zona sur (Bellas Artes, Gregorio del Amo).
 * **Ciclos TDD y Calidad Integral:**
-  * 3 rondas sucesivas de TDD detectando y corrigiendo fallos en rutas disjuntas, polilíneas de bicis y etiquetas dinámicas.
-  * Nuevas suites de pruebas (`MapStatus.test.tsx`, `ExplorerControls.test.tsx`, `RouteLayer.test.tsx`, `RouteSheet.test.tsx`, `transit.spec.ts`).
-  * Elevación del conjunto global hasta **427 tests verdes** (318 en Vitest y 109 en Jest), cumpliendo holgadamente los umbrales de cobertura (>80% líneas y >70% ramas).
+  * Rondas sucesivas de TDD detectando y corrigiendo fallos en rutas disjuntas, polilíneas de bicis, etiquetas dinámicas, ajuste PMR por viales y descarte de bucles de autobús.
+  * Nuevas suites de pruebas (`MapStatus.test.tsx`, `ExplorerControls.test.tsx`, `RouteLayer.test.tsx`, `RouteSheet.test.tsx`, `transit.spec.ts`, `repository.spec.ts`).
+  * Elevación del conjunto global hasta **430 tests verdes** (321 en Vitest y 109 en Jest), cumpliendo holgadamente los umbrales de cobertura (>80% líneas y >70% ramas).
 
 ---
 
@@ -85,7 +85,7 @@ El equipo concluye que abordar UniMovil mediante un modelo en cascada tradiciona
 | Criterio de la DoD | Estado | Evidencia |
 | :--- | :---: | :--- |
 | **Compilación Íntegra** | ✅ CUMPLIDO | Monorepo compila con 0 errores TypeScript (`npm run build` / `npm run typecheck`). |
-| **Pruebas Automatizadas** | ✅ CUMPLIDO | 427 tests en verde (318 en Vitest, 109 en Jest con cobertura >80% líneas y >70% ramas). |
+| **Pruebas Automatizadas** | ✅ CUMPLIDO | 430 tests en verde (321 en Vitest, 109 en Jest con cobertura >80% líneas y >70% ramas). |
 | **Calidad de Código** | ✅ CUMPLIDO | 0 errores y 0 warnings en ESLint (`--max-warnings=0`). |
 | **Memoria Académica** | ✅ CUMPLIDO | Secciones 1 a 7 completas y revisadas (`memory/memoria-del-proyecto.md`). |
 | **Presentación de Defensa** | ✅ CUMPLIDO | Slides y guión de demo de 5 minutos cerrados (`presentations/presentacion-del-proyecto.md`). |
