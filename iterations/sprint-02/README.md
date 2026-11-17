@@ -88,12 +88,20 @@ Para asegurar la autonomía, evitar conflictos de ramas en Git y estructurar el 
 ### 👤 5. Charlie Fox / Carlos (`@charliefox06`)
 
 * **Rol Scrum:** Developer.
-* **Historias asignadas:** `HU-097` (Trazabilidad de cambios), gestión del Sprint Backlog.
+* **Historias asignadas:** `HU-070` (Gestión de edificios y lugares), `HU-050` / `HU-054` / `HU-055` (Gestión y resolución de incidencias), `HU-097` (Trazabilidad de cambios), gestión del Sprint Backlog.
 * **Entregables técnicos:**
-  1. Facilitar los eventos de Scrum: Sprint Planning, Daily Scrum asíncrono y preparación de la Sprint Review.
-  2. Mantenimiento del *Product Backlog* y cálculo de la velocidad del equipo en Story Points.
-  3. Redacción del acta de planificación en `meetings/sprint-02-reparto-de-trabajo.md` y actualización de la memoria técnica en `UniMovil-docs`.
-* **Módulos / Archivos principales:** `UniMovil-docs/meetings/`, `UniMovil-docs/memory/memoria-del-proyecto.md`.
+  1. **Panel Web de Administración (`apps/admin`):**
+     * Vista de catálogo y gestión de lugares (`HU-070`): filtrado predictivo, control de accesibilidad PMR y conmutación de estado operativo (`active`, `maintenance`, `inactive`) con justificación.
+     * Vista de gestión de incidencias de movilidad (`HU-050`, `HU-054`, `HU-055`): métricas de estado, filtrado por gravedad y motor de transiciones de ciclo de vida con notas de intervención.
+     * Vista de trazabilidad y auditoría (`HU-097`): registro cronológico de modificaciones sobre datos sensibles del campus con ofuscación estricta de contraseñas y tokens.
+  2. **Contratos canónicos (`@unimovil/contracts`):**
+     * Modelos de datos y validadores para auditoría (`AuditEntry`, `createAuditEntry`, `parseAuditEntry`).
+     * Modelos de incidencias y máquina de estados (`Incident`, `isValidIncidentTransition`, `parseIncident`).
+  3. **Batería de Pruebas Unitarias (Tema 3):**
+     * Pruebas de Caja Blanca y Caja Negra en `apps/admin/src/domain/admin-service.spec.ts` y contratos con Vitest, garantizando cobertura total de ramas y 0 advertencias de linter.
+  4. **Facilitación Scrum y Gestión:**
+     * Conducción de eventos Scrum, redacción de actas (`meetings/sprint-02-sync-teammate.md`), cálculo de velocidad en Story Points y actualización del Plan RSGR de Barry Boehm en la memoria del proyecto.
+* **Módulos / Archivos principales:** `apps/admin/src/`, `packages/contracts/src/audit.ts`, `packages/contracts/src/incidents.ts`, `UniMovil-docs/meetings/`, `UniMovil-docs/memory/memoria-del-proyecto.md`.
 
 ---
 
