@@ -101,7 +101,7 @@ Para llevar el proyecto a su estado final terminado y listo para evaluación:
   6. ✅ **Ampliación de Pruebas Unitarias y TDD Riguroso:**
      * 3 rondas sucesivas de TDD (Test-Driven Development) con detección y corrección de bugs en rutas de bus inconexas, coloreado de polilíneas de bicicletas y etiquetas de tiempo multimodal.
      * Nuevas suites de pruebas unitarias (`MapStatus.test.tsx`, `ExplorerControls.test.tsx`, `RouteLayer.test.tsx`, `RouteSheet.test.tsx`, `transit.spec.ts`, `repository.spec.ts`).
-     * Elevación del conjunto de pruebas a **425 tests verdes** (316 en Vitest y 109 en Jest), cumpliendo umbrales de cobertura (>80% líneas, >70% ramas) y 0 errores de TypeScript.
+     * Elevación del conjunto de pruebas a **427 tests verdes** (318 en Vitest y 109 en Jest), cumpliendo umbrales de cobertura (>80% líneas, >70% ramas) y 0 errores de TypeScript.
 * **Módulos / Archivos principales:** `UniMovil-docs/memory/`, `UniMovil-docs/presentations/`, `UniMovil-docs/meetings/`, `UniMovil/apps/admin/`, `UniMovil/apps/mobile/src/features/campus/`, `UniMovil/apps/mobile/src/features/routing/`, `UniMovil/apps/mobile/src/features/transit/`.
 
 ---

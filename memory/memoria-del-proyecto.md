@@ -376,7 +376,7 @@ Desarrollada con **React 19, TypeScript y Vite** por Charlie Fox (`@charliefox06
   * **Exploración por Categorías en Tarjetas:** Checkboxes en 2 columnas (Edificios, Aparcamientos, Servicios, Transporte, Bicicletas, Accesos) adaptadas bajo el mapa en móvil y en el lateral en escritorio.
   * **Planificación Interactiva y Rutas Multimodales sin Bucles:** Flujo completo de rutas peatonales (estándar y accesibles PMR), autobuses EMT y bicicletas, con eliminación de bucles mediante extracción de sub-polilíneas y fallback automático a pie ante paradas disjuntas.
 * **Métricas y Verificación de Calidad:**
-  * 425 pruebas automáticas superadas (316 Vitest monorepo + 109 Jest/Testing Library móvil).
+  * 427 pruebas automáticas superadas (318 Vitest monorepo + 109 Jest/Testing Library móvil).
   * Cobertura de código superior al 96% en líneas y al 91% en ramas lógicas en todos los módulos.
   * 0 advertencias de linter (`npm run lint`), compilación estricta sin errores (`npm run typecheck`) y empaquetado nativo/web exitoso (`expo export` en Android, iOS y Web).
 
@@ -401,7 +401,7 @@ El proyecto concluye con un nivel de aseguramiento de calidad excepcional en el 
 
 | Métrica de Calidad | Valor Obtenido | Criterio de Aceptación UCM | Estado |
 | :--- | :---: | :---: | :---: |
-| **Pruebas Automatizadas Totales** | **425 tests superados** (316 Vitest, 109 Jest) | $\ge 120$ tests | **Superado (+254%)** |
+| **Pruebas Automatizadas Totales** | **427 tests superados** (318 Vitest, 109 Jest) | $\ge 120$ tests | **Superado (+255%)** |
 | **Cobertura en Líneas** | **96.1%** | $\ge 80\%$ | **Superado** |
 | **Cobertura en Ramas Lógicas** | **90.6%** | $\ge 75\%$ | **Superado** |
 | **Errores de Compilación TypeScript** | **0 errores** (`tsc -b`) | 0 errores | **Superado** |
