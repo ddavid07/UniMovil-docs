@@ -96,12 +96,12 @@ Para llevar el proyecto a su estado final terminado y listo para evaluación:
      * **Mapa a Pantalla Completa:** Expansión del mapa interactivo Leaflet/OpenStreetMap a todo el panel derecho con controles flotantes superpuestos (`Centrar campus`, zoom `+` / `−`, insignia de licencia OpenStreetMap).
      * **Filtros por Categoría en Tarjetas:** Checkboxes en dos columnas (Edificios, Aparcamientos, Servicios, Transporte, Bicicletas, Accesos) integradas bajo el mapa en vista móvil y en el panel lateral en web.
      * **Flujo Completo de Rutas Interactivas:** Botón *"Aceptar y ver en el mapa"*, panel colapsable del planificador, hoja de itinerario detallado paso a paso y eliminación de controles redundantes.
-     * **Integración Multimodal y Extracción de Sub-polilíneas:** Selección dinámica de modos Peatonal (estándar y PMR accesible), Autobús EMT y Bicicleta, coloreado diferenciado (ámbar para bicis, azul para peatón), extracción de sub-polilíneas para eliminar bucles de ruta en autobuses y fallback automático a ruta a pie cuando las paradas carecen de línea compartida.
+     * **Integración Multimodal y Trazado Real por Viales (OSRM):** Selección dinámica de modos Peatonal (estándar y PMR accesible), Autobús EMT y Bicicleta, coloreado diferenciado (ámbar para bicis, azul para peatón), trazado realista ajustado a las aceras y calzadas del campus mediante integración OSRM con fallback offline resiliente, extracción de sub-polilíneas para eliminar bucles de ruta en autobuses y fallback automático a ruta a pie cuando las paradas carecen de línea compartida.
      * **Ampliación de Coordenadas del Campus:** Ajuste del bounding box sur para incluir Bellas Artes y Gregorio del Amo.
   6. ✅ **Ampliación de Pruebas Unitarias y TDD Riguroso:**
      * 3 rondas sucesivas de TDD (Test-Driven Development) con detección y corrección de bugs en rutas de bus inconexas, coloreado de polilíneas de bicicletas y etiquetas de tiempo multimodal.
-     * Nuevas suites de pruebas unitarias (`MapStatus.test.tsx`, `ExplorerControls.test.tsx`, `RouteLayer.test.tsx`, `RouteSheet.test.tsx`, `transit.spec.ts`).
-     * Elevación del conjunto de pruebas a **422 tests verdes** (313 en Vitest y 109 en Jest), cumpliendo umbrales de cobertura (>80% líneas, >70% ramas) y 0 errores de TypeScript.
+     * Nuevas suites de pruebas unitarias (`MapStatus.test.tsx`, `ExplorerControls.test.tsx`, `RouteLayer.test.tsx`, `RouteSheet.test.tsx`, `transit.spec.ts`, `repository.spec.ts`).
+     * Elevación del conjunto de pruebas a **425 tests verdes** (316 en Vitest y 109 en Jest), cumpliendo umbrales de cobertura (>80% líneas, >70% ramas) y 0 errores de TypeScript.
 * **Módulos / Archivos principales:** `UniMovil-docs/memory/`, `UniMovil-docs/presentations/`, `UniMovil-docs/meetings/`, `UniMovil/apps/admin/`, `UniMovil/apps/mobile/src/features/campus/`, `UniMovil/apps/mobile/src/features/routing/`, `UniMovil/apps/mobile/src/features/transit/`.
 
 ---
